@@ -9,7 +9,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerInput playerInput;
-    public ThirdPersonCharacter character;
+    // public ThirdPersonCharacter character;
     [SerializeField] private NavMeshAgent agent;
 
     // Start is called before the first frame update

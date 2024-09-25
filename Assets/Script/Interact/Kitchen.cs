@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Kitchen : MonoBehaviour, Interactable
 {
+    [SerializeField] CookFood kitchenUI;
     public void OnInteract()
     {
-        Debug.Log(name);
+        kitchenUI.gameObject.SetActive(true);
     }
 }
