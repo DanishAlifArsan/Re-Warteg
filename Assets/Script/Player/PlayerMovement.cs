@@ -4,27 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PlayerMovement : MonoBehaviour
 {
-    PlayerInput playerInput;
+    private PlayerInput playerInput;
+    public ThirdPersonCharacter character;
     [SerializeField] private NavMeshAgent agent;
-
-    private void Awake() {
-        playerInput = new PlayerInput();
-    }
-
-    private void OnEnable() {
-        playerInput.Enable();
-    }
-
-    private void OnDisable() {
-        playerInput.Disable();
-    }
 
     // Start is called before the first frame update
     private void Start()
     {
+        playerInput = InputManager.instance.playerInput;
         playerInput.Mouse.MouseClick.performed += OnMouseClick;
     }
 
@@ -37,6 +28,13 @@ public class PlayerMovement : MonoBehaviour
         {
             agent.SetDestination(hit.point);
         }
+
+        // if (agent.remainingDistance > agent.stoppingDistance)
+        // {
+        //     character.Move(agent.desiredVelocity, false, false);
+        // } else {
+        //     character.Move(Vector3.zero, false, false);
+        // }
     }
 
     // Update is called once per frame
