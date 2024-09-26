@@ -4,28 +4,16 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Recipe : MonoBehaviour
+public class Recipe : UISelection
 {
     [SerializeField] private string recipeName;
-    [SerializeField] private Color32 selectedImageColor;
-    [SerializeField] private Color32 selectedTextColor;
-    [SerializeField] private Image image;
-    [SerializeField] private TextMeshProUGUI text;
-    Color32 startingImageColor, startingTextColor;    
 
-    public void Select() {
-        startingImageColor = image.color;
-        startingTextColor = text.color;
-        image.color = selectedImageColor;
-        text.color = selectedTextColor;
+    public string GetName() {
+        return recipeName;
     }
 
-    public void Deselect() {
-        image.color = startingImageColor;
-        text.color = startingTextColor;
-    }
-
-    public void Confirm() {
+    public override void OnConfirm()
+    {
         Debug.Log(recipeName);
     }
 }

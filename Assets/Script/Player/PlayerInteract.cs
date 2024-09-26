@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
@@ -8,6 +9,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private float range = 3f;
     [SerializeField] private Transform interactPoint;
     [SerializeField] private RectTransform indicator;
+    [SerializeField] private TextMeshProUGUI indicatorText;
     PlayerInput playerInput;
 
     private void Start() {
@@ -16,7 +18,7 @@ public class PlayerInteract : MonoBehaviour
     }
 
     private void LateUpdate() {
-        ShowIndicator(CheckItem() != null);
+        ShowIndicator(CheckItem() != null, CheckItem()?.GetComponent<Interactable>()?.FlavorText());
     }
 
     private void Interact(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -24,7 +26,8 @@ public class PlayerInteract : MonoBehaviour
         CheckItem()?.GetComponent<Interactable>().OnInteract();
     }
 
-    private void ShowIndicator(bool status) {
+    private void ShowIndicator(bool status, string name) {
+        indicatorText.text = name;
         indicator.gameObject.SetActive(status);
     }
 
