@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class SelectionBaseClass : MonoBehaviour
 {
-    public List<UISelection> uiSelections;
+    public List<UISelection> uiSelections = new List<UISelection>();
     public UnityEvent<UISelection> OnSelectEvent;
     public UnityEvent<UISelection> OnDeselectEvent;
     protected PlayerInput playerInput;

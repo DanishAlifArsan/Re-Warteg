@@ -6,14 +6,20 @@ using UnityEngine.UI;
 
 public class Recipe : UISelection
 {
-    [SerializeField] private string recipeName;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI durationText;
+    [SerializeField] private Image recipeImage;
+    public Food food;
 
-    public string GetName() {
-        return recipeName;
-    }
+    public void Setup(Food _food) {
+        food = _food;
+        nameText.text = food.foodName;
+        recipeImage.sprite = food.foodImage;
+        durationText.text = food.cookTime + "s";
+    }   
 
     public override void OnConfirm()
     {
-        Debug.Log(recipeName);
+        Debug.Log(food.name);
     }
 }

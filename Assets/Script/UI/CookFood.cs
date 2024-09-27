@@ -7,15 +7,23 @@ using UnityEngine.UI;
 
 public class CookFood : MonoBehaviour
 {
-    [SerializeField] SelectionList selectionList;
-    [SerializeField] TextMeshProUGUI recipeText;
+    [SerializeField] TextMeshProUGUI recipeDuration;
+    [SerializeField] Image recipeImage;
+    [SerializeField] List<Image> materialImage;
+    [SerializeField] List<TextMeshProUGUI> materialCount;
+    
     public void SelectRecipe(UISelection uISelection) {
         Recipe recipe = uISelection.GetComponent<Recipe>();
-        recipeText.text = recipe.GetName();
+        recipeImage.sprite = recipe.food.foodImage;
+        recipeDuration.text = "duration: "+ recipe.food.cookTime +"s";
+        materialImage[0].sprite = recipe.food.materialsItem[0].itemImage;
+        materialCount[0].text = recipe.food.materialsCount[0].ToString();
+        materialImage[1].sprite = null;
     }
 
     public void DeselectRecipe(UISelection uISelection) {
-        recipeText.text = "";
+        recipeImage.sprite = null;
+        recipeDuration.text ="";
     }
 
     public void SelectTab(UISelection uISelection) {
