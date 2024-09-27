@@ -9,10 +9,6 @@ public class CookFood : MonoBehaviour
 {
     [SerializeField] SelectionList selectionList;
     [SerializeField] TextMeshProUGUI recipeText;
-    [SerializeField] GameObject cookObject;
-    [SerializeField] GameObject queueObject;
-    // private bool isRecipeShown;
-
     public void SelectRecipe(UISelection uISelection) {
         Recipe recipe = uISelection.GetComponent<Recipe>();
         recipeText.text = recipe.GetName();
@@ -23,17 +19,6 @@ public class CookFood : MonoBehaviour
     }
 
     public void SelectTab(UISelection uISelection) {
-        // Debug.Log(isRecipeShown);
-        // if (isRecipeShown)
-        // {
-        //     cookObject.SetActive(false);
-        //     queueObject.SetActive(true);
-        //     isRecipeShown = false;
-        // } else {
-        //     cookObject.SetActive(true);
-        //     queueObject.SetActive(false);
-        //     isRecipeShown = true;
-        // }
         uISelection.GetComponent<Tab>().ShowMenu(true);
     }
 
@@ -44,8 +29,6 @@ public class CookFood : MonoBehaviour
     private PlayerInput playerInput;
     
     private void OnEnable() {
-        // isRecipeShown = true;
-        // Debug.Log("onenable" + isRecipeShown);
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.Disable();
         playerInput.UI.Enable();
