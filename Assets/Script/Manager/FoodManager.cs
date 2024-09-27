@@ -6,6 +6,7 @@ public class FoodManager : MonoBehaviour
 {
     public List<Food> foodList;
     public static FoodManager instance;
+    [SerializeField] QueueFood queueFood;
     [SerializeField] SelectionList selectionList;
     [SerializeField] Recipe recipePrefab;
     [SerializeField] RectTransform scrollContent;
@@ -22,7 +23,7 @@ public class FoodManager : MonoBehaviour
         {
             Recipe instantiatedRecipe =  Instantiate(recipePrefab, scrollContent);
             selectionList.uiSelections.Add(instantiatedRecipe);
-            instantiatedRecipe.Setup(item);
+            instantiatedRecipe.Setup(item, queueFood);
         }
     }
 

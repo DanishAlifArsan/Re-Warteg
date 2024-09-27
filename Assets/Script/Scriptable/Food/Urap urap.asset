@@ -20,4 +20,5 @@ MonoBehaviour:
   prefab: {fileID: 0}
   materialsItem:
   - {fileID: 11400000, guid: 1fca8e892fdd0814c9c5f4964a1b8914, type: 2}
-  materialsCount: 02000000
+  - {fileID: 11400000, guid: 6feebb0d5c39a1d4fbc69acd8c7b1aed, type: 2}
+  materialsCount: 0200000001000000

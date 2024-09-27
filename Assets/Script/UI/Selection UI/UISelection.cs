@@ -6,8 +6,8 @@ public class UISelection : MonoBehaviour
 {
     [SerializeField] private Color32 selectedImageColor;
     [SerializeField] private Color32 selectedTextColor;
-    [SerializeField] private Image image;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] protected Image image;
+    [SerializeField] protected TextMeshProUGUI text;
     Color32 startingImageColor, startingTextColor;    
 
     public virtual void OnSelect() {

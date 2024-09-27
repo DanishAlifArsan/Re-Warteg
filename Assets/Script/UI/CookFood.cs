@@ -9,21 +9,28 @@ public class CookFood : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI recipeDuration;
     [SerializeField] Image recipeImage;
-    [SerializeField] List<Image> materialImage;
-    [SerializeField] List<TextMeshProUGUI> materialCount;
+    [SerializeField] List<Material> materialList;
     
     public void SelectRecipe(UISelection uISelection) {
         Recipe recipe = uISelection.GetComponent<Recipe>();
+        recipeImage.color = Color.white;
         recipeImage.sprite = recipe.food.foodImage;
-        recipeDuration.text = "duration: "+ recipe.food.cookTime +"s";
-        materialImage[0].sprite = recipe.food.materialsItem[0].itemImage;
-        materialCount[0].text = recipe.food.materialsCount[0].ToString();
-        materialImage[1].sprite = null;
+        recipeDuration.text = "duration"+recipe.food.cookTime+"s";
+
+        for (int i = 0; i < Mathf.Min(recipe.food.materialsItem.Count,materialList.Count)  ; i++)
+        {
+            materialList[i].Setup(recipe.food.materialsItem[i],recipe.food.materialsCount[i]);
+        }
     }
 
     public void DeselectRecipe(UISelection uISelection) {
-        recipeImage.sprite = null;
+        recipeImage.color = new Color(1,1,1,0);
         recipeDuration.text ="";
+
+        for (int i = 0; i < materialList.Count  ; i++)
+        {
+            materialList[i].InActive();
+        }
     }
 
     public void SelectTab(UISelection uISelection) {
