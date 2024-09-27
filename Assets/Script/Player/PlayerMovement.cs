@@ -11,12 +11,27 @@ public class PlayerMovement : MonoBehaviour
     private PlayerInput playerInput;
     // public ThirdPersonCharacter character;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private PlayerInteract playerInteract;
+    [SerializeField] private Kitchen kitchen;
+    [SerializeField] private Display display;
 
     // Start is called before the first frame update
     private void Start()
     {
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.MouseClick.performed += OnMouseClick;
+        playerInput.Player.HotkeyKitchen.performed += ToKitchen;
+        playerInput.Player.HotkeyDisplay.performed += ToDisplay;
+    }
+
+    private void ToDisplay(InputAction.CallbackContext context)
+    {
+        agent.SetDestination(display.transform.position);
+    }
+
+    private void ToKitchen(InputAction.CallbackContext context)
+    {
+        agent.SetDestination(kitchen.transform.position);
     }
 
     private void OnMouseClick(InputAction.CallbackContext context)
@@ -40,6 +55,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+         // if (agent.remainingDistance > agent.stoppingDistance)
+        // {
+        //     character.Move(agent.desiredVelocity, false, false);
+        // } else {
+        //     character.Move(Vector3.zero, false, false);
+        // }
     }
 }

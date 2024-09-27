@@ -1911,7 +1911,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38277572, y: 0.34876856, z: -0.15881385, w: 0.8406078}
+  m_LocalRotation: {x: 0.40403888, y: 0.20378573, z: -0.09283645, w: 0.88690776}
   m_LocalPosition: {x: -9.98, y: 13.72, z: -11.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9079,9 +9079,9 @@ GameObject:
   m_Component:
   - component: {fileID: 606406201}
   - component: {fileID: 606406204}
+  - component: {fileID: 606406210}
   - component: {fileID: 606406205}
   - component: {fileID: 606406206}
-  - component: {fileID: 606406210}
   m_Layer: 7
   m_Name: player
   m_TagString: Untagged
@@ -9098,7 +9098,7 @@ Transform:
   m_GameObject: {fileID: 606406197}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.44, y: -1.071, z: -3.01}
+  m_LocalPosition: {x: -4.718, y: -1.071, z: -0.684}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9120,6 +9120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 606406205}
+  playerInteract: {fileID: 606406210}
+  kitchen: {fileID: 2039315936}
+  display: {fileID: 439910670}
 --- !u!195 &606406205
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -9179,6 +9182,7 @@ MonoBehaviour:
   interactPoint: {fileID: 389688638}
   indicator: {fileID: 771650596}
   indicatorText: {fileID: 1797447657}
+  agent: {fileID: 606406205}
 --- !u!1 &664004178
 GameObject:
   m_ObjectHideFlags: 0
@@ -22540,7 +22544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285040556}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38277572, y: 0.34876856, z: -0.15881385, w: 0.8406078}
+  m_LocalRotation: {x: 0.40403888, y: 0.20378573, z: -0.09283645, w: 0.88690776}
   m_LocalPosition: {x: -9.98, y: 13.72, z: -11.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

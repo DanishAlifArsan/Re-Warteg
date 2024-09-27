@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private Transform interactPoint;
     [SerializeField] private RectTransform indicator;
     [SerializeField] private TextMeshProUGUI indicatorText;
+    [SerializeField] private NavMeshAgent agent;
     PlayerInput playerInput;
 
     private void Start() {
@@ -23,6 +25,7 @@ public class PlayerInteract : MonoBehaviour
 
     private void Interact(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        agent.SetDestination(agent.transform.position);
         CheckItem()?.GetComponent<Interactable>().OnInteract();
     }
 

@@ -53,6 +53,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HotkeyKitchen"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f61b8bc-29eb-469d-b294-7f85f8d72f15"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HotkeyDisplay"",
+                    ""type"": ""Button"",
+                    ""id"": ""6a370486-2432-4f65-bd9a-be92761dff35"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -108,6 +126,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3af9fedc-95ad-4251-a79b-97d728cc4c28"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyKitchen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1a68f69-ccbc-439d-8578-deb5d20dbd43"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyDisplay"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -306,6 +346,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_MouseClick = m_Player.FindAction("MouseClick", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_HotkeyKitchen = m_Player.FindAction("HotkeyKitchen", throwIfNotFound: true);
+        m_Player_HotkeyDisplay = m_Player.FindAction("HotkeyDisplay", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -377,6 +419,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseClick;
     private readonly InputAction m_Player_MousePosition;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_HotkeyKitchen;
+    private readonly InputAction m_Player_HotkeyDisplay;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -384,6 +428,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @MouseClick => m_Wrapper.m_Player_MouseClick;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @HotkeyKitchen => m_Wrapper.m_Player_HotkeyKitchen;
+        public InputAction @HotkeyDisplay => m_Wrapper.m_Player_HotkeyDisplay;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -402,6 +448,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @HotkeyKitchen.started += instance.OnHotkeyKitchen;
+            @HotkeyKitchen.performed += instance.OnHotkeyKitchen;
+            @HotkeyKitchen.canceled += instance.OnHotkeyKitchen;
+            @HotkeyDisplay.started += instance.OnHotkeyDisplay;
+            @HotkeyDisplay.performed += instance.OnHotkeyDisplay;
+            @HotkeyDisplay.canceled += instance.OnHotkeyDisplay;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -415,6 +467,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @HotkeyKitchen.started -= instance.OnHotkeyKitchen;
+            @HotkeyKitchen.performed -= instance.OnHotkeyKitchen;
+            @HotkeyKitchen.canceled -= instance.OnHotkeyKitchen;
+            @HotkeyDisplay.started -= instance.OnHotkeyDisplay;
+            @HotkeyDisplay.performed -= instance.OnHotkeyDisplay;
+            @HotkeyDisplay.canceled -= instance.OnHotkeyDisplay;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -533,6 +591,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMouseClick(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnHotkeyKitchen(InputAction.CallbackContext context);
+        void OnHotkeyDisplay(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

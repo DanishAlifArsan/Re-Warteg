@@ -15,6 +15,11 @@ public class InputManager : MonoBehaviour
         playerInput = new PlayerInput();
     }
 
+    private void Start() {
+        playerInput.Player.Enable();
+        playerInput.UI.Disable();
+    }
+
     private void OnEnable() {
         playerInput.Enable();
     }

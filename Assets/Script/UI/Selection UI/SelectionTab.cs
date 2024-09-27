@@ -11,6 +11,12 @@ public class SelectionTab : SelectionBaseClass
         playerInput.UI.NextPage.performed += NextTab;
         playerInput.UI.PrevPage.performed += PrevTab;
     }
+
+    protected override void OnDisable() {
+        base.OnDisable();
+        playerInput.UI.NextPage.performed -= NextTab;
+        playerInput.UI.PrevPage.performed -= PrevTab;
+    }
     
     private void StartNavigate() {
         uiSelections[currentIndex].OnDeselect();
