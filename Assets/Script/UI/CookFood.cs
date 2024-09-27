@@ -11,7 +11,7 @@ public class CookFood : MonoBehaviour
     [SerializeField] TextMeshProUGUI recipeText;
     [SerializeField] GameObject cookObject;
     [SerializeField] GameObject queueObject;
-    private bool isRecipeShown;
+    // private bool isRecipeShown;
 
     public void SelectRecipe(UISelection uISelection) {
         Recipe recipe = uISelection.GetComponent<Recipe>();
@@ -22,25 +22,31 @@ public class CookFood : MonoBehaviour
         recipeText.text = "";
     }
 
-    public void ChangeTab(UISelection uISelection) {
-        if (isRecipeShown)
-        {
-            cookObject.SetActive(false);
-            queueObject.SetActive(true);
-            isRecipeShown = false;
-        } else {
-            cookObject.SetActive(true);
-            queueObject.SetActive(false);
-            isRecipeShown = true;
-        }
+    public void SelectTab(UISelection uISelection) {
+        // Debug.Log(isRecipeShown);
+        // if (isRecipeShown)
+        // {
+        //     cookObject.SetActive(false);
+        //     queueObject.SetActive(true);
+        //     isRecipeShown = false;
+        // } else {
+        //     cookObject.SetActive(true);
+        //     queueObject.SetActive(false);
+        //     isRecipeShown = true;
+        // }
+        uISelection.GetComponent<Tab>().ShowMenu(true);
+    }
+
+    public void DeselectTab(UISelection uISelection) {
+        uISelection.GetComponent<Tab>().ShowMenu(false);
     }
 
     private PlayerInput playerInput;
     
     private void OnEnable() {
-        isRecipeShown = false;
+        // isRecipeShown = true;
+        // Debug.Log("onenable" + isRecipeShown);
         playerInput = InputManager.instance.playerInput;
-        playerInput.Mouse.Disable();
         playerInput.Player.Disable();
         playerInput.UI.Enable();
         playerInput.UI.Cancel.performed += Cancel;
@@ -52,7 +58,6 @@ public class CookFood : MonoBehaviour
     }
 
     private void OnDisable() {
-        playerInput.Mouse.Enable();
         playerInput.Player.Enable();
         playerInput.UI.Disable();
     }

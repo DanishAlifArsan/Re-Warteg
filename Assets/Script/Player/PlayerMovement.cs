@@ -16,12 +16,12 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         playerInput = InputManager.instance.playerInput;
-        playerInput.Mouse.MouseClick.performed += OnMouseClick;
+        playerInput.Player.MouseClick.performed += OnMouseClick;
     }
 
     private void OnMouseClick(InputAction.CallbackContext context)
     {
-        Vector2 mousePosition = playerInput.Mouse.MousePosition.ReadValue<Vector2>();
+        Vector2 mousePosition = playerInput.Player.MousePosition.ReadValue<Vector2>();
         Ray ray = Camera.main.ScreenPointToRay(mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))

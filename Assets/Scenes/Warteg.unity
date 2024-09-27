@@ -4654,7 +4654,7 @@ GameObject:
   - component: {fileID: 1283588183}
   - component: {fileID: 1283588182}
   - component: {fileID: 1283588181}
-  - component: {fileID: 1283588184}
+  - component: {fileID: 1283588185}
   m_Layer: 5
   m_Name: Recipes
   m_TagString: Untagged
@@ -4735,7 +4735,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283588179}
   m_CullTransparentMesh: 1
---- !u!114 &1283588184
+--- !u!114 &1283588185
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4744,7 +4744,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1283588179}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2577c445dfaac469d2339c5c389920, type: 3}
+  m_Script: {fileID: 11500000, guid: 552f5d683723e7d42a4aec43b620a278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectedImageColor:
@@ -4755,6 +4755,7 @@ MonoBehaviour:
     rgba: 4278190080
   image: {fileID: 1283588182}
   text: {fileID: 323915239}
+  menu: {fileID: 559329881}
 --- !u!1 &1285040556
 GameObject:
   m_ObjectHideFlags: 0
@@ -5364,7 +5365,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412928702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd2577c445dfaac469d2339c5c389920, type: 3}
+  m_Script: {fileID: 11500000, guid: 552f5d683723e7d42a4aec43b620a278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   selectedImageColor:
@@ -5375,6 +5376,7 @@ MonoBehaviour:
     rgba: 4278190080
   image: {fileID: 1412928705}
   text: {fileID: 199836738}
+  menu: {fileID: 1457695924}
 --- !u!1 &1428281461
 GameObject:
   m_ObjectHideFlags: 0
@@ -5528,14 +5530,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiSelections:
-  - {fileID: 1283588184}
+  - {fileID: 1283588185}
   - {fileID: 1412928707}
   OnSelectEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 432912284}
         m_TargetAssemblyTypeName: CookFood, Assembly-CSharp
-        m_MethodName: ChangeTab
+        m_MethodName: SelectTab
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5547,7 +5549,19 @@ MonoBehaviour:
         m_CallState: 2
   OnDeselectEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 432912284}
+        m_TargetAssemblyTypeName: CookFood, Assembly-CSharp
+        m_MethodName: DeselectTab
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1437936216
 GameObject:
   m_ObjectHideFlags: 0

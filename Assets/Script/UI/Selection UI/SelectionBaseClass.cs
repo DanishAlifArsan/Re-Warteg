@@ -27,5 +27,6 @@ public class SelectionBaseClass : MonoBehaviour
     protected virtual void OnDisable() {
         playerInput.UI.Apply.performed -= Apply; 
         uiSelections[currentIndex].OnDeselect();
+        OnDeselectEvent?.Invoke(uiSelections[currentIndex]);
     }
 }
