@@ -52,6 +52,7 @@ public class CookFood : MonoBehaviour
 
     protected virtual void Cancel(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        TutorialManager.instance?.NextTutorial(2);
         gameObject.SetActive(false);
     }
 

@@ -30,12 +30,14 @@ public class MenuList : MonoBehaviour
         }
     }
 
-    public void RemoveFood() {
+    public void RemoveFood(List<Food> listFoods) {
         remainingFood -= 1;
+        remainingCountText.text = remainingFood.ToString();
         if (remainingFood <= 0)
         {
             InActive();
             food = null;
+            listFoods.Remove(food);
         }
     }
 

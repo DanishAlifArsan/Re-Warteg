@@ -221,6 +221,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Action1"",
+                    ""type"": ""Button"",
+                    ""id"": ""f1653a16-68fe-4069-a270-069643d5b1b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Action2"",
+                    ""type"": ""Button"",
+                    ""id"": ""90952cb6-c595-496a-85be-f028f0e719b7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -322,6 +340,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Cancel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e5eda46-e711-4453-a844-95cef25572cc"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Action1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d3bfc79a-45b6-4ed7-80e3-8204c6fd6522"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Action2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -376,6 +416,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_UI_PrevPage = m_UI.FindAction("PrevPage", throwIfNotFound: true);
         m_UI_Apply = m_UI.FindAction("Apply", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
+        m_UI_Action1 = m_UI.FindAction("Action1", throwIfNotFound: true);
+        m_UI_Action2 = m_UI.FindAction("Action2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -528,6 +570,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_PrevPage;
     private readonly InputAction m_UI_Apply;
     private readonly InputAction m_UI_Cancel;
+    private readonly InputAction m_UI_Action1;
+    private readonly InputAction m_UI_Action2;
     public struct UIActions
     {
         private @PlayerInput m_Wrapper;
@@ -537,6 +581,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @PrevPage => m_Wrapper.m_UI_PrevPage;
         public InputAction @Apply => m_Wrapper.m_UI_Apply;
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
+        public InputAction @Action1 => m_Wrapper.m_UI_Action1;
+        public InputAction @Action2 => m_Wrapper.m_UI_Action2;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -561,6 +607,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Cancel.started += instance.OnCancel;
             @Cancel.performed += instance.OnCancel;
             @Cancel.canceled += instance.OnCancel;
+            @Action1.started += instance.OnAction1;
+            @Action1.performed += instance.OnAction1;
+            @Action1.canceled += instance.OnAction1;
+            @Action2.started += instance.OnAction2;
+            @Action2.performed += instance.OnAction2;
+            @Action2.canceled += instance.OnAction2;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -580,6 +632,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Cancel.started -= instance.OnCancel;
             @Cancel.performed -= instance.OnCancel;
             @Cancel.canceled -= instance.OnCancel;
+            @Action1.started -= instance.OnAction1;
+            @Action1.performed -= instance.OnAction1;
+            @Action1.canceled -= instance.OnAction1;
+            @Action2.started -= instance.OnAction2;
+            @Action2.performed -= instance.OnAction2;
+            @Action2.canceled -= instance.OnAction2;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -631,5 +689,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnPrevPage(InputAction.CallbackContext context);
         void OnApply(InputAction.CallbackContext context);
         void OnCancel(InputAction.CallbackContext context);
+        void OnAction1(InputAction.CallbackContext context);
+        void OnAction2(InputAction.CallbackContext context);
     }
 }

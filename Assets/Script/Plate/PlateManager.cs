@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlateManager : MonoBehaviour
 {
-    // [SerializeField] private int numberOfPlates;
     [SerializeField] List<Plate> listOfPlates;
     [SerializeField] Transform platePos;
     [SerializeField] List<Transform> randPlatePos;
@@ -34,10 +33,11 @@ public class PlateManager : MonoBehaviour
     }
 
     public void Wash(Plate plate) {
+        plate.EmptyFood();   // pindah ke setelah pelanggan makan
         plate.gameObject.SetActive(false);
         cleanPlate.Add(plate);
         plate.transform.parent = platePos;
-        plate.transform.position = Vector3.zero;
+        plate.transform.localPosition = Vector3.zero;
     }
 
     public void TakePlate(Plate plate) {
@@ -47,18 +47,27 @@ public class PlateManager : MonoBehaviour
         }
     }
 
-    public void TakeFood() {
+    public Plate PrepareFood() {
         if (cleanPlate.Count > 0)
         {
             Plate activePlate = cleanPlate[0];
             activePlate.gameObject.SetActive(true);
-            cleanPlate.RemoveAt(0);
-            dirtyPlate.Add(activePlate);
-
-            activePlate.transform.position = randPlatePos[Random.Range(0, randPlatePos.Count - 1)].position;    // ganti dengan menangani script customer
+            return activePlate;
         } else {
-            Debug.Log("No more plate T-T. Please cleaning first");
+            return null;   
         }
+    }
+
+    public void CancelPrepare(Plate plate) {
+        plate.EmptyFood();
+        plate.gameObject.SetActive(false);
+    }
+
+    public void TakeFood(Plate plate) {
+        plate.ConfirmFood();
+        cleanPlate.Remove(plate);
+        dirtyPlate.Add(plate);
+        plate.transform.position = randPlatePos[Random.Range(0, randPlatePos.Count - 1)].position;    // ganti dengan menangani script customer
     }
 
 

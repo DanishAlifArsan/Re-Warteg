@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class MenuDisplay : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI menuNameText;
+    [SerializeField] private ServeFoodCanvas serveFoodCanvas;
     [SerializeField] private Transform foodPos;
     public Food food;
     private GameObject instantiatedFood;
@@ -13,7 +13,7 @@ public class MenuDisplay : MonoBehaviour
     public void Setup(Food _food) {
         food = _food;
         instantiatedFood = Instantiate(food.prefab, foodPos);
-        menuNameText.text = food.foodName;
+        serveFoodCanvas.Setup(food);
     }
 
     public void Inactive() {

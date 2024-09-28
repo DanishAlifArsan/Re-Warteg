@@ -21,5 +21,6 @@ public class Recipe : UISelection
     public override void OnConfirm()
     {
         QueueFood.instance.AddToQueue(food);
+        TutorialManager.instance?.NextTutorial(1);
     }
 }

@@ -12,20 +12,12 @@ public class Display : MonoBehaviour, Interactable
     [SerializeField] ServeFood serveFoodUI; 
     [SerializeField] PlayerInteract player;
     [SerializeField] List<MenuDisplay> menuDisplays;
-    PlayerInput playerInput;
 
     // Start is called before the first frame update
     private void Start()
     {
-        playerInput = InputManager.instance.playerInput;
-        playerInput.UI.Cancel.performed += CancelInteract;
-    }
-
-    private void CancelInteract(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        serveFoodUI.gameObject.SetActive(false);
-        mainCamera.gameObject.SetActive(true);
-        displayCamera.gameObject.SetActive(false);
+        
+        
     }
 
     // Update is called once per frame
@@ -48,12 +40,16 @@ public class Display : MonoBehaviour, Interactable
             }
             MenuManager.instance.GenerateList(food);
             player.itemInHand = null;
+            TutorialManager.instance?.NextTutorial(3);
         } else {
-            // mainCamera.gameObject.SetActive(false);
-            // displayCamera.gameObject.SetActive(true);
-            // serveFoodUI.gameObject.SetActive(true);
-
-            PlateManager.instance.TakeFood();
+            Plate plate = PlateManager.instance.PrepareFood();
+            if (plate != null)
+            {
+                SetupCamera(true);
+                serveFoodUI.Setup(this, plate);
+            } else {
+                Debug.Log("No more plate T-T. Please cleaning first");  // ganti jadi warning
+            }
         }
     }
 
@@ -65,5 +61,10 @@ public class Display : MonoBehaviour, Interactable
         } else {
             return "serve";
         } 
+    }
+
+    public void SetupCamera(bool status) {
+        mainCamera.gameObject.SetActive(!status);
+        displayCamera.gameObject.SetActive(status);
     }
 }

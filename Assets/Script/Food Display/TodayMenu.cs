@@ -24,7 +24,7 @@ public class TodayMenu : MonoBehaviour
         if (listFoods.Contains(item))
         {
             MenuList instantiatedMenuList = menuList.First(s => s.food == item);
-            instantiatedMenuList.RemoveFood();
+            instantiatedMenuList.RemoveFood(listFoods);
             listFoods.Remove(item);
         }
     }
