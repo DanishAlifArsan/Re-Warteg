@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "HotkeyClean",
+                    "type": "Button",
+                    "id": "76e14cef-8c18-4062-9cf1-0189a46cbfc4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -126,6 +135,17 @@
                     "processors": "",
                     "groups": "Keyboard & Mouse",
                     "action": "HotkeyDisplay",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47f6779e-ad1f-4ce3-bf2b-bce80322a4e4",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "HotkeyClean",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

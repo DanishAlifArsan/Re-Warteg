@@ -13,6 +13,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private TextMeshProUGUI indicatorText;
     [SerializeField] private NavMeshAgent agent;
     PlayerInput playerInput;
+    
+    public HoldItem itemInHand;
 
     private void Start() {
         playerInput = InputManager.instance.playerInput;

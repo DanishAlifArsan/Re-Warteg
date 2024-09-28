@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class UISelection : MonoBehaviour
 {
-    [SerializeField] private Color32 selectedImageColor;
-    [SerializeField] private Color32 selectedTextColor;
+    [SerializeField] protected Color32 selectedImageColor;
+    [SerializeField] protected Color32 selectedTextColor;
     [SerializeField] protected Image image;
     [SerializeField] protected TextMeshProUGUI text;
     Color32 startingImageColor, startingTextColor;    

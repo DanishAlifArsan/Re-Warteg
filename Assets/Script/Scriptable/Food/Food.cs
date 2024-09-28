@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "Scriptable/Food")]
-public class Food : ScriptableObject
+public class Food : ScriptableObject, HoldItem
 {
     public string foodName;
     public int porsi;
@@ -13,4 +13,7 @@ public class Food : ScriptableObject
     public GameObject prefab;
     public List<DropItem> materialsItem;
     public List<int> materialsCount;
+    public ItemType type;
+
+    public ItemType itemType { get => type; set => itemType = type; }
 }

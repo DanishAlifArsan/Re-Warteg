@@ -9,16 +9,19 @@ using UnityEngine.UI;
 public class QueueFood : MonoBehaviour
 {
     private Queue<FoodList> foodQueue = new Queue<FoodList>();
+    public Queue<FoodList> cookedQueue = new Queue<FoodList>();
     [SerializeField] private List<FoodList> foodList;
     [SerializeField] TextMeshProUGUI recipeDuration;
     [SerializeField] TextMeshProUGUI queueText;
     [SerializeField] Image recipeImage;
     [SerializeField] List<Material> materialList;
-
-    // Start is called before the first frame update
-    void Start()
+    public static QueueFood instance;
+    private void Awake()
     {
-        
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(this.gameObject);
     }
 
     // Update is called once per frame
@@ -31,23 +34,31 @@ public class QueueFood : MonoBehaviour
             if (cookedFood.isFinished)
             {
                 foodQueue.Dequeue();
+                cookedQueue.Enqueue(cookedFood);
             }
         }
     }
 
     public void AddToQueue(Food food) {
-        if (foodQueue.Count == foodList.Count)
+        if (foodQueue.Count + cookedQueue.Count == foodList.Count)
         {
             return;
         }
         FoodList activeFoodList = foodList.First(s => s.isEmpty);
         activeFoodList.Setup(food);
         foodQueue.Enqueue(activeFoodList);
-        queueText.text = "Queue ("+foodQueue.Count + "/" + foodList.Count+")";     // benerin bug jumlahnya gak ngesave
+        UpdateQueue();
     }
 
-    public void RemoveFromQueue(Food food) { // todo 
+    public Food RemoveFromQueue() { // todo 
+        Food cookedFood = cookedQueue.Peek().food;
+        cookedQueue.Dequeue().FinishCook();
+        UpdateQueue();
+        return cookedFood;
+    }
 
+    private void UpdateQueue() {
+        queueText.text = "Queue ("+ (foodQueue.Count + cookedQueue.Count) + "/" + foodList.Count+")";     // benerin bug jumlahnya gak ngesave
     }
 
     public void SelectFood(UISelection uISelection) {

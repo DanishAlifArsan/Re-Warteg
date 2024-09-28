@@ -22,6 +22,16 @@ public class PlayerMovement : MonoBehaviour
         playerInput.Player.MouseClick.performed += OnMouseClick;
         playerInput.Player.HotkeyKitchen.performed += ToKitchen;
         playerInput.Player.HotkeyDisplay.performed += ToDisplay;
+        playerInput.Player.HotkeyClean.performed += ToClean;
+    }
+
+    private void ToClean(InputAction.CallbackContext context)
+    {
+        if (PlateManager.instance.dirtyPlate.Count > 0)
+        {
+            Vector2 pos = PlateManager.instance.dirtyPlate[0].transform.position;
+            agent.SetDestination(pos);
+        }
     }
 
     private void ToDisplay(InputAction.CallbackContext context)

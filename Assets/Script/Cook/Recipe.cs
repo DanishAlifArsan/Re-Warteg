@@ -10,19 +10,16 @@ public class Recipe : UISelection
     [SerializeField] private TextMeshProUGUI durationText;
     [SerializeField] private Image recipeImage;
     public Food food;
-    QueueFood queueFood;
 
-    public void Setup(Food _food, QueueFood _queueFood) {
+    public void Setup(Food _food) {
         food = _food;
         nameText.text = food.foodName;
         recipeImage.sprite = food.foodImage;
         durationText.text = food.cookTime + "s";
-
-        queueFood = _queueFood;
     }   
 
     public override void OnConfirm()
     {
-        queueFood.AddToQueue(food);
+        QueueFood.instance.AddToQueue(food);
     }
 }

@@ -9,6 +9,7 @@ public class Display : MonoBehaviour, Interactable
     [SerializeField] Camera mainCamera;
     [SerializeField] Camera displayCamera;
     [SerializeField] ServeFood serveFoodUI; 
+    [SerializeField] PlayerInteract player;
     PlayerInput playerInput;
 
     // Start is called before the first frame update
@@ -32,13 +33,26 @@ public class Display : MonoBehaviour, Interactable
     }
 
     public void OnInteract() {
-        mainCamera.gameObject.SetActive(false);
-        displayCamera.gameObject.SetActive(true);
-        serveFoodUI.gameObject.SetActive(true);
+        if (player.itemInHand?.itemType == ItemType.Food)
+        {
+            Debug.Log(player.itemInHand.itemType);
+            player.itemInHand = null;
+        } else {
+            // mainCamera.gameObject.SetActive(false);
+            // displayCamera.gameObject.SetActive(true);
+            // serveFoodUI.gameObject.SetActive(true);
+
+            PlateManager.instance.TakeFood();
+        }
     }
 
     public string FlavorText()
     {
-        return "Serve";
+        if (player.itemInHand?.itemType == ItemType.Food)
+        {
+            return "Place";
+        } else {
+            return "serve";
+        } 
     }
 }

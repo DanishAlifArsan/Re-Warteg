@@ -71,6 +71,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HotkeyClean"",
+                    ""type"": ""Button"",
+                    ""id"": ""76e14cef-8c18-4062-9cf1-0189a46cbfc4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -148,6 +157,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard & Mouse"",
                     ""action"": ""HotkeyDisplay"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47f6779e-ad1f-4ce3-bf2b-bce80322a4e4"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyClean"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -348,6 +368,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_HotkeyKitchen = m_Player.FindAction("HotkeyKitchen", throwIfNotFound: true);
         m_Player_HotkeyDisplay = m_Player.FindAction("HotkeyDisplay", throwIfNotFound: true);
+        m_Player_HotkeyClean = m_Player.FindAction("HotkeyClean", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -421,6 +442,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_HotkeyKitchen;
     private readonly InputAction m_Player_HotkeyDisplay;
+    private readonly InputAction m_Player_HotkeyClean;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -430,6 +452,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @HotkeyKitchen => m_Wrapper.m_Player_HotkeyKitchen;
         public InputAction @HotkeyDisplay => m_Wrapper.m_Player_HotkeyDisplay;
+        public InputAction @HotkeyClean => m_Wrapper.m_Player_HotkeyClean;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -454,6 +477,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @HotkeyDisplay.started += instance.OnHotkeyDisplay;
             @HotkeyDisplay.performed += instance.OnHotkeyDisplay;
             @HotkeyDisplay.canceled += instance.OnHotkeyDisplay;
+            @HotkeyClean.started += instance.OnHotkeyClean;
+            @HotkeyClean.performed += instance.OnHotkeyClean;
+            @HotkeyClean.canceled += instance.OnHotkeyClean;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -473,6 +499,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @HotkeyDisplay.started -= instance.OnHotkeyDisplay;
             @HotkeyDisplay.performed -= instance.OnHotkeyDisplay;
             @HotkeyDisplay.canceled -= instance.OnHotkeyDisplay;
+            @HotkeyClean.started -= instance.OnHotkeyClean;
+            @HotkeyClean.performed -= instance.OnHotkeyClean;
+            @HotkeyClean.canceled -= instance.OnHotkeyClean;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -593,6 +622,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnHotkeyKitchen(InputAction.CallbackContext context);
         void OnHotkeyDisplay(InputAction.CallbackContext context);
+        void OnHotkeyClean(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
