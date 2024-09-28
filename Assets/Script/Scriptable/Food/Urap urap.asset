@@ -17,7 +17,7 @@ MonoBehaviour:
   foodImage: {fileID: 21300000, guid: 7114c8ea2cd88874397bb6d5c7b0a531, type: 3}
   cookTime: 2
   price: 1000
-  prefab: {fileID: 0}
+  prefab: {fileID: 220749272638250973, guid: 633587929a2336b4f97abc410c458e61, type: 3}
   materialsItem:
   - {fileID: 11400000, guid: 1fca8e892fdd0814c9c5f4964a1b8914, type: 2}
   - {fileID: 11400000, guid: 6feebb0d5c39a1d4fbc69acd8c7b1aed, type: 2}

@@ -18,7 +18,7 @@ public class Kitchen : MonoBehaviour, Interactable
         {
             return "Get Food";
         } else if (player.itemInHand?.itemType == ItemType.Plate) {
-            return "Wash"; 
+            return "Clean"; 
         } else {
             return "Cook";
         }

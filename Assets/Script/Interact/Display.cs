@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cinemachine;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class Display : MonoBehaviour, Interactable
     [SerializeField] Camera displayCamera;
     [SerializeField] ServeFood serveFoodUI; 
     [SerializeField] PlayerInteract player;
+    [SerializeField] List<MenuDisplay> menuDisplays;
     PlayerInput playerInput;
 
     // Start is called before the first frame update
@@ -35,7 +37,16 @@ public class Display : MonoBehaviour, Interactable
     public void OnInteract() {
         if (player.itemInHand?.itemType == ItemType.Food)
         {
-            Debug.Log(player.itemInHand.itemType);
+            Food food = player.itemInHand as Food;
+            try
+            {
+                menuDisplays.First(s => s.food != null && s.food.foodName.Equals(food.foodName));
+            }
+            catch (System.Exception)
+            {
+                menuDisplays.First(s=> s.food == null).Setup(food);
+            }
+            MenuManager.instance.GenerateList(food);
             player.itemInHand = null;
         } else {
             // mainCamera.gameObject.SetActive(false);
