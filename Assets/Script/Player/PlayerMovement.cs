@@ -8,6 +8,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] Camera cam;
     private PlayerInput playerInput;
     [SerializeField] private Animator anim;
     [SerializeField] private NavMeshAgent agent;
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnMouseClick(InputAction.CallbackContext context)
     {
         Vector2 mousePosition = playerInput.Player.MousePosition.ReadValue<Vector2>();
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition);
+        Ray ray = cam.ScreenPointToRay(mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {

@@ -8,5 +8,6 @@ public class DropItem : ScriptableObject
 {
     public string itemName;
     public Sprite itemImage;
+    public string desc;
     public int price;
 }

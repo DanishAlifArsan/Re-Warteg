@@ -12,7 +12,7 @@ public class TodayMenu : MonoBehaviour
     public void GenerateList(Food item) {
         if (!listFoods.Contains(item))
         {
-            MenuList instantiatedMenuList = menuList.First(s => s.food == null);    // ubah supaya compare berdasarkan nama item
+            MenuList instantiatedMenuList = menuList.First(s => s.food == null);  
             instantiatedMenuList.Setup(item);
             listFoods.Add(item);
         } else {
