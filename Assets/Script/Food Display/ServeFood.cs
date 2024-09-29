@@ -46,6 +46,8 @@ public class ServeFood : MonoBehaviour
         if (selectedCanvas.food != null)
         {
             plate.AddFood(selectedCanvas.food);
+        } else {
+            Debug.Log("No Food");  // ganti jadi warning
         }
     }
 

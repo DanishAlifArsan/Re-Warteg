@@ -11,7 +11,6 @@ public class SelectionGrid : SelectionBaseClass
     Cell[,] curCell;
     protected override void OnEnable() {
         curCell = Inventory.instance.cellArray;
-        // base.OnEnable();
         curX = 0;
         curY = 0;
 
@@ -41,14 +40,11 @@ public class SelectionGrid : SelectionBaseClass
             curY = 0;
         }
 
-        Debug.Log(curX + "," +curY);
-
         curCell[curX,curY].OnSelect();
         OnSelectEvent?.Invoke(curCell[curX,curY]);
     }
 
     protected override void OnDisable() {
-        // base.OnDisable();
         curCell[curX,curY].OnDeselect();
         OnDeselectEvent?.Invoke(curCell[curX,curY]);
         playerInput.UI.Navigate.performed -= Navigate;

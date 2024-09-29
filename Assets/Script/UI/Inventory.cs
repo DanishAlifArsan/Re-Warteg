@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    [SerializeField] List<DropItem> startingItem;
+    [SerializeField] List<int> startingItemCount;
     [SerializeField] private Cell cell;
     [SerializeField] private RectTransform canvas;
     [SerializeField] private Image itemImage;
@@ -34,11 +37,9 @@ public class Inventory : MonoBehaviour
         {   
             inventoryUI.SetActive(false);
             playerInput.UI.Disable();
-            playerInput.Player.Enable();
         } else {
             inventoryUI.SetActive(true);
             playerInput.UI.Enable();
-            playerInput.Player.Disable();
         }
     }
 
@@ -46,20 +47,21 @@ public class Inventory : MonoBehaviour
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.Inventory.performed += OpenInventory;
 
-       for (int i = 0; i < cellArray.GetLength(0); i++)
+       for (int i = 0; i < cellArray.GetLength(1); i++)
        {
-            for (int j = 0; j < cellArray.GetLength(1); j++)
+            for (int j = 0; j < cellArray.GetLength(0); j++)
             {
                 Cell instantiatedCell = Instantiate(cell, canvas);
-                instantiatedCell.Coordinate(i,j);
-                cellArray[i,j] = instantiatedCell;   
+                instantiatedCell.Coordinate(j,i);
+                cellArray[j,i] = instantiatedCell;   
             }
        }
 
-       foreach (var item in cellArray)
-        {
-            item.Setup(cellArray);
-        }
+       for (int i = 0; i < Math.Min(startingItem.Count, startingItemCount.Count); i++)
+       {
+            AddItem(startingItem[i], startingItemCount[i]);
+       }
+
     }
 
     // Update is called once per frame
@@ -88,6 +90,30 @@ public class Inventory : MonoBehaviour
             {
                 listItem.Remove(item);
             }
+        }
+    }
+
+    public bool CheckItem(List<DropItem> item, List<int> count) {
+        bool status = false;
+        for (int i = 0; i < Math.Min(item.Count, count.Count); i++)
+        {
+            if (listItem.Contains(item[i]))
+            {
+                status = cellArray.Cast<Cell>().First(s => s.item.itemName == item[i].itemName).CheckItem(count[i]);
+            } else {
+                status = false;
+                break;
+            }
+        }
+        return status;
+    }
+
+    public int GetItemCount(DropItem item) {
+        if (listItem.Contains(item))
+        {
+            return cellArray.Cast<Cell>().First(s => s.item.itemName == item.itemName).CheckCount(item);
+        } else {
+            return 0;
         }
     }
 

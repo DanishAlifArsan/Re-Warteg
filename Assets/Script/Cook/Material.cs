@@ -12,7 +12,8 @@ public class Material : MonoBehaviour
     public void Setup(DropItem item, int count) {
         materialImage.color = Color.white;
         materialImage.sprite = item.itemImage;
-        materialCount.text = "0/"+ count;
+        int itemCount = Inventory.instance.GetItemCount(item);
+        materialCount.text = itemCount+"/"+ count;
     }
 
     public void InActive() {

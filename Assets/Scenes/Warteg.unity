@@ -691,6 +691,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c431446dea89b4e85de891372cb1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingItem:
+  - {fileID: 11400000, guid: 545fba771a979984f883f517b1bcb792, type: 2}
+  - {fileID: 11400000, guid: 6feebb0d5c39a1d4fbc69acd8c7b1aed, type: 2}
+  startingItemCount: 0500000005000000
   cell: {fileID: 1781916799287543625, guid: f68a9fcaef327b04c977bf37ce7e50e5, type: 3}
   canvas: {fileID: 1723622218}
   itemImage: {fileID: 1420873255}

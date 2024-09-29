@@ -16,11 +16,7 @@ public class CookFood : MonoBehaviour
         recipeImage.color = Color.white;
         recipeImage.sprite = recipe.food.foodImage;
         recipeDuration.text = "duration"+recipe.food.cookTime+"s";
-
-        for (int i = 0; i < Mathf.Min(recipe.food.materialsItem.Count,materialList.Count)  ; i++)
-        {
-            materialList[i].Setup(recipe.food.materialsItem[i],recipe.food.materialsCount[i]);
-        }
+        recipe.SetupMaterial(materialList);
     }
 
     public void DeselectRecipe(UISelection uISelection) {

@@ -11,7 +11,6 @@ public class Cell : UISelection
 {
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI itemCountText;
-    public Cell up, down, left, right;
     public DropItem item;
     private int itemCount = 0;
     private int posX, posY;
@@ -22,20 +21,11 @@ public class Cell : UISelection
         this.posY = posY;
     }
 
-    public void Setup(Cell[,] cellArray) {
-        int x = cellArray.GetLength(0) - 1;
-        int y = cellArray.GetLength(1) - 1;
-
-        up =  posY <= 0 ? null : cellArray[posX, posY - 1];
-        down = posY == y ? null : cellArray[posX, posY + 1];
-        left = posX <= 0 ? null : cellArray[posX - 1 , posY];
-        right = posX == x? null : cellArray[posX + 1, posY];
-    }
-
     public void AddItem(DropItem _item, int count) {
         if (item == null)
         {
             item = _item;
+            itemImage.sprite = item.itemImage;
         }
         itemCount += count;
         itemCountText.text = itemCount.ToString();
@@ -52,7 +42,21 @@ public class Cell : UISelection
         }
     }
 
+    public bool CheckItem(int count) {
+        return count <= itemCount;
+    }
+
+    public int CheckCount(DropItem _item) {
+        if (item == _item)
+        {
+            return itemCount;
+        } else {
+            return 0;
+        }
+    }
+
     private void InActive() {
+        itemImage.sprite = null;
         itemCountText.text = "";
     }
 }

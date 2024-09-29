@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
   m_sharedMaterial: {fileID: -6729157242498873069, guid: 3a6ba4d932c6d32419294ca0e96ef35a,
@@ -235,10 +235,6 @@ MonoBehaviour:
   text: {fileID: 6417674869738169215}
   itemImage: {fileID: 6260148147786122902}
   itemCountText: {fileID: 6417674869738169215}
-  up: {fileID: 0}
-  down: {fileID: 0}
-  left: {fileID: 0}
-  right: {fileID: 0}
   item: {fileID: 0}
 --- !u!1 &9152077873292923968
 GameObject:
