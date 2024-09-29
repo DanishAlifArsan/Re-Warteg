@@ -9,7 +9,7 @@ using UnityStandardAssets.Characters.ThirdPerson;
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerInput playerInput;
-    // public ThirdPersonCharacter character;
+    [SerializeField] private Animator anim;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private PlayerInteract playerInteract;
     [SerializeField] private Kitchen kitchen;
@@ -65,11 +65,11 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         // if (agent.remainingDistance > agent.stoppingDistance)
-        // {
-        //     character.Move(agent.desiredVelocity, false, false);
-        // } else {
-        //     character.Move(Vector3.zero, false, false);
-        // }
+         if (agent.remainingDistance > agent.stoppingDistance)
+        {
+            anim.SetBool("walk", true);
+        } else {
+            anim.SetBool("walk", false);
+        }
     }
 }
