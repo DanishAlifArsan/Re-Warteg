@@ -18,8 +18,9 @@ public class FoodManager : MonoBehaviour
     }
 
     private void Start() {
-        foreach (Food item in FoodManager.instance.foodList)
+        foreach (Food item in foodList)
         {
+            item.menuDisplay = null;
             Recipe instantiatedRecipe =  Instantiate(recipePrefab, scrollContent);
             selectionList.uiSelections.Add(instantiatedRecipe);
             instantiatedRecipe.Setup(item);

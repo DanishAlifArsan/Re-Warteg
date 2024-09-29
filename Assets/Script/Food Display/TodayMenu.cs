@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TodayMenu : MonoBehaviour
@@ -11,7 +12,7 @@ public class TodayMenu : MonoBehaviour
     public void GenerateList(Food item) {
         if (!listFoods.Contains(item))
         {
-            MenuList instantiatedMenuList = menuList.First(s => s.food == null);
+            MenuList instantiatedMenuList = menuList.First(s => s.food == null);    // ubah supaya compare berdasarkan nama item
             instantiatedMenuList.Setup(item);
             listFoods.Add(item);
         } else {
@@ -24,8 +25,13 @@ public class TodayMenu : MonoBehaviour
         if (listFoods.Contains(item))
         {
             MenuList instantiatedMenuList = menuList.First(s => s.food == item);
-            instantiatedMenuList.RemoveFood(listFoods);
-            listFoods.Remove(item);
+            instantiatedMenuList.RemoveFood();
+            if (instantiatedMenuList.food == null)
+            {
+                item.menuDisplay.Inactive();
+                item.menuDisplay = null;
+                listFoods.Remove(item); // ubah supaya hanya kehapus ketika porsi udah habis
+            }
         }
     }
 

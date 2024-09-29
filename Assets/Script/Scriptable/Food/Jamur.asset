@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jamur
   m_EditorClassIdentifier: 
   foodName: Jamur
-  porsi: 10
+  porsi: 2
   foodImage: {fileID: 21300000, guid: 02167142c3924914db30d5f6540e0460, type: 3}
   cookTime: 2
   price: 1000

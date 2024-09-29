@@ -11,6 +11,7 @@ public class MenuDisplay : MonoBehaviour
     private GameObject instantiatedFood;
     
     public void Setup(Food _food) {
+        _food.menuDisplay = this;
         food = _food;
         instantiatedFood = Instantiate(food.prefab, foodPos);
         serveFoodCanvas.Setup(food);
@@ -18,5 +19,7 @@ public class MenuDisplay : MonoBehaviour
 
     public void Inactive() {
         Destroy(instantiatedFood);
+        food = null;
+        serveFoodCanvas.Inactive();
     }
 }

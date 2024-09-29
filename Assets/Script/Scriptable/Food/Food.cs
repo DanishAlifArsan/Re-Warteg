@@ -16,4 +16,5 @@ public class Food : ScriptableObject, HoldItem
     public ItemType type;
 
     public ItemType itemType { get => type; set => itemType = type; }
+    public MenuDisplay menuDisplay;
 }

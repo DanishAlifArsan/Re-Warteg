@@ -9,6 +9,7 @@ public class Display : MonoBehaviour, Interactable
 {
     [SerializeField] Camera mainCamera;
     [SerializeField] Camera displayCamera;
+    [SerializeField] GameObject gameMenu;
     [SerializeField] ServeFood serveFoodUI; 
     [SerializeField] PlayerInteract player;
     [SerializeField] List<MenuDisplay> menuDisplays;
@@ -64,6 +65,7 @@ public class Display : MonoBehaviour, Interactable
     }
 
     public void SetupCamera(bool status) {
+        gameMenu.gameObject.SetActive(!status);
         mainCamera.gameObject.SetActive(!status);
         displayCamera.gameObject.SetActive(status);
     }
