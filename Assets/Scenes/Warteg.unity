@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: e5a28242636a4614a876b657ad4e5600,
+    type: 2}
   m_LightingSettings: {fileID: 384495916}
 --- !u!196 &4
 NavMeshSettings:
@@ -694,7 +695,8 @@ MonoBehaviour:
   startingItem:
   - {fileID: 11400000, guid: 545fba771a979984f883f517b1bcb792, type: 2}
   - {fileID: 11400000, guid: 6feebb0d5c39a1d4fbc69acd8c7b1aed, type: 2}
-  startingItemCount: 0500000005000000
+  - {fileID: 11400000, guid: 1fca8e892fdd0814c9c5f4964a1b8914, type: 2}
+  startingItemCount: 010000000200000002000000
   cell: {fileID: 1781916799287543625, guid: f68a9fcaef327b04c977bf37ce7e50e5, type: 3}
   canvas: {fileID: 1723622218}
   itemImage: {fileID: 1420873255}
@@ -8796,7 +8798,7 @@ LightingSettings:
   m_Name: 
   serializedVersion: 6
   m_GIWorkflowMode: 1
-  m_EnableBakedLightmaps: 1
+  m_EnableBakedLightmaps: 0
   m_EnableRealtimeLightmaps: 0
   m_RealtimeEnvironmentLighting: 1
   m_BounceScale: 1
@@ -10540,7 +10542,7 @@ MonoBehaviour:
       m_SingletonActionBindings:
       - m_Name: 
         m_Id: 6a73141d-7774-4f13-a5fd-e4a9cd83107a
-        m_Path: <Joystick>/stick
+        m_Path: <Gamepad>/leftStick
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -10561,7 +10563,7 @@ MonoBehaviour:
       m_SingletonActionBindings:
       - m_Name: 
         m_Id: a305f8cf-dcfe-4114-95a8-f8303ac8ec64
-        m_Path: <HID::Logitech Logitech Dual Action>/button2
+        m_Path: <Gamepad>/buttonSouth
         m_Interactions: 
         m_Processors: 
         m_Groups: 
@@ -57617,7 +57619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1776643861
 RectTransform:
   m_ObjectHideFlags: 0

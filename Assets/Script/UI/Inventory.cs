@@ -74,17 +74,20 @@ public class Inventory : MonoBehaviour
         if (!listItem.Contains(item))
         {
             Cell selectedGrid = cellArray.Cast<Cell>().First(s => s.item == null); 
+            // Cell selectedGrid = Search(null); 
             selectedGrid.AddItem(item, count);
             listItem.Add(item);
         } else {
-            Cell selectedGrid = cellArray.Cast<Cell>().First(s => s.item == item);
+            // Cell selectedGrid = cellArray.Cast<Cell>().First(s => s.item == item);
+            Cell selectedGrid = Search(item.itemName);
             selectedGrid.AddItem(item, count);
         }
     }
     public void RemoveItem(DropItem item, int count) {
         if (listItem.Contains(item))
         {
-            Cell selectedGrid = cellArray.Cast<Cell>().First(s => s.item == item);
+            // Cell selectedGrid = cellArray.Cast<Cell>().First(s => s.item == item);
+            Cell selectedGrid = Search(item.itemName);
             selectedGrid.RemoveItem(count);
             if (selectedGrid.item == null)
             {
@@ -99,7 +102,8 @@ public class Inventory : MonoBehaviour
         {
             if (listItem.Contains(item[i]))
             {
-                status = cellArray.Cast<Cell>().First(s => s.item.itemName == item[i].itemName).CheckItem(count[i]);
+                // status = cellArray.Cast<Cell>().First(s => s.item.itemName == item[i].itemName).CheckItem(count[i]);
+                status = Search(item[i].itemName).CheckItem(count[i]);
             } else {
                 status = false;
                 break;
@@ -111,7 +115,8 @@ public class Inventory : MonoBehaviour
     public int GetItemCount(DropItem item) {
         if (listItem.Contains(item))
         {
-            return cellArray.Cast<Cell>().First(s => s.item.itemName == item.itemName).CheckCount(item);
+            // return cellArray.Cast<Cell>().First(s => s.item.itemName == item.itemName).CheckCount(item);
+            return Search(item.itemName).CheckCount(item);;
         } else {
             return 0;
         }
@@ -136,5 +141,19 @@ public class Inventory : MonoBehaviour
         itemImage.color = new Color(1,1,1,0);
         itemNameText.text = "";
         itemdescText.text = "";
+    }
+
+    private Cell Search(string name) {
+        for (int i = 0; i < cellArray.GetLength(0); i++) {
+            for (int j = 0; j < cellArray.GetLength(1); j++) {
+                if (cellArray[i, j].item != null)
+                {
+                    if (cellArray[i, j].item.name == name) {
+                        return cellArray[i, j];
+                    }
+                }
+            }
+        }
+        return null;
     }
 }
