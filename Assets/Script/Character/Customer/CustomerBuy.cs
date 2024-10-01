@@ -5,42 +5,23 @@ using UnityEngine;
 
 public class CustomerBuy : IState
 {
-    public bool isRunning;
     public void EnterState(CustomerAI customer, StateManager stateManager)
     {
-        customer.anim.SetTrigger("buy");
-        isRunning = false;
-        customer.SetGoodsToBuy();
-        customer.dialogueBubbleUI.SetActive(true);
+        // customer.anim.SetTrigger("buy");
+        customer.SetFoodsToBuy();
+        // customer.dialogueBubbleUI.SetActive(true);
         CustomerManager.instance.currentCustomer = customer;
-        SaleManager.instance.SetupTable(customer.goodsToBuy.Values.Max(), customer.goodsToBuy.Count);
+        // SaleManager.instance.SetupTable(customer.foodToBuy.Values.Max(), customer.foodToBuy.Count);  // setup ui di display makanan
     }
 
     public void UpdateState(CustomerAI customer, StateManager stateManager)
     {
         customer.isBuying = true;
-        if (customer.isPaying)
+        if (customer.isGetFood)     // to do atur isgetfood dan assign piring ke customer. buat piring jadi not interactable
         {
-            customer.ClearGoodsToBuy();
-            customer.speak.Happy();
-            stateManager.SwitchState(customer, stateManager.pay);
-        } else if(customer.isWalking) {   
-            customer.ClearGoodsToBuy(); 
-            // kalau endless run jadi
-            // if (!SaleManager.instance.CheckIsTableEmpty() && !isRunning)
-            // {
-            //     EndlessRunManager.instance.StartRunning(false);
-            //     EndlessRunManager.instance.chasedCustomer = customer;
-            //     isRunning = true;
-            // } else {
-            //     SaleManager.instance.EmptyTable();
-            // }
-            //
-            //kalau endess run gak jadi
-            SaleManager.instance.EmptyTable();
-            // 
-            customer.speak.Angry();
-            stateManager.SwitchState(customer, stateManager.walk);
+            customer.ClearFoodsToBuy();
+            // customer.speak.Happy();
+            stateManager.SwitchState(customer, stateManager.food);
             CustomerManager.instance.currentCustomer = null;
         }
     }

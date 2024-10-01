@@ -1,0 +1,27 @@
+using UnityEngine;
+using UnityEngine.AI;
+
+public class CustomerFood : IState
+{
+    private Vector3 destination;
+    public void EnterState(CustomerAI customer, StateManager stateManager)
+    {
+        // customer.dialogueBubbleUI.SetActive(false);
+        if (customer.isBuying)
+        {
+            destination = customer.homePoint.position;
+        } else {
+        }
+        destination = customer.chairPoint.position;
+        customer.agent.SetDestination(destination);
+    }
+
+    public void UpdateState(CustomerAI customer, StateManager stateManager)
+    {
+        float dist = customer.agent.remainingDistance;
+        if (dist!=Mathf.Infinity && customer.agent.pathStatus == NavMeshPathStatus.PathComplete && customer.agent.remainingDistance == 0)
+        { 
+            stateManager.SwitchState(customer, stateManager.eat);
+        }
+    }
+}

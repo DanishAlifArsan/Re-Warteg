@@ -1,42 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class CustomerAI : MonoBehaviour
+public class CustomerAI : MonoBehaviour, Interactable
 {
+    [SerializeField] private float range = 1f;
+    [SerializeField] private Transform interactPoint;
+    [SerializeField] private Display display;
+    [SerializeField] private GameObject bubbleTextObject;
+    [SerializeField] private TextMeshProUGUI bubbleText;
+    [SerializeField] private List<string> dialogue;
     public NavMeshAgent agent;
     public Transform cashierPoint;
     public Transform homePoint;
-    public float waitDuration;
-    private float waitTimer;
-    public bool isWalking;
+    public Transform chairPoint;
+    // public bool isWalking;
     public bool isBuying;
-    public bool isPaying;
-    public float health;
+    public bool isEating;
+    public bool isGetFood;
     public int maxNumberOfGoods;
-    public int buyAmountPerGoods;
-    public Sprite battleSprite;
-    public bool isEvil;
+    public float eatDuration;
+    public float eatTimer;
     private StateManager stateManager;
     public Animator anim;
-    [SerializeField] private DialogueBubble dialogueBubble;
-    [SerializeField] private RectTransform boxHolder;
-    [SerializeField] private Image patienceBar;
-    public CharacterSpeak speak;
-    private List<DialogueBubble> dialogueBubbles = new List<DialogueBubble>();
-    public Dictionary<Goods, int> goodsToBuy = new Dictionary<Goods, int>();
-    public GameObject dialogueBubbleUI;
+    public List<Food> foodToBuy = new List<Food>();
     private bool setupFlag;
 
     private void OnEnable() {
-        waitTimer = waitDuration;
-        isWalking = false;
+        // isWalking = false;
         isBuying = false;
-        isPaying = false;
+        isEating = false;
+        isGetFood = false;
         setupFlag = true;
         CustomerManager.instance.isSpawned = true;
     }
@@ -49,7 +48,7 @@ public class CustomerAI : MonoBehaviour
     private void Update() {
         if (setupFlag)
         {
-            if (ItemManager.instance.listGoodsOnSale.Count > 0)
+            if (MenuManager.instance.listFoodOnSale.Count > 0)
             {
                 Setup();
             } else {
@@ -59,19 +58,21 @@ public class CustomerAI : MonoBehaviour
 
         stateManager.currentState.UpdateState(this, stateManager);
 
-        if (isWalking)
-        {
-            return;
-        }
+        // if (isWalking)
+        // {
+        //     return;
+        // }
 
-        waitTimer -= Time.deltaTime;
-        patienceBar.fillAmount = waitTimer/waitDuration;
-        anim.SetFloat("patience", patienceBar.fillAmount);
-        if (waitTimer <= 0)
+        if (isEating)
         {
-            patienceBar.fillAmount = 1;
-            waitTimer = waitDuration;
-            isWalking = true;
+            eatTimer -= Time.deltaTime;
+            if (eatTimer <= 0)
+            {
+                eatTimer = eatDuration;
+                isEating = false;
+                isBuying = true;
+                // isWalking = true;
+            }
         }
     }
 
@@ -81,88 +82,73 @@ public class CustomerAI : MonoBehaviour
         setupFlag = false;
     }
 
-    public void SetGoodsToBuy() {
-        goodsToBuy = CustomerManager.instance.SetGoodsToBuy(maxNumberOfGoods, buyAmountPerGoods);
+    public void SetFoodsToBuy() {
+        foodToBuy = CustomerManager.instance.SetFoodsToBuy(maxNumberOfGoods);
 
-        int numberOfGoods = goodsToBuy.Count;
-        for (int i = 0; i < numberOfGoods; i++)
-        {
-            dialogueBubbles.Add(Instantiate(dialogueBubble, boxHolder));
-            dialogueBubbles[i].Setup(goodsToBuy.ElementAt(i));
-        }
-        boxHolder.anchoredPosition = new Vector3(98, (114 * (numberOfGoods - 1)) -14, 0);
+        int numberOfGoods = foodToBuy.Count;
+        // for (int i = 0; i < numberOfGoods; i++)
+        // {
+        //     dialogueBubbles.Add(Instantiate(dialogueBubble, boxHolder));
+        //     dialogueBubbles[i].Setup(foodToBuy.ElementAt(i));
+        // }
+        // boxHolder.anchoredPosition = new Vector3(98, (114 * (numberOfGoods - 1)) -14, 0);
     }
 
-    public void ClearGoodsToBuy() {
-        foreach (var item in dialogueBubbles)
-        {
-            Destroy(item.gameObject);
-        }
-        dialogueBubbles.Clear();
+    public void ClearFoodsToBuy() {
+        // foreach (var item in dialogueBubbles)
+        // {
+        //     Destroy(item.gameObject);
+        // }
+        // dialogueBubbles.Clear();
     }
 
     public int CountTotalPrice() {
         int totalPrice = 0;
-        for (int i = 0; i < goodsToBuy.Count; i++)
+        for (int i = 0; i < foodToBuy.Count; i++)
         {
-            int price = goodsToBuy.ElementAt(i).Key.setPrice;
-            int amount = goodsToBuy[goodsToBuy.ElementAt(i).Key];
-            totalPrice += price * amount;
+            int price = foodToBuy.ElementAt(i).price;
+            totalPrice += price;
         }
     
         return totalPrice;
     }
-    
-    public override void OnInteract(ItemInteract broadcaster)
+
+    // public IState CurrentState() {
+    //     return stateManager.currentState;
+    // }
+
+    private void LateUpdate() {
+        if (CheckPlayer())
+        {
+            bubbleTextObject.SetActive(true);
+            bubbleText.text = dialogue[Random.Range(0, dialogue.Count -1)];
+        } else {
+            bubbleTextObject.SetActive(false);
+        }
+    }
+
+    public string FlavorText()
     {
         if (stateManager.currentState == stateManager.buy)
-        {            
-            //logic pembelian
-            Item item = broadcaster.itemInHand?.GetComponent<Item>();
-            Broom broom = broadcaster.itemInHand?.GetComponent<Broom>();
-            if (item!= null && SaleManager.instance.IsGridNull())
-            {
-                speak.Happy();
-                broadcaster.itemInHand = null;
-                SaleManager.instance.PlaceItem(goodsToBuy, item);
-                patienceBar.fillAmount = 1;
-                waitTimer = waitDuration;
-                if (SaleManager.instance.CompareItem())
-                {
-                    isPaying = true;
-                }
-            } else if (broom != null)
-            {
-                Battle();
-                broom.animator.SetTrigger("swing");
-                BattleManager.instance.battledCustomer = this;
-                BattleManager.instance.StartBattle(false);
-            }
-        }
-
-        ToggleHighlight(broadcaster.centerIndicator, false, "");
-    }
-
-    public override void OnHighlight(ItemInteract broadcaster, bool status)
-    {
-        Interactable item = broadcaster.itemInHand;
-
-        if (item != null)
         {
-            if (stateManager.currentState == stateManager.buy && item.itemType.Equals(ItemType.Goods))
-            {
-                ToggleHighlight(broadcaster.centerIndicator, status, "Interact Place");
-            } else if(stateManager.currentState == stateManager.buy && item.itemType.Equals(ItemType.Broom)) {
-                ToggleHighlight(broadcaster.centerIndicator, status, "Interact Fight");
-            }
+            return display.FlavorText();
+        } else {
+            return "";
         }
     }
 
-    public void Battle() {
-        stateManager.SwitchAnyState(this, stateManager.attack, () => true);
+    public void OnInteract()
+    {
+        if (stateManager.currentState == stateManager.buy)
+        { 
+            display.OnInteract();
+            isGetFood = true;   // pindah ke script buat ngatur display makanan
+        }
     }
 
-    public IState CurrentState() {
-        return stateManager.currentState;
+
+    private bool CheckPlayer() {
+        Collider[] cols = Physics.OverlapSphere(interactPoint.position, range, LayerMask.GetMask("player"));
+        return cols[0] != null;
     }
 }

@@ -10,6 +10,7 @@ public class StateManager : MonoBehaviour
     public CustomerWalk walk = new CustomerWalk();
     public CustomerBuy buy = new CustomerBuy();
     public CustomerEat eat = new CustomerEat();
+    public CustomerFood food = new CustomerFood();
 
     public void StartState(CustomerAI customer) {
         currentState = idle;
