@@ -14,7 +14,7 @@ public class CustomerManager : MonoBehaviour
     public Transform homePoint;
     public Transform cashierPoint;
     public static CustomerManager instance;
-    public bool isSpawned = false;
+    // public bool isSpawned = false;
     public CustomerAI currentCustomer;
     private List<CustomerAI> customerQueue = new List<CustomerAI>();
 
@@ -39,10 +39,11 @@ public class CustomerManager : MonoBehaviour
     }
 
     private void Update() {
-        if (currentCustomer == null && MenuManager.instance.listFoodOnSale.Count > 0 && !tableList.Any(s => s.isOccupied) && customerQueue.Count < customerList.Count)
+        spawnTimer -= Time.deltaTime;   // pakai ini kalau mau pelanggan langsung spawn 
+        if (currentCustomer == null && MenuManager.instance.listFoodOnSale.Count > 0 && tableList.Any(s => !s.isOccupied) && customerQueue.Count < customerList.Count)
         {
-            spawnTimer -= Time.deltaTime;
-            if (spawnTimer <= 0 && !isSpawned)
+            // spawnTimer -= Time.deltaTime; // pakai ini kalau mau pelanggan nunggu dulu sebelum spawn
+            if (spawnTimer <= 0)
             {   
                 SpawnCustomer();
                 spawnTimer = spawnInterval;
@@ -68,8 +69,8 @@ public class CustomerManager : MonoBehaviour
         // customerQueue.Add(instantiatedCustomer);
     }
 
-    public List<Food> SetFoodsToBuy(int maxNumberOfGoods) {
-        List<Food> foodsToBuy = new List<Food>();
+    public List<Food> SetFoodsToBuy(int maxNumberOfGoods) { // ubah logic ini jadi seperti pt arudam kalau mau random
+        List<Food> foodsToBuy = new List<Food>();           // ubah jadi sistem baru kalau mau fix harus beli nasi
         for (int i = 0; i < SetNumberOfFoods(maxNumberOfGoods); i++)
         {
             foodsToBuy.Add(MenuManager.instance.listFoodOnSale[i]);
@@ -87,7 +88,6 @@ public class CustomerManager : MonoBehaviour
     }
 
     private void SpawnCustomer() {
-        Debug.Log("spawn customer");
         // int index = Random.Range(0, customerQueue.Count);
         // customerQueue[index].gameObject.SetActive(true);
         // customerQueue[index].table = tableList.First(s => s.isOccupied = false);

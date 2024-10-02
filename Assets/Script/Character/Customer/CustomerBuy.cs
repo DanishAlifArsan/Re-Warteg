@@ -9,8 +9,7 @@ public class CustomerBuy : IState
     {
         // customer.anim.SetTrigger("buy");
         customer.SetFoodsToBuy();
-        // customer.dialogueBubbleUI.SetActive(true);
-        CustomerManager.instance.currentCustomer = customer;
+        customer.buyIndicator.SetActive(true);
         MenuManager.instance.GenerateOrder(customer.foodToBuy);  // setup ui di display makanan
     }
 
@@ -19,8 +18,8 @@ public class CustomerBuy : IState
         customer.isBuying = true;
         if (customer.isGetFood)     // to do atur isgetfood dan assign piring ke customer. buat piring jadi not interactable
         {
-            customer.ClearFoodsToBuy();
             // customer.speak.Happy();
+            customer.buyIndicator.SetActive(false);
             stateManager.SwitchState(customer, stateManager.food);
             CustomerManager.instance.currentCustomer = null;
         }

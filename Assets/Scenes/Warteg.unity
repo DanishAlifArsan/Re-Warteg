@@ -819,10 +819,9 @@ MonoBehaviour:
   - {fileID: 1091939290}
   - {fileID: 1756392020}
   - {fileID: 1441725377}
-  spawnInterval: 1
+  spawnInterval: 2
   homePoint: {fileID: 759253790}
   cashierPoint: {fileID: 753177405}
-  isSpawned: 0
   currentCustomer: {fileID: 0}
 --- !u!1 &52935133
 GameObject:
@@ -958,6 +957,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52935133}
+  m_CullTransparentMesh: 1
+--- !u!1 &69843603
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 69843604}
+  - component: {fileID: 69843606}
+  - component: {fileID: 69843605}
+  m_Layer: 6
+  m_Name: buy indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &69843604
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69843603}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 445332662}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00001335144, y: -0.0000022649765}
+  m_SizeDelta: {x: 59, y: 59}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &69843605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69843603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &69843606
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69843603}
   m_CullTransparentMesh: 1
 --- !u!1 &75895027
 GameObject:
@@ -10562,6 +10636,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 310086743}
+  - {fileID: 69843604}
   m_Father: {fileID: 728913846}
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11071,7 +11146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 497726286}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Plate Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12029,7 +12104,7 @@ GameObject:
   - component: {fileID: 595402673}
   - component: {fileID: 595402672}
   - component: {fileID: 595402671}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Presiden Kita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12057,7 +12132,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &595402672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12081,6 +12156,7 @@ MonoBehaviour:
   - YNTKTS
   - Fufufafa
   agent: {fileID: 595402671}
+  buyIndicator: {fileID: 69843603}
   cashierPoint: {fileID: 0}
   homePoint: {fileID: 0}
   table: {fileID: 0}
@@ -12089,7 +12165,7 @@ MonoBehaviour:
   isGetFood: 0
   maxNumberOfGoods: 2
   eatDuration: 2
-  eatTimer: 2
+  eatTimer: 10
   anim: {fileID: 0}
   foodToBuy: []
   plate: {fileID: 0}
@@ -12565,7 +12641,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &606406210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15576,6 +15652,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1614551936}
+  - {fileID: 2084747022}
   m_Father: {fileID: 105684466}
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -22106,6 +22183,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1176094006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176094007}
+  - component: {fileID: 1176094009}
+  - component: {fileID: 1176094008}
+  m_Layer: 6
+  m_Name: buy indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1176094007
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176094006}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1842950598}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00001335144, y: -0.0000022649765}
+  m_SizeDelta: {x: 59, y: 59}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1176094008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176094006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1176094009
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176094006}
+  m_CullTransparentMesh: 1
 --- !u!1 &1181992175
 GameObject:
   m_ObjectHideFlags: 0
@@ -29018,7 +29170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1303094234}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Interact Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30573,7 +30725,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1409123731}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Interact Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44394,7 +44546,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1653855719}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Interact Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50888,7 +51040,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1733720225}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Plate Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62935,6 +63087,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 370640900}
+  - {fileID: 1176094007}
   m_Father: {fileID: 1953246968}
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -63464,7 +63617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1911451392}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Plate Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64196,7 +64349,7 @@ GameObject:
   - component: {fileID: 2027397410}
   - component: {fileID: 2027397409}
   - component: {fileID: 2027397408}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Presiden Kita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64224,7 +64377,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &2027397409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64248,6 +64401,7 @@ MonoBehaviour:
   - YNTKTS
   - Fufufafa
   agent: {fileID: 2027397408}
+  buyIndicator: {fileID: 1176094006}
   cashierPoint: {fileID: 0}
   homePoint: {fileID: 0}
   table: {fileID: 0}
@@ -64256,7 +64410,7 @@ MonoBehaviour:
   isGetFood: 0
   maxNumberOfGoods: 2
   eatDuration: 2
-  eatTimer: 2
+  eatTimer: 10
   anim: {fileID: 0}
   foodToBuy: []
   plate: {fileID: 0}
@@ -64864,6 +65018,81 @@ Transform:
   - {fileID: 1087178241}
   m_Father: {fileID: 2008017655}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2084747021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2084747022}
+  - component: {fileID: 2084747024}
+  - component: {fileID: 2084747023}
+  m_Layer: 6
+  m_Name: buy indicator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2084747022
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084747021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 972480714}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 59, y: 59}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2084747023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084747021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2084747024
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084747021}
+  m_CullTransparentMesh: 1
 --- !u!1 &2101931767
 GameObject:
   m_ObjectHideFlags: 0
@@ -67301,7 +67530,7 @@ GameObject:
   - component: {fileID: 7514893480281108942}
   - component: {fileID: 7514893480281108943}
   - component: {fileID: 7514893480281108944}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Presiden Kita
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68111,6 +68340,7 @@ MonoBehaviour:
   - YNTKTS
   - Fufufafa
   agent: {fileID: 7514893480281108944}
+  buyIndicator: {fileID: 2084747021}
   cashierPoint: {fileID: 0}
   homePoint: {fileID: 0}
   table: {fileID: 0}
@@ -68119,7 +68349,7 @@ MonoBehaviour:
   isGetFood: 0
   maxNumberOfGoods: 2
   eatDuration: 2
-  eatTimer: 2
+  eatTimer: 10
   anim: {fileID: 0}
   foodToBuy: []
   plate: {fileID: 0}
@@ -68144,7 +68374,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 0
 --- !u!4 &7531919280429088187
 Transform:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ public class CustomerEat : IState
 {
     public void EnterState(CustomerAI customer, StateManager stateManager)
     {
+        customer.transform.position = customer.table.chair.position;
         customer.isEating = true;   
         customer.plate.transform.parent = customer.table.desk;
         customer.plate.table = customer.table;
@@ -21,6 +22,5 @@ public class CustomerEat : IState
             customer.plate = null;
             stateManager.SwitchState(customer, stateManager.walk);
         }
-        stateManager.SwitchState(customer, stateManager.walk);
     }
 }

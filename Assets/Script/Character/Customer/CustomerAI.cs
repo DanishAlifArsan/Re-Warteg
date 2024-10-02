@@ -17,6 +17,7 @@ public class CustomerAI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bubbleText;
     [SerializeField] private List<string> dialogue;
     public NavMeshAgent agent;
+    public GameObject buyIndicator;
     public Transform cashierPoint;
     public Transform homePoint;
     public Table table;
@@ -39,12 +40,13 @@ public class CustomerAI : MonoBehaviour
         isEating = false;
         isGetFood = false;
         setupFlag = true;
-        CustomerManager.instance.isSpawned = true;
+        CustomerManager.instance.currentCustomer = this;
+        // CustomerManager.instance.isSpawned = true;
     }
 
     private void OnDisable() {
         stateManager = null;
-        CustomerManager.instance.isSpawned = false;
+        // CustomerManager.instance.isSpawned = false;
     }
 
     private void Update() {
@@ -96,14 +98,6 @@ public class CustomerAI : MonoBehaviour
         // boxHolder.anchoredPosition = new Vector3(98, (114 * (numberOfGoods - 1)) -14, 0);
     }
 
-    public void ClearFoodsToBuy() {
-        // foreach (var item in dialogueBubbles)
-        // {
-        //     Destroy(item.gameObject);
-        // }
-        // dialogueBubbles.Clear();
-    }
-
     public int CountTotalPrice() {
         int totalPrice = 0;
         for (int i = 0; i < foodToBuy.Count; i++)
@@ -118,17 +112,13 @@ public class CustomerAI : MonoBehaviour
     public void SetPlate(Plate _plate) {
         plate = _plate;
         _plate.transform.parent = platePos;
-        _plate.transform.position = Vector3.zero;
+        _plate.transform.localPosition = Vector3.zero;
     }
-
-    // public IState CurrentState() {
-    //     return stateManager.currentState;
-    // }
 
     private bool dialogueGenerated = true;
 
     private void LateUpdate() {
-        if (CheckPlayer())
+        if (CheckPlayer() && CanTalk())
         {
             bubbleTextObject.SetActive(true);
             if (dialogueGenerated)
@@ -144,5 +134,9 @@ public class CustomerAI : MonoBehaviour
     private bool CheckPlayer() {
         Collider[] cols = Physics.OverlapSphere(interactPoint.position, range, LayerMask.GetMask("player"));
         return cols.Length > 0;
+    }
+
+    private bool CanTalk() {
+        return stateManager.currentState != stateManager.buy;
     }
 }

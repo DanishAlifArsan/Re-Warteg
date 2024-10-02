@@ -28,6 +28,11 @@ public class ServeFood : MonoBehaviour
             return;
         }
 
+        if (CustomerManager.instance.currentCustomer == null)
+        {
+            return;
+        }
+
         if (MenuManager.instance.CompareItem(plate.GetFood()) ) // cek apakah makanan di piring sama dengan makanan yang diinginkan pelanggan
         {
             MenuManager.instance.RemoveOrder();
@@ -82,6 +87,6 @@ public class ServeFood : MonoBehaviour
         gameObject.SetActive(false);
         display.SetupCamera(false);
         PlateManager.instance.CancelPrepare(plate);
-        MenuManager.instance.RemoveOrder();
+        // MenuManager.instance.RemoveOrder();
     }
 }
