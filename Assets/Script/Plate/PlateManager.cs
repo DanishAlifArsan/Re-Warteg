@@ -33,7 +33,8 @@ public class PlateManager : MonoBehaviour
     }
 
     public void Wash(Plate plate) {
-        plate.EmptyFood();   // pindah ke setelah pelanggan makan
+        // plate.EmptyFood();   // pindah ke setelah pelanggan makan
+        plate.isAbleToInteract = false;
         plate.gameObject.SetActive(false);
         cleanPlate.Add(plate);
         plate.transform.parent = platePos;
@@ -67,7 +68,8 @@ public class PlateManager : MonoBehaviour
         plate.ConfirmFood();
         cleanPlate.Remove(plate);
         dirtyPlate.Add(plate);
-        plate.transform.position = randPlatePos[Random.Range(0, randPlatePos.Count - 1)].position;    // ganti dengan menangani script customer
+        CustomerManager.instance.currentCustomer.SetPlate(plate);
+        // plate.transform.position = randPlatePos[Random.Range(0, randPlatePos.Count - 1)].position;    // ganti dengan menangani script customer
     }
 
 

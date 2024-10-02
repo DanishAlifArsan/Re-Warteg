@@ -11,7 +11,7 @@ public class CustomerBuy : IState
         customer.SetFoodsToBuy();
         // customer.dialogueBubbleUI.SetActive(true);
         CustomerManager.instance.currentCustomer = customer;
-        // SaleManager.instance.SetupTable(customer.foodToBuy.Values.Max(), customer.foodToBuy.Count);  // setup ui di display makanan
+        MenuManager.instance.GenerateOrder(customer.foodToBuy);  // setup ui di display makanan
     }
 
     public void UpdateState(CustomerAI customer, StateManager stateManager)

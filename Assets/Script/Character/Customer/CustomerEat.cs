@@ -1,15 +1,14 @@
+using UnityEngine;
+
 public class CustomerEat : IState
 {
     public void EnterState(CustomerAI customer, StateManager stateManager)
     {
         customer.isEating = true;   
-        // customer.dialogueBubbleUI.SetActive(false);
-        // if (customer.isBuying)
-        // {
-        //     customer.gameObject.SetActive(false);
-        // }
-
-        // to do buat customer duduk dan makan makanan
+        customer.plate.transform.parent = customer.table.desk;
+        customer.plate.table = customer.table;
+        customer.table.isOccupied = true;
+        customer.plate.transform.localPosition = Vector3.zero;
     }
 
     public void UpdateState(CustomerAI customer, StateManager stateManager)
@@ -17,7 +16,9 @@ public class CustomerEat : IState
         if (!customer.isEating)
         {
             // customer.speak.Happy();
-            // to do hapus makanan di piring customer dan buat piring jadi interactable
+            customer.plate.EmptyFood();
+            customer.plate.isAbleToInteract = true;
+            customer.plate = null;
             stateManager.SwitchState(customer, stateManager.walk);
         }
         stateManager.SwitchState(customer, stateManager.walk);

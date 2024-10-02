@@ -28,9 +28,15 @@ public class ServeFood : MonoBehaviour
             return;
         }
 
-        PlateManager.instance.TakeFood(plate);
-        gameObject.SetActive(false);
-        display.SetupCamera(false);
+        if (MenuManager.instance.CompareItem(plate.GetFood()) ) // cek apakah makanan di piring sama dengan makanan yang diinginkan pelanggan
+        {
+            MenuManager.instance.RemoveOrder();
+
+            PlateManager.instance.TakeFood(plate);
+            CustomerManager.instance.currentCustomer.isGetFood = true;
+            gameObject.SetActive(false);
+            display.SetupCamera(false);
+        }
     }
 
     private void RemoveFood(UnityEngine.InputSystem.InputAction.CallbackContext context)
@@ -76,5 +82,6 @@ public class ServeFood : MonoBehaviour
         gameObject.SetActive(false);
         display.SetupCamera(false);
         PlateManager.instance.CancelPrepare(plate);
+        MenuManager.instance.RemoveOrder();
     }
 }

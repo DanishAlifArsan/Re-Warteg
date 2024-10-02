@@ -6,12 +6,13 @@ using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
 {
-    [SerializeField] private List<Customer> customerList;
+    // [SerializeField] private List<Customer> customerList;
+    [SerializeField] private List<CustomerAI> customerList;
+    [SerializeField] private List<Table> tableList;
     [SerializeField] private float spawnInterval;
     private float spawnTimer = 0;
     public Transform homePoint;
     public Transform cashierPoint;
-    public List<Transform> chairPoint;
     public static CustomerManager instance;
     public bool isSpawned = false;
     public CustomerAI currentCustomer;
@@ -30,14 +31,15 @@ public class CustomerManager : MonoBehaviour
 
         for (int i = 0; i < customerList.Count; i++)
         {
-            Customer customer = customerList[i];
-            CustomerAI instantiatedCustomer =  Instantiate(customer.prefab, homePoint.position, Quaternion.identity);
-            SetupCustomer(instantiatedCustomer, customer, homePoint);
+            // Customer customer = customerList[i];
+            // CustomerAI instantiatedCustomer =  Instantiate(customer.prefab, homePoint.position, Quaternion.identity);
+            // SetupCustomer(instantiatedCustomer, customer, homePoint);
+            SetupCustomer(customerList[i]);
         }
     }
 
     private void Update() {
-        if (currentCustomer == null)
+        if (currentCustomer == null && MenuManager.instance.listFoodOnSale.Count > 0 && !tableList.Any(s => s.isOccupied) && customerQueue.Count < customerList.Count)
         {
             spawnTimer -= Time.deltaTime;
             if (spawnTimer <= 0 && !isSpawned)
@@ -48,15 +50,22 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    private void SetupCustomer(CustomerAI instantiatedCustomer, Customer origin, Transform homePoint) {
+    // private void SetupCustomer(CustomerAI instantiatedCustomer, Customer origin, Transform homePoint) {
+    //     instantiatedCustomer.cashierPoint = cashierPoint;
+    //     instantiatedCustomer.homePoint = homePoint;
+    //     instantiatedCustomer.agent.speed = origin.walkSpeed;
+    //     instantiatedCustomer.agent.acceleration = origin.acceleration;
+    //     instantiatedCustomer.maxNumberOfGoods = origin.maxNumberOfFoods;
+    //     instantiatedCustomer.eatDuration = origin.eatDuration;
+    //     instantiatedCustomer.gameObject.SetActive(false);
+    //     customerQueue.Add(instantiatedCustomer);
+    // }
+
+    private void SetupCustomer(CustomerAI instantiatedCustomer) {
         instantiatedCustomer.cashierPoint = cashierPoint;
         instantiatedCustomer.homePoint = homePoint;
-        instantiatedCustomer.agent.speed = origin.walkSpeed;
-        instantiatedCustomer.agent.acceleration = origin.acceleration;
-        instantiatedCustomer.maxNumberOfGoods = origin.maxNumberOfFoods;
-        instantiatedCustomer.eatDuration = origin.eatDuration;
         instantiatedCustomer.gameObject.SetActive(false);
-        customerQueue.Add(instantiatedCustomer);
+        // customerQueue.Add(instantiatedCustomer);
     }
 
     public List<Food> SetFoodsToBuy(int maxNumberOfGoods) {
@@ -78,11 +87,18 @@ public class CustomerManager : MonoBehaviour
     }
 
     private void SpawnCustomer() {
-        int index = Random.Range(0, customerQueue.Count - 1);
-        customerQueue[index].gameObject.SetActive(true);
+        Debug.Log("spawn customer");
+        // int index = Random.Range(0, customerQueue.Count);
+        // customerQueue[index].gameObject.SetActive(true);
+        // customerQueue[index].table = tableList.First(s => s.isOccupied = false);
+        int index = Random.Range(0, customerList.Count);
+        customerList[index].gameObject.SetActive(true);
+        customerList[index].table = tableList.First(s => !s.isOccupied);
+        customerQueue.Add(customerList[index]);
     }
 
     public void DespawnCustomer(CustomerAI customer) {
        customer.gameObject.SetActive(false);
+       customerQueue.Remove(customer);
     }
 }

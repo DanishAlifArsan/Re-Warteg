@@ -7,12 +7,7 @@ public class CustomerFood : IState
     public void EnterState(CustomerAI customer, StateManager stateManager)
     {
         // customer.dialogueBubbleUI.SetActive(false);
-        if (customer.isBuying)
-        {
-            destination = customer.homePoint.position;
-        } else {
-        }
-        destination = customer.chairPoint.position;
+        destination = customer.table.chair.position;
         customer.agent.SetDestination(destination);
     }
 

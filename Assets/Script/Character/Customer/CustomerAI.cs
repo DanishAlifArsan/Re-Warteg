@@ -7,10 +7,11 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class CustomerAI : MonoBehaviour, Interactable
+public class CustomerAI : MonoBehaviour
 {
     [SerializeField] private float range = 1f;
     [SerializeField] private Transform interactPoint;
+    [SerializeField] private Transform platePos;
     [SerializeField] private Display display;
     [SerializeField] private GameObject bubbleTextObject;
     [SerializeField] private TextMeshProUGUI bubbleText;
@@ -18,7 +19,7 @@ public class CustomerAI : MonoBehaviour, Interactable
     public NavMeshAgent agent;
     public Transform cashierPoint;
     public Transform homePoint;
-    public Transform chairPoint;
+    public Table table;
     // public bool isWalking;
     public bool isBuying;
     public bool isEating;
@@ -29,6 +30,7 @@ public class CustomerAI : MonoBehaviour, Interactable
     private StateManager stateManager;
     public Animator anim;
     public List<Food> foodToBuy = new List<Food>();
+    public Plate plate;
     private bool setupFlag;
 
     private void OnEnable() {
@@ -70,7 +72,7 @@ public class CustomerAI : MonoBehaviour, Interactable
             {
                 eatTimer = eatDuration;
                 isEating = false;
-                isBuying = true;
+                // isBuying = true;
                 // isWalking = true;
             }
         }
@@ -85,7 +87,7 @@ public class CustomerAI : MonoBehaviour, Interactable
     public void SetFoodsToBuy() {
         foodToBuy = CustomerManager.instance.SetFoodsToBuy(maxNumberOfGoods);
 
-        int numberOfGoods = foodToBuy.Count;
+        // int numberOfGoods = foodToBuy.Count;
         // for (int i = 0; i < numberOfGoods; i++)
         // {
         //     dialogueBubbles.Add(Instantiate(dialogueBubble, boxHolder));
@@ -113,42 +115,34 @@ public class CustomerAI : MonoBehaviour, Interactable
         return totalPrice;
     }
 
+    public void SetPlate(Plate _plate) {
+        plate = _plate;
+        _plate.transform.parent = platePos;
+        _plate.transform.position = Vector3.zero;
+    }
+
     // public IState CurrentState() {
     //     return stateManager.currentState;
     // }
+
+    private bool dialogueGenerated = true;
 
     private void LateUpdate() {
         if (CheckPlayer())
         {
             bubbleTextObject.SetActive(true);
-            bubbleText.text = dialogue[Random.Range(0, dialogue.Count -1)];
+            if (dialogueGenerated)
+            {
+                bubbleText.text = dialogue[Random.Range(0, dialogue.Count)];
+                dialogueGenerated = false;
+            }
         } else {
             bubbleTextObject.SetActive(false);
         }
     }
 
-    public string FlavorText()
-    {
-        if (stateManager.currentState == stateManager.buy)
-        {
-            return display.FlavorText();
-        } else {
-            return "";
-        }
-    }
-
-    public void OnInteract()
-    {
-        if (stateManager.currentState == stateManager.buy)
-        { 
-            display.OnInteract();
-            isGetFood = true;   // pindah ke script buat ngatur display makanan
-        }
-    }
-
-
     private bool CheckPlayer() {
         Collider[] cols = Physics.OverlapSphere(interactPoint.position, range, LayerMask.GetMask("player"));
-        return cols[0] != null;
+        return cols.Length > 0;
     }
 }

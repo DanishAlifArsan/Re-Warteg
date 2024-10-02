@@ -8,18 +8,25 @@ public class Plate : MonoBehaviour, Interactable, HoldItem
     [SerializeField] private ItemType type = ItemType.Plate;
     [SerializeField] private Transform foodPos;
     public ItemType itemType { get => type; set => itemType = type; }
+    public Table table;
     private Dictionary<Food, GameObject> foodList = new Dictionary<Food,GameObject>();
+    public bool isAbleToInteract = false;
 
     public string FlavorText()
     {
-        return "Take";
+        if (player.itemInHand == null && isAbleToInteract) {
+            return "Take";
+        } else {
+            return "";
+        }
     }
 
     public void OnInteract()
     {
-        if (player.itemInHand == null)
+        if (player.itemInHand == null && isAbleToInteract)
         {
             gameObject.SetActive(false);      // ganti dengan pindah piring ke player
+            table.isOccupied = false;
             PlateManager.instance.TakePlate(this);
             player.itemInHand = this;
         }
@@ -58,5 +65,9 @@ public class Plate : MonoBehaviour, Interactable, HoldItem
 
     public bool CheckIsEmpty() {
         return foodList.Count <= 0;
+    }
+
+    public List<Food> GetFood() {
+        return new List<Food>(foodList.Keys);
     }
 }
