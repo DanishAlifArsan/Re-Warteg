@@ -6,6 +6,7 @@ public class CustomerFood : IState
     private Vector3 destination;
     public void EnterState(CustomerAI customer, StateManager stateManager)
     {
+        customer.table = CustomerManager.instance.SetTable();
         destination = customer.table.chair.position;
         customer.agent.SetDestination(destination);
     }

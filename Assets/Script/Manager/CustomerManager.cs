@@ -87,13 +87,17 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+    public Table SetTable() {
+        return tableList.First(s => !s.isOccupied);
+    }
+
     private void SpawnCustomer() {
         // int index = Random.Range(0, customerQueue.Count);
         // customerQueue[index].gameObject.SetActive(true);
         // customerQueue[index].table = tableList.First(s => s.isOccupied = false);
         int index = Random.Range(0, customerList.Count);
         customerList[index].gameObject.SetActive(true);
-        customerList[index].table = tableList.First(s => !s.isOccupied);
+        // customerList[index].table = tableList.First(s => !s.isOccupied); // pindah ke pas kustomer dapat makanan
         customerQueue.Add(customerList[index]);
     }
 

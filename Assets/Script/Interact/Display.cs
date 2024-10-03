@@ -30,6 +30,7 @@ public class Display : MonoBehaviour, Interactable
     public void OnInteract() {
         if (player.itemInHand?.itemType == ItemType.Food)
         {
+            player.nampan.SetActive(false);
             Food food = player.itemInHand as Food;
             try
             {

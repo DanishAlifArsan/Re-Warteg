@@ -34,7 +34,7 @@ public class PlateManager : MonoBehaviour
 
     public void Wash(Plate plate) {
         // plate.EmptyFood();   // pindah ke setelah pelanggan makan
-        plate.isAbleToInteract = false;
+        // plate.isAbleToInteract = false;
         plate.gameObject.SetActive(false);
         cleanPlate.Add(plate);
         plate.transform.parent = platePos;

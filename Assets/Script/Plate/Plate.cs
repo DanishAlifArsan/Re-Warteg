@@ -10,11 +10,10 @@ public class Plate : MonoBehaviour, Interactable, HoldItem
     public ItemType itemType { get => type; set => itemType = type; }
     public Table table;
     private Dictionary<Food, GameObject> foodList = new Dictionary<Food,GameObject>();
-    public bool isAbleToInteract = false;
 
     public string FlavorText()
     {
-        if (player.itemInHand == null && isAbleToInteract) {
+        if (player.itemInHand == null) {
             return "Take";
         } else {
             return "";
@@ -23,9 +22,13 @@ public class Plate : MonoBehaviour, Interactable, HoldItem
 
     public void OnInteract()
     {
-        if (player.itemInHand == null && isAbleToInteract)
+        if (player.itemInHand == null)
         {
-            gameObject.SetActive(false);      // ganti dengan pindah piring ke player
+            // gameObject.SetActive(false);      // ganti dengan pindah piring ke player
+            // isAbleToInteract = false;
+            gameObject.layer = 0;
+            transform.parent = player.platePos;
+            transform.localPosition = Vector3.zero;
             table.isOccupied = false;
             PlateManager.instance.TakePlate(this);
             player.itemInHand = this;

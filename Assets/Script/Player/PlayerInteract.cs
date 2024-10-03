@@ -12,6 +12,8 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] private RectTransform indicator;
     [SerializeField] private TextMeshProUGUI indicatorText;
     [SerializeField] private NavMeshAgent agent;
+    public GameObject nampan;
+    public Transform platePos;
     PlayerInput playerInput;
     
     public HoldItem itemInHand;

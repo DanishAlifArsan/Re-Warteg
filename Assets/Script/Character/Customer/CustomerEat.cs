@@ -4,7 +4,9 @@ public class CustomerEat : IState
 {
     public void EnterState(CustomerAI customer, StateManager stateManager)
     {
+        customer.agent.enabled = false;
         customer.transform.position = customer.table.chair.position;
+        // customer.transform.LookAt(customer.table.desk);
         customer.isEating = true;   
         customer.plate.transform.parent = customer.table.desk;
         customer.plate.table = customer.table;
@@ -18,8 +20,10 @@ public class CustomerEat : IState
         {
             // customer.speak.Happy();
             customer.plate.EmptyFood();
-            customer.plate.isAbleToInteract = true;
+            // customer.plate.isAbleToInteract = true;
+            customer.plate.gameObject.layer = LayerMask.NameToLayer("interact");
             customer.plate = null;
+            customer.agent.enabled = true;
             stateManager.SwitchState(customer, stateManager.walk);
         }
     }

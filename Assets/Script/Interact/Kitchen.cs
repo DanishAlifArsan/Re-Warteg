@@ -29,6 +29,7 @@ public class Kitchen : MonoBehaviour, Interactable
         if (QueueFood.instance.cookedQueue.Count > 0 && player.itemInHand == null)
         {
             player.itemInHand = QueueFood.instance.RemoveFromQueue();
+            player.nampan.SetActive(true);
         } else if (player.itemInHand?.itemType == ItemType.Plate) {
             PlateManager.instance.Wash(player.itemInHand as Plate);
             player.itemInHand = null;
