@@ -19,6 +19,7 @@ public class CustomerEat : IState
         if (!customer.isEating)
         {
             // customer.speak.Happy();
+            CurrencyManager.instance.AddCurrency(customer.CountTotalPrice());
             customer.plate.EmptyFood();
             // customer.plate.isAbleToInteract = true;
             customer.plate.gameObject.layer = LayerMask.NameToLayer("interact");

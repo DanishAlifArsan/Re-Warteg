@@ -102,7 +102,7 @@ public class CustomerAI : MonoBehaviour
         int totalPrice = 0;
         for (int i = 0; i < foodToBuy.Count; i++)
         {
-            int price = foodToBuy.ElementAt(i).price;
+            int price = foodToBuy[i].price;
             totalPrice += price;
         }
     
