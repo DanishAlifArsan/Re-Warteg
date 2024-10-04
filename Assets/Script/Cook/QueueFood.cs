@@ -40,10 +40,6 @@ public class QueueFood : MonoBehaviour
     }
 
     public void AddToQueue(Food food) {
-        if (foodQueue.Count + cookedQueue.Count == foodList.Count)
-        {
-            return;
-        }
         FoodList activeFoodList = foodList.First(s => s.isEmpty);
         activeFoodList.Setup(food);
         foodQueue.Enqueue(activeFoodList);
@@ -55,6 +51,10 @@ public class QueueFood : MonoBehaviour
         cookedQueue.Dequeue().FinishCook();
         UpdateQueue();
         return cookedFood;
+    }
+
+    public bool QueueCondition() {
+        return foodQueue.Count + cookedQueue.Count == foodList.Count;
     }
 
     private void UpdateQueue() {

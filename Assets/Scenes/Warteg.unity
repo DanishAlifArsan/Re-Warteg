@@ -792,7 +792,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 545fba771a979984f883f517b1bcb792, type: 2}
   - {fileID: 11400000, guid: 6feebb0d5c39a1d4fbc69acd8c7b1aed, type: 2}
   - {fileID: 11400000, guid: 1fca8e892fdd0814c9c5f4964a1b8914, type: 2}
-  startingItemCount: 010000000200000002000000
+  startingItemCount: 020000000200000002000000
   cell: {fileID: 1781916799287543625, guid: f68a9fcaef327b04c977bf37ce7e50e5, type: 3}
   canvas: {fileID: 1723622218}
   itemImage: {fileID: 1420873255}

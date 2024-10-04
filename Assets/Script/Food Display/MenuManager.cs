@@ -42,7 +42,24 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-     public bool CompareItem(List<Food> foodOnPlate) {
+    public bool BuyCondition() {
+        if (listFoodOnSale.Count < 0)
+        {
+            return false;
+        } else {
+            return listFoodOnSale.Any(s => s.foodType == FoodType.Rice) && listFoodOnSale.Count > 1;
+        }
+    }
+
+    public Food GetRice() {
+        return listFoodOnSale.First(s => s.foodType == FoodType.Rice);
+    }
+
+    public List<Food> GetLauk() {
+        return listFoodOnSale.Where(s => s.foodType == FoodType.Lauk).ToList();
+    }
+
+    public bool CompareItem(List<Food> foodOnPlate) {
         List<Food> foodToBuy = CustomerManager.instance.currentCustomer.foodToBuy;
         return foodOnPlate.Count == foodToBuy.Count && !foodOnPlate.Except(foodToBuy).Any();
     }

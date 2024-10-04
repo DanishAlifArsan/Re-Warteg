@@ -14,7 +14,7 @@ public class Food : ScriptableObject, HoldItem
     public List<DropItem> materialsItem;
     public List<int> materialsCount;
     public ItemType type;
-
+    public FoodType foodType;
     public ItemType itemType { get => type; set => itemType = type; }
     public MenuDisplay menuDisplay;
 }

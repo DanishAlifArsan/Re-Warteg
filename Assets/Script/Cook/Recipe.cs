@@ -30,6 +30,11 @@ public class Recipe : UISelection
 
     public override void OnConfirm()
     {
+        if (QueueFood.instance.QueueCondition())
+        {
+            return;
+        }
+
         if (Inventory.instance.CheckItem(food.materialsItem, food.materialsCount))
         {
             for (int i = 0; i < Math.Min(food.materialsItem.Count, food.materialsCount.Count); i++)

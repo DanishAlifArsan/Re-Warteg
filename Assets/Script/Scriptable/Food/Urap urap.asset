@@ -23,3 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6feebb0d5c39a1d4fbc69acd8c7b1aed, type: 2}
   materialsCount: 0200000001000000
   type: 0
+  foodType: 1
+  menuDisplay: {fileID: 0}

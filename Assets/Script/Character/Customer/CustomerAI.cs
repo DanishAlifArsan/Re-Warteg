@@ -52,12 +52,12 @@ public class CustomerAI : MonoBehaviour
     private void Update() {
         if (setupFlag)
         {
-            if (MenuManager.instance.listFoodOnSale.Count > 0)
-            {
-                Setup();
-            } else {
-                return;
-            }
+            Setup();
+            // if (MenuManager.instance.BuyCondition())
+            // {
+            // } else {
+            //     return;
+            // }
         }
 
         stateManager.currentState.UpdateState(this, stateManager);

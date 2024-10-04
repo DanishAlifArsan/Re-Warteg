@@ -40,7 +40,7 @@ public class CustomerManager : MonoBehaviour
 
     private void Update() {
         spawnTimer -= Time.deltaTime;   // pakai ini kalau mau pelanggan langsung spawn 
-        if (currentCustomer == null && MenuManager.instance.listFoodOnSale.Count > 0 && tableList.Any(s => !s.isOccupied) && customerQueue.Count < customerList.Count)
+        if (currentCustomer == null && MenuManager.instance.BuyCondition() && tableList.Any(s => !s.isOccupied) && customerQueue.Count < customerList.Count)
         {
             // spawnTimer -= Time.deltaTime; // pakai ini kalau mau pelanggan nunggu dulu sebelum spawn
             if (spawnTimer <= 0)
@@ -69,22 +69,55 @@ public class CustomerManager : MonoBehaviour
         // customerQueue.Add(instantiatedCustomer);
     }
 
-    public List<Food> SetFoodsToBuy(int maxNumberOfGoods) { // ubah logic ini jadi seperti pt arudam kalau mau random
-        List<Food> foodsToBuy = new List<Food>();           // ubah jadi sistem baru kalau mau fix harus beli nasi
-        for (int i = 0; i < SetNumberOfFoods(maxNumberOfGoods); i++)
+    // public List<Food> SetFoodsToBuy(int maxNumberOfGoods) { // ubah logic ini jadi seperti pt arudam kalau mau random
+    //     List<Food> foodsToBuy = new List<Food>();           // ubah jadi sistem baru kalau mau fix harus beli nasi
+    //     for (int i = 0; i < SetNumberOfFoods(maxNumberOfGoods); i++)
+    //     {
+    //         foodsToBuy.Add(MenuManager.instance.listFoodOnSale[i]);
+    //     }
+    //     return foodsToBuy;
+    // }
+
+    // private int SetNumberOfFoods(int maxNumberOfGoods) {
+    //     int foodsCount = MenuManager.instance.listFoodOnSale.Count;
+    //     if (foodsCount < maxNumberOfGoods) {
+    //         return Random.Range(1, foodsCount + 1);
+    //     } else {
+    //         return Random.Range(1, maxNumberOfGoods + 1);
+    //     }
+    // }
+
+    public List<Food> SetFoodsToBuy(int maxNumberOfGoods) {
+        List<Food> foodsToBuy = new List<Food>();
+        int numberOfGoods = SetNumberOfFoods(maxNumberOfGoods);
+        List<Food> randomGoods = SetRandomFood(MenuManager.instance.GetLauk(), numberOfGoods);
+        foodsToBuy.Add(MenuManager.instance.GetRice());
+        for (int i = 0; i < numberOfGoods; i++)
         {
-            foodsToBuy.Add(MenuManager.instance.listFoodOnSale[i]);
+            foodsToBuy.Add(randomGoods[i]);
         }
         return foodsToBuy;
     }
-
     private int SetNumberOfFoods(int maxNumberOfGoods) {
-        int foodsCount = MenuManager.instance.listFoodOnSale.Count;
-        if (foodsCount < maxNumberOfGoods) {
-            return Random.Range(1, foodsCount + 1);
-        } else {
-            return Random.Range(1, maxNumberOfGoods + 1);
+        int goodsCount = MenuManager.instance.GetLauk().Count;
+        if (goodsCount < maxNumberOfGoods) {
+            return Random.Range(1, goodsCount + 1);
+        } else {  
+           return Random.Range(1, maxNumberOfGoods + 1);
         }
+    }
+
+    private List<Food> SetRandomFood(List<Food> list, int k) {
+        List<Food> collection = list;
+        int n = collection.Count;
+        for (int i = 0; i < k; i++)
+        {
+            int j = Random.Range(i, n - 1);
+            Food temp = collection[i];
+            collection[i] = collection[j];
+            collection[j] = temp;
+        }
+        return collection;
     }
 
     public Table SetTable() {
