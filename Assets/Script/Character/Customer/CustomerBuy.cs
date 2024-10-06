@@ -21,7 +21,6 @@ public class CustomerBuy : IState
             // customer.speak.Happy();
             customer.buyIndicator.SetActive(false);
             stateManager.SwitchState(customer, stateManager.food);
-            CustomerManager.instance.currentCustomer = null;
         }
     }
 }

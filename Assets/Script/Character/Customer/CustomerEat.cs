@@ -12,6 +12,7 @@ public class CustomerEat : IState
         customer.plate.table = customer.table;
         customer.table.isOccupied = true;
         customer.plate.transform.localPosition = Vector3.zero;
+        CustomerManager.instance.currentCustomer = null;
     }
 
     public void UpdateState(CustomerAI customer, StateManager stateManager)

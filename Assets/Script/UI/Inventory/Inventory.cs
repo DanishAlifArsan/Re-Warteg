@@ -33,14 +33,36 @@ public class Inventory : MonoBehaviour
 
     private void OpenInventory(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (inventoryUI.activeInHierarchy)
-        {   
-            inventoryUI.SetActive(false);
-            playerInput.UI.Disable();
-        } else {
-            inventoryUI.SetActive(true);
-            playerInput.UI.Enable();
-        }
+        // if (inventoryUI.activeInHierarchy)
+        // {   
+        //     inventoryUI.SetActive(false);
+        //     playerInput.UI.Disable();
+        //     playerInput.Player.Enable();
+        //     Time.timeScale = 1;
+        // } else {
+        //     inventoryUI.SetActive(true);
+        //     playerInput.UI.Enable();
+        //     playerInput.Player.Disable();
+        //     Time.timeScale = 0;
+        //     playerInput.Player.Inventory.performed -= OpenInventory;
+        //     playerInput.UI.Cancel.performed += CloseInventory;
+        // }
+
+        inventoryUI.SetActive(true);
+        playerInput.UI.Enable();
+        playerInput.Player.Disable();
+        Time.timeScale = 0;
+        playerInput.Player.Inventory.performed -= OpenInventory;
+        playerInput.UI.Cancel.performed += CloseInventory;
+    }
+
+    private void CloseInventory(UnityEngine.InputSystem.InputAction.CallbackContext context) {
+        inventoryUI.SetActive(false);
+        playerInput.UI.Disable();
+        playerInput.Player.Enable();
+        Time.timeScale = 1;
+        playerInput.Player.Inventory.performed += OpenInventory;
+        playerInput.UI.Cancel.performed -= CloseInventory;
     }
 
     private void Start() {
@@ -106,8 +128,9 @@ public class Inventory : MonoBehaviour
                 status = Search(item[i].itemName).CheckItem(count[i]);
             } else {
                 status = false;
-                break;
             }
+
+            if (!status) break;
         }
         return status;
     }
