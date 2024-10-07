@@ -39,11 +39,11 @@ public class CustomerManager : MonoBehaviour
     }
 
     private void Update() {
-        spawnTimer -= Time.deltaTime;   // pakai ini kalau mau pelanggan langsung spawn 
-        if (currentCustomer == null && MenuManager.instance.BuyCondition() && tableList.Any(s => !s.isOccupied) && customerQueue.Count < customerList.Count)
+        // spawnTimer -= Time.deltaTime;   // pakai ini kalau mau pelanggan langsung spawn 
+        if (MenuManager.instance.BuyCondition())
         {
-            // spawnTimer -= Time.deltaTime; // pakai ini kalau mau pelanggan nunggu dulu sebelum spawn
-            if (spawnTimer <= 0)
+            spawnTimer -= Time.deltaTime; // pakai ini kalau mau pelanggan nunggu dulu sebelum spawn
+            if (spawnTimer <= 0 && tableList.Any(s => !s.isOccupied) && customerQueue.Count < customerList.Count && currentCustomer == null)
             {   
                 SpawnCustomer();
                 spawnTimer = spawnInterval;

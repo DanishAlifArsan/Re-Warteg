@@ -580,6 +580,175 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Dungeon"",
+            ""id"": ""ca3f5c58-afe9-455e-a815-5d1fec9d7f74"",
+            ""actions"": [
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""1650d0bc-67d0-42d9-b448-f753ac04fe4c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponNext"",
+                    ""type"": ""Button"",
+                    ""id"": ""62dcdb90-8f1e-4347-bac6-b6d8a2ea8b2e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""WeaponPrev"",
+                    ""type"": ""Button"",
+                    ""id"": ""db7b43ac-d9f7-4368-85c5-d0d38364b293"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c3edb657-d13c-4528-9b13-906f5f1e532a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""111b877b-335b-4cd7-8973-9159bdc144d1"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""WeaponNext"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d0a0087-7d0d-4daf-af97-7518f708cfa2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""WeaponPrev"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Kitchen"",
+            ""id"": ""a4e5af7d-2a74-423c-9d2b-bbb5afe84675"",
+            ""actions"": [
+                {
+                    ""name"": ""HotkeyKitchen"",
+                    ""type"": ""Button"",
+                    ""id"": ""17a4b4c9-fe10-4b3a-9043-3d129aed0025"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HotkeyDisplay"",
+                    ""type"": ""Button"",
+                    ""id"": ""b23b725f-5103-4e0f-aa42-16df02a2020c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HotkeyClean"",
+                    ""type"": ""Button"",
+                    ""id"": ""da395be5-6273-46e6-a94b-146c782853d6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""72ad7ad3-f7ea-403b-821c-1be105f38e4c"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyKitchen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""774e2527-c874-409b-bed2-efdebdb6d7f1"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyKitchen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""188d9e4d-6d15-4521-997a-5b42f10bd411"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyDisplay"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""568fade8-b43b-453f-92b5-28dda804cbe9"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyDisplay"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fafad730-b663-4c76-8465-f5f2a5b6b8ad"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyClean"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79b88fd0-6468-4b36-8ce7-eb7a5563f7d3"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard & Mouse"",
+                    ""action"": ""HotkeyClean"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -647,6 +816,16 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_Action1 = m_UI.FindAction("Action1", throwIfNotFound: true);
         m_UI_Action2 = m_UI.FindAction("Action2", throwIfNotFound: true);
+        // Dungeon
+        m_Dungeon = asset.FindActionMap("Dungeon", throwIfNotFound: true);
+        m_Dungeon_Attack = m_Dungeon.FindAction("Attack", throwIfNotFound: true);
+        m_Dungeon_WeaponNext = m_Dungeon.FindAction("WeaponNext", throwIfNotFound: true);
+        m_Dungeon_WeaponPrev = m_Dungeon.FindAction("WeaponPrev", throwIfNotFound: true);
+        // Kitchen
+        m_Kitchen = asset.FindActionMap("Kitchen", throwIfNotFound: true);
+        m_Kitchen_HotkeyKitchen = m_Kitchen.FindAction("HotkeyKitchen", throwIfNotFound: true);
+        m_Kitchen_HotkeyDisplay = m_Kitchen.FindAction("HotkeyDisplay", throwIfNotFound: true);
+        m_Kitchen_HotkeyClean = m_Kitchen.FindAction("HotkeyClean", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -900,6 +1079,130 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // Dungeon
+    private readonly InputActionMap m_Dungeon;
+    private List<IDungeonActions> m_DungeonActionsCallbackInterfaces = new List<IDungeonActions>();
+    private readonly InputAction m_Dungeon_Attack;
+    private readonly InputAction m_Dungeon_WeaponNext;
+    private readonly InputAction m_Dungeon_WeaponPrev;
+    public struct DungeonActions
+    {
+        private @PlayerInput m_Wrapper;
+        public DungeonActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Attack => m_Wrapper.m_Dungeon_Attack;
+        public InputAction @WeaponNext => m_Wrapper.m_Dungeon_WeaponNext;
+        public InputAction @WeaponPrev => m_Wrapper.m_Dungeon_WeaponPrev;
+        public InputActionMap Get() { return m_Wrapper.m_Dungeon; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(DungeonActions set) { return set.Get(); }
+        public void AddCallbacks(IDungeonActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DungeonActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DungeonActionsCallbackInterfaces.Add(instance);
+            @Attack.started += instance.OnAttack;
+            @Attack.performed += instance.OnAttack;
+            @Attack.canceled += instance.OnAttack;
+            @WeaponNext.started += instance.OnWeaponNext;
+            @WeaponNext.performed += instance.OnWeaponNext;
+            @WeaponNext.canceled += instance.OnWeaponNext;
+            @WeaponPrev.started += instance.OnWeaponPrev;
+            @WeaponPrev.performed += instance.OnWeaponPrev;
+            @WeaponPrev.canceled += instance.OnWeaponPrev;
+        }
+
+        private void UnregisterCallbacks(IDungeonActions instance)
+        {
+            @Attack.started -= instance.OnAttack;
+            @Attack.performed -= instance.OnAttack;
+            @Attack.canceled -= instance.OnAttack;
+            @WeaponNext.started -= instance.OnWeaponNext;
+            @WeaponNext.performed -= instance.OnWeaponNext;
+            @WeaponNext.canceled -= instance.OnWeaponNext;
+            @WeaponPrev.started -= instance.OnWeaponPrev;
+            @WeaponPrev.performed -= instance.OnWeaponPrev;
+            @WeaponPrev.canceled -= instance.OnWeaponPrev;
+        }
+
+        public void RemoveCallbacks(IDungeonActions instance)
+        {
+            if (m_Wrapper.m_DungeonActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IDungeonActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DungeonActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DungeonActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public DungeonActions @Dungeon => new DungeonActions(this);
+
+    // Kitchen
+    private readonly InputActionMap m_Kitchen;
+    private List<IKitchenActions> m_KitchenActionsCallbackInterfaces = new List<IKitchenActions>();
+    private readonly InputAction m_Kitchen_HotkeyKitchen;
+    private readonly InputAction m_Kitchen_HotkeyDisplay;
+    private readonly InputAction m_Kitchen_HotkeyClean;
+    public struct KitchenActions
+    {
+        private @PlayerInput m_Wrapper;
+        public KitchenActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @HotkeyKitchen => m_Wrapper.m_Kitchen_HotkeyKitchen;
+        public InputAction @HotkeyDisplay => m_Wrapper.m_Kitchen_HotkeyDisplay;
+        public InputAction @HotkeyClean => m_Wrapper.m_Kitchen_HotkeyClean;
+        public InputActionMap Get() { return m_Wrapper.m_Kitchen; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(KitchenActions set) { return set.Get(); }
+        public void AddCallbacks(IKitchenActions instance)
+        {
+            if (instance == null || m_Wrapper.m_KitchenActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_KitchenActionsCallbackInterfaces.Add(instance);
+            @HotkeyKitchen.started += instance.OnHotkeyKitchen;
+            @HotkeyKitchen.performed += instance.OnHotkeyKitchen;
+            @HotkeyKitchen.canceled += instance.OnHotkeyKitchen;
+            @HotkeyDisplay.started += instance.OnHotkeyDisplay;
+            @HotkeyDisplay.performed += instance.OnHotkeyDisplay;
+            @HotkeyDisplay.canceled += instance.OnHotkeyDisplay;
+            @HotkeyClean.started += instance.OnHotkeyClean;
+            @HotkeyClean.performed += instance.OnHotkeyClean;
+            @HotkeyClean.canceled += instance.OnHotkeyClean;
+        }
+
+        private void UnregisterCallbacks(IKitchenActions instance)
+        {
+            @HotkeyKitchen.started -= instance.OnHotkeyKitchen;
+            @HotkeyKitchen.performed -= instance.OnHotkeyKitchen;
+            @HotkeyKitchen.canceled -= instance.OnHotkeyKitchen;
+            @HotkeyDisplay.started -= instance.OnHotkeyDisplay;
+            @HotkeyDisplay.performed -= instance.OnHotkeyDisplay;
+            @HotkeyDisplay.canceled -= instance.OnHotkeyDisplay;
+            @HotkeyClean.started -= instance.OnHotkeyClean;
+            @HotkeyClean.performed -= instance.OnHotkeyClean;
+            @HotkeyClean.canceled -= instance.OnHotkeyClean;
+        }
+
+        public void RemoveCallbacks(IKitchenActions instance)
+        {
+            if (m_Wrapper.m_KitchenActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IKitchenActions instance)
+        {
+            foreach (var item in m_Wrapper.m_KitchenActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_KitchenActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public KitchenActions @Kitchen => new KitchenActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -947,5 +1250,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnCancel(InputAction.CallbackContext context);
         void OnAction1(InputAction.CallbackContext context);
         void OnAction2(InputAction.CallbackContext context);
+    }
+    public interface IDungeonActions
+    {
+        void OnAttack(InputAction.CallbackContext context);
+        void OnWeaponNext(InputAction.CallbackContext context);
+        void OnWeaponPrev(InputAction.CallbackContext context);
+    }
+    public interface IKitchenActions
+    {
+        void OnHotkeyKitchen(InputAction.CallbackContext context);
+        void OnHotkeyDisplay(InputAction.CallbackContext context);
+        void OnHotkeyClean(InputAction.CallbackContext context);
     }
 }
