@@ -55,33 +55,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""HotkeyKitchen"",
-                    ""type"": ""Button"",
-                    ""id"": ""9f61b8bc-29eb-469d-b294-7f85f8d72f15"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""HotkeyDisplay"",
-                    ""type"": ""Button"",
-                    ""id"": ""6a370486-2432-4f65-bd9a-be92761dff35"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""HotkeyClean"",
-                    ""type"": ""Button"",
-                    ""id"": ""76e14cef-8c18-4062-9cf1-0189a46cbfc4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Inventory"",
                     ""type"": ""Button"",
                     ""id"": ""86b5b862-3517-49c3-af09-a0e9928cad7f"",
@@ -197,72 +170,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3af9fedc-95ad-4251-a79b-97d728cc4c28"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""HotkeyKitchen"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""48d3a413-c671-4a5d-afaf-0474e15f3516"",
-                    ""path"": ""<Gamepad>/leftShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""HotkeyKitchen"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""d1a68f69-ccbc-439d-8578-deb5d20dbd43"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""HotkeyDisplay"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a6732547-5eca-452f-884e-11a12ebfbe83"",
-                    ""path"": ""<Gamepad>/rightShoulder"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""HotkeyDisplay"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""47f6779e-ad1f-4ce3-bf2b-bce80322a4e4"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard & Mouse"",
-                    ""action"": ""HotkeyClean"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7a89e79a-b55d-45a5-a734-1baa4fd4ab17"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""HotkeyClean"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -802,9 +709,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_MouseClick = m_Player.FindAction("MouseClick", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_HotkeyKitchen = m_Player.FindAction("HotkeyKitchen", throwIfNotFound: true);
-        m_Player_HotkeyDisplay = m_Player.FindAction("HotkeyDisplay", throwIfNotFound: true);
-        m_Player_HotkeyClean = m_Player.FindAction("HotkeyClean", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         // UI
@@ -890,9 +794,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseClick;
     private readonly InputAction m_Player_MousePosition;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_HotkeyKitchen;
-    private readonly InputAction m_Player_HotkeyDisplay;
-    private readonly InputAction m_Player_HotkeyClean;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Pause;
     public struct PlayerActions
@@ -902,9 +803,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @MouseClick => m_Wrapper.m_Player_MouseClick;
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        public InputAction @HotkeyKitchen => m_Wrapper.m_Player_HotkeyKitchen;
-        public InputAction @HotkeyDisplay => m_Wrapper.m_Player_HotkeyDisplay;
-        public InputAction @HotkeyClean => m_Wrapper.m_Player_HotkeyClean;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -925,15 +823,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @HotkeyKitchen.started += instance.OnHotkeyKitchen;
-            @HotkeyKitchen.performed += instance.OnHotkeyKitchen;
-            @HotkeyKitchen.canceled += instance.OnHotkeyKitchen;
-            @HotkeyDisplay.started += instance.OnHotkeyDisplay;
-            @HotkeyDisplay.performed += instance.OnHotkeyDisplay;
-            @HotkeyDisplay.canceled += instance.OnHotkeyDisplay;
-            @HotkeyClean.started += instance.OnHotkeyClean;
-            @HotkeyClean.performed += instance.OnHotkeyClean;
-            @HotkeyClean.canceled += instance.OnHotkeyClean;
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
@@ -953,15 +842,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @HotkeyKitchen.started -= instance.OnHotkeyKitchen;
-            @HotkeyKitchen.performed -= instance.OnHotkeyKitchen;
-            @HotkeyKitchen.canceled -= instance.OnHotkeyKitchen;
-            @HotkeyDisplay.started -= instance.OnHotkeyDisplay;
-            @HotkeyDisplay.performed -= instance.OnHotkeyDisplay;
-            @HotkeyDisplay.canceled -= instance.OnHotkeyDisplay;
-            @HotkeyClean.started -= instance.OnHotkeyClean;
-            @HotkeyClean.performed -= instance.OnHotkeyClean;
-            @HotkeyClean.canceled -= instance.OnHotkeyClean;
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
@@ -1235,9 +1115,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMouseClick(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnHotkeyKitchen(InputAction.CallbackContext context);
-        void OnHotkeyDisplay(InputAction.CallbackContext context);
-        void OnHotkeyClean(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
     }

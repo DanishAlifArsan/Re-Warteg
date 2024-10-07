@@ -21,9 +21,9 @@ public class PlayerMovement : MonoBehaviour
     {
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.MouseClick.performed += OnMouseClick;
-        playerInput.Player.HotkeyKitchen.performed += ToKitchen;
-        playerInput.Player.HotkeyDisplay.performed += ToDisplay;
-        playerInput.Player.HotkeyClean.performed += ToClean;
+        playerInput.Kitchen.HotkeyKitchen.performed += ToKitchen;
+        playerInput.Kitchen.HotkeyDisplay.performed += ToDisplay;
+        playerInput.Kitchen.HotkeyClean.performed += ToClean;
     }
 
     private void ToClean(InputAction.CallbackContext context)

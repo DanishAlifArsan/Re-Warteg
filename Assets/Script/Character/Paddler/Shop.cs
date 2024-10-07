@@ -15,6 +15,7 @@ public class Shop : MonoBehaviour
     private void OnEnable() {
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.Disable();
+        playerInput.Dungeon.Disable();
         playerInput.UI.Enable();
         playerInput.UI.Cancel.performed += Cancel;
     }
@@ -46,6 +47,7 @@ public class Shop : MonoBehaviour
 
     private void OnDisable() {
         playerInput.Player.Enable();
+        playerInput.Dungeon.Enable();
         playerInput.UI.Disable();
     }
 }

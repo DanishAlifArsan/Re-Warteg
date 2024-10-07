@@ -42,6 +42,7 @@ public class CookFood : MonoBehaviour
     private void OnEnable() {
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.Disable();
+        playerInput.Kitchen.Disable();
         playerInput.UI.Enable();
         playerInput.UI.Cancel.performed += Cancel;
     }
@@ -54,6 +55,7 @@ public class CookFood : MonoBehaviour
 
     private void OnDisable() {
         playerInput.Player.Enable();
+        playerInput.Kitchen.Enable();
         playerInput.UI.Disable();
     }
 }

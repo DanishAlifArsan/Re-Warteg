@@ -33,33 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "HotkeyKitchen",
-                    "type": "Button",
-                    "id": "9f61b8bc-29eb-469d-b294-7f85f8d72f15",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "HotkeyDisplay",
-                    "type": "Button",
-                    "id": "6a370486-2432-4f65-bd9a-be92761dff35",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "HotkeyClean",
-                    "type": "Button",
-                    "id": "76e14cef-8c18-4062-9cf1-0189a46cbfc4",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Inventory",
                     "type": "Button",
                     "id": "86b5b862-3517-49c3-af09-a0e9928cad7f",
@@ -175,72 +148,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3af9fedc-95ad-4251-a79b-97d728cc4c28",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "HotkeyKitchen",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "48d3a413-c671-4a5d-afaf-0474e15f3516",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "HotkeyKitchen",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "d1a68f69-ccbc-439d-8578-deb5d20dbd43",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "HotkeyDisplay",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a6732547-5eca-452f-884e-11a12ebfbe83",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "HotkeyDisplay",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "47f6779e-ad1f-4ce3-bf2b-bce80322a4e4",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "HotkeyClean",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7a89e79a-b55d-45a5-a734-1baa4fd4ab17",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "HotkeyClean",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

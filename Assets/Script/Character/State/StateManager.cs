@@ -20,6 +20,5 @@ public class StateManager : MonoBehaviour
     public void SwitchState(CustomerAI customer, IState state) {
         currentState = state;
         state.EnterState(customer, this);
-        Debug.Log(currentState);
     }
 }

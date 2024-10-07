@@ -13,6 +13,7 @@ public class ServeFood : MonoBehaviour
     private void OnEnable() {
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.Disable();
+        playerInput.Kitchen.Disable();
         playerInput.UI.Enable();
         playerInput.UI.Cancel.performed += CancelInteract;
         playerInput.UI.Action1.performed += AddFood;
@@ -64,6 +65,7 @@ public class ServeFood : MonoBehaviour
 
     private void OnDisable() {
         playerInput.Player.Enable();
+        playerInput.Kitchen.Enable();
         playerInput.UI.Disable();
         playerInput.UI.Cancel.performed -= CancelInteract;
         playerInput.UI.Action1.performed -= AddFood;
