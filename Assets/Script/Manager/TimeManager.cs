@@ -16,7 +16,6 @@ public class TimeManager : MonoBehaviour
     private int hours;
     private float minutes;
     public static TimeManager instance;
-    public bool isWarteg;
 
     private void Awake()
     {
@@ -42,7 +41,7 @@ public class TimeManager : MonoBehaviour
             minutes = 0;
         }
 
-        if (isWarteg)
+        if (GameManager.instance.currentSession == GameSession.Warteg)
         {
             minutes += Time.deltaTime * cycleRate;
             timeText.text = String.Format("{0:00}:{1:00}", hours, (int) minutes);
@@ -50,6 +49,7 @@ public class TimeManager : MonoBehaviour
             if (EndWarteg())
             {
                 Setup();
+                currentDay--; // hapus aja nanti ini
             }
         }    
     }
@@ -59,8 +59,6 @@ public class TimeManager : MonoBehaviour
         dayText.text = "Day Remaining: " + currentDay.ToString();
         hours = startHour;
         minutes = 0;
-
-        // currentDay--; // hapus aja nanti ini
     }
 
     public void CountDungeonTime(int timeIncrease) {    // panggil di item di dungeon
