@@ -6,8 +6,9 @@ using UnityEngine.AI;
 public class CustomerWalk : IState
 {
     private Vector3 destination;
-    public void EnterState(CustomerAI customer, StateManager stateManager)
+    public void EnterState(StateUser user, StateManager stateManager)
     {
+        CustomerAI customer = user as CustomerAI;
         // customer.anim.SetBool("isBuying",customer.isBuying);
         // customer.isWalking = true;
         // customer.dialogueBubbleUI.SetActive(false);
@@ -20,8 +21,10 @@ public class CustomerWalk : IState
         customer.agent.SetDestination(destination);
     }
 
-    public void UpdateState(CustomerAI customer, StateManager stateManager)
+    public void UpdateState(StateUser user, StateManager stateManager)
     {
+        CustomerAI customer = user as CustomerAI;
+
        float dist = customer.agent.remainingDistance;
        if (dist!=Mathf.Infinity && customer.agent.pathStatus == NavMeshPathStatus.PathComplete && customer.agent.remainingDistance == 0)
        {
@@ -30,7 +33,7 @@ public class CustomerWalk : IState
             {
                 CustomerManager.instance.DespawnCustomer(customer);
             } else {
-                stateManager.SwitchState(customer, stateManager.buy);
+                stateManager.SwitchState(customer, customer.buy);
             }
        }
     }

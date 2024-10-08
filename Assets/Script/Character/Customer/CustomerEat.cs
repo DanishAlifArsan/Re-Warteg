@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class CustomerEat : IState
 {
-    public void EnterState(CustomerAI customer, StateManager stateManager)
+    public void EnterState(StateUser user, StateManager stateManager)
     {
+        CustomerAI customer = user as CustomerAI;
+
         customer.agent.enabled = false;
         customer.transform.position = customer.table.chair.position;
         // customer.transform.LookAt(customer.table.desk);
@@ -15,8 +17,10 @@ public class CustomerEat : IState
         CustomerManager.instance.currentCustomer = null;
     }
 
-    public void UpdateState(CustomerAI customer, StateManager stateManager)
+    public void UpdateState(StateUser user, StateManager stateManager)
     {
+        CustomerAI customer = user as CustomerAI;
+
         if (!customer.isEating)
         {
             // customer.speak.Happy();
@@ -26,7 +30,7 @@ public class CustomerEat : IState
             customer.plate.gameObject.layer = LayerMask.NameToLayer("interact");
             customer.plate = null;
             customer.agent.enabled = true;
-            stateManager.SwitchState(customer, stateManager.walk);
+            stateManager.SwitchState(customer, customer.walk);
         }
     }
 }

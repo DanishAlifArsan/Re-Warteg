@@ -1,7 +1,8 @@
 public class CustomerIdle : IState
 {
-    public void EnterState(CustomerAI customer, StateManager stateManager)
+    public void EnterState(StateUser user, StateManager stateManager)
     {
+        //  CustomerAI customer = user as CustomerAI;
         // customer.dialogueBubbleUI.SetActive(false);
         // if (customer.isBuying)
         // {
@@ -9,8 +10,10 @@ public class CustomerIdle : IState
         // }
     }
 
-    public void UpdateState(CustomerAI customer, StateManager stateManager)
+    public void UpdateState(StateUser user, StateManager stateManager)
     {
-        stateManager.SwitchState(customer, stateManager.walk);
+        CustomerAI customer = user as CustomerAI;
+
+        stateManager.SwitchState(customer, customer.walk);
     }
 }

@@ -1,5 +1,5 @@
 public interface IState
 {
-    void EnterState(CustomerAI customer, StateManager stateManager);
-    void UpdateState(CustomerAI customer, StateManager stateManager);
+    void EnterState(StateUser user, StateManager stateManager);
+    void UpdateState(StateUser user, StateManager stateManager);
 }

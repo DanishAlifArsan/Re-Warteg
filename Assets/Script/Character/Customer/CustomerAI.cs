@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-public class CustomerAI : MonoBehaviour
+public class CustomerAI : MonoBehaviour, StateUser
 {
     [SerializeField] private float range = 1f;
     [SerializeField] private Transform interactPoint;
@@ -40,6 +40,7 @@ public class CustomerAI : MonoBehaviour
         isEating = false;
         isGetFood = false;
         setupFlag = true;
+        eatTimer = eatDuration;
         CustomerManager.instance.currentCustomer = this;
         // CustomerManager.instance.isSpawned = true;
     }
@@ -48,6 +49,11 @@ public class CustomerAI : MonoBehaviour
         stateManager = null;
         // CustomerManager.instance.isSpawned = false;
     }
+    public CustomerIdle idle = new CustomerIdle();
+    public CustomerWalk walk = new CustomerWalk();
+    public CustomerBuy buy = new CustomerBuy();
+    public CustomerEat eat = new CustomerEat();
+    public CustomerFood food = new CustomerFood();
 
     private void Update() {
         if (setupFlag)
@@ -82,7 +88,7 @@ public class CustomerAI : MonoBehaviour
 
     private void Setup() {
         stateManager = new StateManager();
-        stateManager.StartState(this);
+        stateManager.StartState(this, idle);
         setupFlag = false;
     }
 
@@ -137,6 +143,6 @@ public class CustomerAI : MonoBehaviour
     }
 
     private bool CanTalk() {
-        return stateManager.currentState != stateManager.buy;
+        return stateManager.currentState != buy;
     }
 }
