@@ -63,6 +63,13 @@ public class TimeManager : MonoBehaviour
 
     public void CountDungeonTime(int timeIncrease) {    // panggil di item di dungeon
         minutes += timeIncrease;
+        if (minutes > 59)
+        {
+            hours++;
+            minutes = 0;
+        }
+
+        timeText.text = String.Format("{0:00}:{1:00}", hours, (int) minutes);
 
         if (EndDungeon())
         {
