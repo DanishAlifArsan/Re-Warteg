@@ -36844,7 +36844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPoint: {fileID: 1269523554}
   attackRange: 0.5
-  idleDuration: 1
+  idleDuration: 0
   attackCooldown: 2
   agent: {fileID: 1463534280}
   pool: {fileID: 0}

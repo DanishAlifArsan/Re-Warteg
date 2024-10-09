@@ -13,6 +13,17 @@ public class MonsterIdle : IState
     public void UpdateState(StateUser user, StateManager stateManager)
     {
         MonsterAI monster = user as MonsterAI;
+        if (monster.isWaiting)
+        {
+            idleTimer += Time.deltaTime;
+            if (idleTimer >= monster.idleDuration)
+            {
+                idleTimer = 0f;
+                monster.isWaiting = false;  
+                stateManager.SwitchState(monster, monster.walk);
+            }
+        }
+        
         if (monster.pool.DetectPlayer() != null)
         {
             monster.isWaiting = false;  
@@ -28,15 +39,5 @@ public class MonsterIdle : IState
             stateManager.SwitchState(monster, monster.attack);
         }
 
-        if (monster.isWaiting)
-        {
-            idleTimer += Time.deltaTime;
-            if (idleTimer >= monster.idleDuration)
-            {
-                idleTimer = 0f;
-                monster.isWaiting = false;  
-                stateManager.SwitchState(monster, monster.walk);
-            }
-        }
     }
 }

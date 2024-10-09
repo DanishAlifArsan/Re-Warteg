@@ -31,6 +31,7 @@ public class MonsterWalk : IState
         }
         if (monster.PlayerInSight() != null)
         {
+            monster.isWaiting = true;
             stateManager.SwitchState(monster, monster.attack);
         }
     }
