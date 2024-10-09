@@ -29,6 +29,13 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        GameData data = SaveManager.instance.LoadGame();
+        if (data != null)
+        {
+            currentDay = SaveManager.instance.day;
+        } else {
+            currentDay = startingDay;
+        }
         Setup();
     }
 
@@ -48,14 +55,14 @@ public class TimeManager : MonoBehaviour
 
             if (EndWarteg())
             {
-                Setup();
-                currentDay--; // hapus aja nanti ini
+                // Setup();
+                // currentDay--; // hapus aja nanti ini
+                GameManager.instance.EndSession();
             }
         }    
     }
 
     private void Setup() {
-        currentDay = startingDay;
         dayText.text = "Day Remaining: " + currentDay.ToString();
         hours = startHour;
         minutes = 0;
@@ -73,7 +80,8 @@ public class TimeManager : MonoBehaviour
 
         if (EndDungeon())
         {
-            Setup();
+            // Setup();
+            GameManager.instance.EndSession();
         }
     }
 
@@ -86,6 +94,6 @@ public class TimeManager : MonoBehaviour
     }
 
     public bool EndGame() {
-        return currentDay <= 0;
+        return currentDay <= 1;
     }
 }

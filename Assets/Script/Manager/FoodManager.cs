@@ -25,19 +25,26 @@ public class FoodManager : MonoBehaviour
     }
 
     private void Start() {
-        foreach (Food item in foodList)
+        if (GameManager.instance.currentSession == GameSession.Dungeon)
         {
-            item.menuDisplay = null;
-            Recipe instantiatedRecipe =  Instantiate(recipePrefab, scrollContent);
-            selectionList.uiSelections.Add(instantiatedRecipe);
-            instantiatedRecipe.Setup(item);
-        }
-        foreach (DropItem item in itemList)
+            foreach (DropItem item in itemList)
+            {
+                ShopList instantiatedShopList =  Instantiate(shopListPrefab, shopScrollContent);
+                itemSelectionList.uiSelections.Add(instantiatedShopList);
+                instantiatedShopList.Setup(item);
+            }
+        } else if (GameManager.instance.currentSession == GameSession.Warteg)
         {
-            ShopList instantiatedShopList =  Instantiate(shopListPrefab, shopScrollContent);
-            itemSelectionList.uiSelections.Add(instantiatedShopList);
-            instantiatedShopList.Setup(item);
+            
+            foreach (Food item in foodList)
+            {
+                item.menuDisplay = null;
+                Recipe instantiatedRecipe =  Instantiate(recipePrefab, scrollContent);
+                selectionList.uiSelections.Add(instantiatedRecipe);
+                instantiatedRecipe.Setup(item);
+            }
         }
+        
     }
 
     // Update is called once per frame

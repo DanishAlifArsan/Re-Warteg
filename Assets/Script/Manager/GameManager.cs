@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public GameSession currentSession;
     [SerializeField] private NavMeshAgent player;
-    [SerializeField] private GameObject wartegObject;
-    [SerializeField] private Transform wartegSpawn;
-    [SerializeField] private GameObject dungeonObject;
-    [SerializeField] private Transform dungeonSpawn;
     private void Awake()
     {
         if (instance == null)
@@ -30,16 +27,10 @@ public class GameManager : MonoBehaviour
         switch (currentSession)
         {
             case GameSession.Dungeon:
-                player.transform.position = dungeonSpawn.position;
-                wartegObject.SetActive(false);
-                dungeonObject.SetActive(true);
                 playerInput.Dungeon.Enable();
                 playerInput.Kitchen.Disable();
                 break;
             case GameSession.Warteg:
-                player.transform.position = wartegSpawn.position;
-                wartegObject.SetActive(true);
-                dungeonObject.SetActive(false);
                 playerInput.Dungeon.Disable();
                 playerInput.Kitchen.Enable();
                 break;
@@ -52,6 +43,40 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private int currentDay;
+
+    public void EndSession() {      // pindah ke result
+        if (TimeManager.instance.EndGame())
+        {
+            //tambahkan perhitungan pajak
+            //gameover kalau uang kurang dari pajak
+            SaveManager.instance.NewGame();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else {
+            //lanjut hari
+            SaveManager.instance.totalCurrency = CurrencyManager.instance.totalCurrency;
+            switch (currentSession)
+            {
+                case GameSession.Dungeon:
+                    currentDay = TimeManager.instance.currentDay;
+                    SaveGame();
+                    SceneManager.LoadScene(1);
+                    break;
+                case GameSession.Warteg:
+                    currentDay = TimeManager.instance.currentDay-1;
+                    SaveGame();
+                    SceneManager.LoadScene(0);
+                    break;
+            }
+        }
+    }
+
+    private void SaveGame() {
+        SaveManager.instance.day = currentDay;
+        SaveManager.instance.inventoryItem = Inventory.instance.inventoryItem;
+        SaveManager.instance.SaveGame();
     }
 }
 

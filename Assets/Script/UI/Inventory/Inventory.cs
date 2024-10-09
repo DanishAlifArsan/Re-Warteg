@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemdescText;
     [SerializeField] private GameObject inventoryUI;
     private List<DropItem> listItem = new List<DropItem>();
+    public SerializableDictionary<DropItem, int> inventoryItem = new SerializableDictionary<DropItem, int>();
     public Cell[,] cellArray = new Cell[5,4]; 
     public static Inventory instance;
     PlayerInput playerInput;
@@ -33,21 +34,6 @@ public class Inventory : MonoBehaviour
 
     private void OpenInventory(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        // if (inventoryUI.activeInHierarchy)
-        // {   
-        //     inventoryUI.SetActive(false);
-        //     playerInput.UI.Disable();
-        //     playerInput.Player.Enable();
-        //     Time.timeScale = 1;
-        // } else {
-        //     inventoryUI.SetActive(true);
-        //     playerInput.UI.Enable();
-        //     playerInput.Player.Disable();
-        //     Time.timeScale = 0;
-        //     playerInput.Player.Inventory.performed -= OpenInventory;
-        //     playerInput.UI.Cancel.performed += CloseInventory;
-        // }
-
         inventoryUI.SetActive(true);
         playerInput.UI.Enable();
         playerInput.Player.Disable();
@@ -74,22 +60,31 @@ public class Inventory : MonoBehaviour
             for (int j = 0; j < cellArray.GetLength(0); j++)
             {
                 Cell instantiatedCell = Instantiate(cell, canvas);
-                instantiatedCell.Coordinate(j,i);
                 cellArray[j,i] = instantiatedCell;   
             }
        }
 
-       for (int i = 0; i < Math.Min(startingItem.Count, startingItemCount.Count); i++)
-       {
-            AddItem(startingItem[i], startingItemCount[i]);
-       }
-
+       GameData data = SaveManager.instance.LoadGame();
+        if (data != null)
+        {
+            GenerateItemFromSave(data.inventoryItem);
+        } else {
+            GenerateNewItem();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void GenerateNewItem() {
+        for (int i = 0; i < Math.Min(startingItem.Count, startingItemCount.Count); i++)
+        {
+            AddItem(startingItem[i], startingItemCount[i]);
+        }
+    }
+
+    private void GenerateItemFromSave(SerializableDictionary<DropItem, int> inventoryItem) {
+        foreach (var item in inventoryItem)
+        {
+            AddItem(item.Key, item.Value);
+        }
     }
 
     public void AddItem(DropItem item, int count) {
@@ -99,10 +94,14 @@ public class Inventory : MonoBehaviour
             // Cell selectedGrid = Search(null); 
             selectedGrid.AddItem(item, count);
             listItem.Add(item);
+
+            inventoryItem.Add(item, count);
         } else {
             // Cell selectedGrid = cellArray.Cast<Cell>().First(s => s.item == item);
             Cell selectedGrid = Search(item.itemName);
             selectedGrid.AddItem(item, count);
+
+            inventoryItem[item] += count;
         }
     }
     public void RemoveItem(DropItem item, int count) {
@@ -111,9 +110,11 @@ public class Inventory : MonoBehaviour
             // Cell selectedGrid = cellArray.Cast<Cell>().First(s => s.item == item);
             Cell selectedGrid = Search(item.itemName);
             selectedGrid.RemoveItem(count);
+            inventoryItem[item] -= count;
             if (selectedGrid.item == null)
             {
                 listItem.Remove(item);
+                inventoryItem.Remove(item);
             }
         }
     }

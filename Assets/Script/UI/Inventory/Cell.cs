@@ -13,14 +13,6 @@ public class Cell : UISelection
     [SerializeField] private TextMeshProUGUI itemCountText;
     public DropItem item;
     private int itemCount = 0;
-    private int posX, posY;
-
-    public void Coordinate(int posX, int posY)
-    {
-        this.posX = posX;
-        this.posY = posY;
-    }
-
     public void AddItem(DropItem _item, int count) {
         if (item == null)
         {

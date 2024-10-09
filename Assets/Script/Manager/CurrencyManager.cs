@@ -25,6 +25,11 @@ public class CurrencyManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {   
+        GameData data = SaveManager.instance.LoadGame();
+        if (data != null)
+        {
+            startingCurrency = SaveManager.instance.totalCurrency;
+        }
         // increaseAnim = increaseText.GetComponent<Animator>();
         // decreaseAnim = decreaseText.GetComponent<Animator>();
         AddCurrency(startingCurrency);
