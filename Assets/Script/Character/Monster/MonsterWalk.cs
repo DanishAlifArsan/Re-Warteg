@@ -25,6 +25,8 @@ public class MonsterWalk : IState
         {
             monster.agent.SetDestination(player.transform.position);
         } else {
+            player.GetComponent<PlayerHealth>().ResetCounter();
+
             monster.isChasing = false;
             monster.isWaiting = true;
             stateManager.SwitchState(monster, monster.idle);

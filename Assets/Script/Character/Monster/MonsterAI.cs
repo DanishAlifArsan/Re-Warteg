@@ -68,7 +68,8 @@ public class MonsterAI : MonoBehaviour, StateUser
     public void DamagePlayer() {
         if (PlayerInSight() != null) {
             //damage player
-            Debug.Log("Damage player " + PlayerInSight().name);
+            PlayerInSight().transform.Translate(Vector3.forward * -knockback, Space.Self);
+            PlayerInSight().GetComponent<PlayerHealth>().SetHitRecieved();
         }
     }
 
@@ -78,14 +79,16 @@ public class MonsterAI : MonoBehaviour, StateUser
         pool.Despawn(this);
     }
 
-    public void Damage(float damage) { // panggil ketika monster kena serangan dan nyawanya habis
+    public bool Damage(float damage) { // panggil ketika monster kena serangan dan nyawanya habis
         currentHealth -= damage;
         fullHealthBar.fillAmount = currentHealth/maxHealth;
         if (currentHealth <= 0)
         {
             stateManager.SwitchState(this, death);
+            return true;
         } else {
             stateManager.SwitchState(this, hurt);
+            return false;
         }
     }
 

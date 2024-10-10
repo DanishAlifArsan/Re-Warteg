@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private List<Weapon> weaponList;
+    [SerializeField] private PlayerHealth health;
     private int currentIndex;
     private Weapon currentWeapon;
     private PlayerInput playerInput;
@@ -21,6 +22,11 @@ public class PlayerAttack : MonoBehaviour
         playerInput.Dungeon.Attack.performed += Attack;
         playerInput.Dungeon.WeaponNext.performed += WeaponNext;
         playerInput.Dungeon.WeaponPrev.performed += WeaponPrev;
+
+        foreach (Weapon item in weaponList)
+        {
+            item.Setup(health);   
+        }
     }
 
     private void WeaponPrev(UnityEngine.InputSystem.InputAction.CallbackContext context)

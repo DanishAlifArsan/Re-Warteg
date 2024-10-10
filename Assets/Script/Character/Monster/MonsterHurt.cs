@@ -8,6 +8,7 @@ public class MonsterHurt : IState
     {
         MonsterAI monster = user as MonsterAI;
         monster.transform.Translate(Vector3.forward * -monster.knockback, Space.Self);
+        // monster.rb.AddForce(Vector3.forward * -monster.knockback, ForceMode.Impulse);
     }
 
     public void UpdateState(StateUser user, StateManager stateManager)

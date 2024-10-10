@@ -20,14 +20,29 @@ public class Broom : Weapon
     public void DamageEnemy() {     // harusnya ini di animasi serangan
         if (EnemyInSight() != null)
         {
-            EnemyInSight().GetComponent<MonsterAI>().Damage(attack);
+            if (EnemyInSight().GetComponent<MonsterAI>().Damage(attack))
+            {
+                health.ResetCounter(); 
+            } else {
+                health.SetNumberOfAttack();
+            }
         }
     }
 
     private Collider EnemyInSight() {
         Collider[] cols = Physics.OverlapSphere(attackPoint.position, attackRange, LayerMask.GetMask("enemy"));
-        if (cols.Length > 0) return cols[0];
-        else return null;
+        Collider selectedItem = null;
+        float minDistance = float.PositiveInfinity;
+        foreach (var item in cols)
+        {
+            float dist = Vector3.Distance(attackPoint.position, item.transform.position);
+            if (dist < minDistance)
+            {
+                selectedItem = item;
+                minDistance = dist;
+            }
+        }
+        return selectedItem;
     }
 
     private void OnDrawGizmos() {
