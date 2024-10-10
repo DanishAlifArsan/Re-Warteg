@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class MonsterAI : MonoBehaviour, StateUser
 {
+    public GameObject healthBar;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange;
     public float idleDuration;
@@ -20,10 +21,14 @@ public class MonsterAI : MonoBehaviour, StateUser
         isWaiting = false;
         stateManager = new StateManager();
         stateManager.StartState(this, idle);
+
+        healthBar.SetActive(true);
     }
 
     private void OnDisable() {
         stateManager = null;
+
+        healthBar.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -49,10 +54,10 @@ public class MonsterAI : MonoBehaviour, StateUser
         else return null;
     }
 
-    public void DamagePlayer(Collider player) {
-        if (PlayerInSight()) {
+    public void DamagePlayer() {
+        if (PlayerInSight() != null) {
             //damage player
-            Debug.Log("Damage player " + player.name);
+            Debug.Log("Damage player " + PlayerInSight().name);
         }
     }
 

@@ -15,11 +15,10 @@ public class MonsterAttack : IState
         MonsterAI monster = user as MonsterAI;
         cooldownTimer += Time.deltaTime;
 
-        Collider player = monster.PlayerInSight();
-        if(player != null) {
+        if(monster.PlayerInSight() != null) {
             if (cooldownTimer >= monster.attackCooldown) {
                 cooldownTimer = 0;
-                monster.DamagePlayer(player);  // damage player harusnya ada di animasi serangan 
+                monster.DamagePlayer();  // damage player harusnya ada di animasi serangan 
                 // monster.animator.SetTrigger("Attack");  
             } 
         } else {

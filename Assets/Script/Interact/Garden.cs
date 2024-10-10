@@ -7,7 +7,7 @@ public class Garden : MonoBehaviour, Interactable
     [SerializeField] private List<DropItem> item;
     public string FlavorText()
     {
-       return "Pickup";
+       return "Pick";
     }
 
     public void OnInteract()
