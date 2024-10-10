@@ -23,7 +23,10 @@ public abstract class Weapon : MonoBehaviour
         }
         cooldownImage.fillAmount = cooldownTimer / cooldown;
         cooldownTimer -= Time.deltaTime;
-        if (cooldownTimer <= 0) canAttack = true;
+        if (cooldownTimer <= 0) {
+            canAttack = true;
+            cooldownImage.fillAmount = 0;
+        }
     }
     public abstract void Attack();
 

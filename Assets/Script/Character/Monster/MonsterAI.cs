@@ -2,26 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class MonsterAI : MonoBehaviour, StateUser
 {
     public GameObject healthBar;
+    [SerializeField] Image fullHealthBar;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private DropItem dropItem;
+    [SerializeField] private int dropAmount;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange;
     public float idleDuration;
     public float attackCooldown;
+    public float knockback;
+    public Transform spawnPos;
     public NavMeshAgent agent;
     public MonsterPool pool;
     private StateManager stateManager;
     public bool isChasing;
     public bool isWaiting;
+    private float currentHealth;
 
     private void OnEnable() {
+        currentHealth = maxHealth;
         isChasing = false;
         isWaiting = false;
         stateManager = new StateManager();
         stateManager.StartState(this, idle);
 
+        fullHealthBar.fillAmount = 1;
         healthBar.SetActive(true);
     }
 
@@ -47,6 +57,7 @@ public class MonsterAI : MonoBehaviour, StateUser
     public MonsterWalk walk = new MonsterWalk();
     public MonsterAttack attack = new MonsterAttack();
     public MonsterDeath death = new MonsterDeath();
+    public MonsterHurt hurt = new MonsterHurt();
     
     public Collider PlayerInSight() {
         Collider[] cols = Physics.OverlapSphere(attackPoint.position, attackRange, LayerMask.GetMask("player"));
@@ -62,11 +73,20 @@ public class MonsterAI : MonoBehaviour, StateUser
     }
 
     public void Death() { // panggil saat mati
+        Inventory.instance.AddItem(dropItem, dropAmount);
+        GardenManager.instance.Pickup(dropItem, dropAmount);
         pool.Despawn(this);
     }
 
-    public void Damage() { // panggil ketika monster kena serangan dan nyawanya habis
-        stateManager.SwitchState(this, death);
+    public void Damage(float damage) { // panggil ketika monster kena serangan dan nyawanya habis
+        currentHealth -= damage;
+        fullHealthBar.fillAmount = currentHealth/maxHealth;
+        if (currentHealth <= 0)
+        {
+            stateManager.SwitchState(this, death);
+        } else {
+            stateManager.SwitchState(this, hurt);
+        }
     }
 
     private void OnDrawGizmos() {

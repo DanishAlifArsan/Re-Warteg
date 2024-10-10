@@ -13,7 +13,7 @@ public class MonsterWalk : IState
         {
             player = monster.pool.DetectPlayer();
         } else {
-            monster.agent.SetDestination(monster.pool.transform.position);
+            monster.agent.SetDestination(monster.spawnPos.position);
         }
     }
 

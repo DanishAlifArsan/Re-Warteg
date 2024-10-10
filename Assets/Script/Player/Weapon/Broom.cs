@@ -20,7 +20,7 @@ public class Broom : Weapon
     public void DamageEnemy() {     // harusnya ini di animasi serangan
         if (EnemyInSight() != null)
         {
-            Debug.Log("Attack enemy "+ EnemyInSight().name);
+            EnemyInSight().GetComponent<MonsterAI>().Damage(attack);
         }
     }
 

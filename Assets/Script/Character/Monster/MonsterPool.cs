@@ -38,6 +38,7 @@ public class MonsterPool : MonoBehaviour
         foreach (MonsterAI item in monster)
         {
             item.gameObject.SetActive(status);
+            item.transform.position = item.spawnPos.position;
             if (status) {
                 spawnedMonster.Add(item);
                 item.pool = this;
