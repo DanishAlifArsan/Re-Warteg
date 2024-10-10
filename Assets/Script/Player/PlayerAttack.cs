@@ -5,46 +5,59 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private Transform attackPoint;
-    [SerializeField] private float attackRange;
+    [SerializeField] private List<Weapon> weaponList;
+    private int currentIndex;
+    private Weapon currentWeapon;
     private PlayerInput playerInput;
 
     // Start is called before the first frame update
     private void Start()
     {
+        currentIndex = 0;
+        currentWeapon = weaponList[currentIndex];
+        currentWeapon.Select();
+        
         playerInput = InputManager.instance.playerInput;
         playerInput.Dungeon.Attack.performed += Attack;
+        playerInput.Dungeon.WeaponNext.performed += WeaponNext;
+        playerInput.Dungeon.WeaponPrev.performed += WeaponPrev;
+    }
+
+    private void WeaponPrev(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        currentWeapon.MoveIcon(2);
+        currentWeapon.Deselect();
+        currentIndex--;
+        if (currentIndex < 0)
+        {
+            currentIndex = weaponList.Count - 1;
+        }
+        currentWeapon = weaponList[currentIndex];
+        currentWeapon.MoveIcon(1);
+        currentWeapon.Select();
+    }
+
+    private void WeaponNext(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        currentWeapon.MoveIcon(0);
+        currentWeapon.Deselect();
+        currentIndex++;
+        if (currentIndex > weaponList.Count - 1) {
+            currentIndex = 0;
+        }
+        currentWeapon = weaponList[currentIndex];
+        currentWeapon.MoveIcon(1);
+        currentWeapon.Select();
     }
 
     private void Attack(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        if (EnemyInSight() != null)
-        {
-            DamageEnemy(); // damage enemy harusnya ada di animasi serangan
-        }
+        currentWeapon.Attack();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public void DamageEnemy() {
-        if (EnemyInSight() != null)
-        {
-            Debug.Log("Attack enemy "+ EnemyInSight().name);
-        }
-    }
-
-    public Collider EnemyInSight() {
-        Collider[] cols = Physics.OverlapSphere(attackPoint.position, attackRange, LayerMask.GetMask("enemy"));
-        if (cols.Length > 0) return cols[0];
-        else return null;
-    }
-
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(attackPoint.position, attackRange);
     }
 }
