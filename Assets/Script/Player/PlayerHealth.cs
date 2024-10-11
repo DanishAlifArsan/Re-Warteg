@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     private float currentHealth;
     public int hitRecieved;
     public int numberOfAttack;
+    private DropItem prevItem;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,15 +24,16 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
-    public void AddHealth(int amount) {  // pas ngopi
-        if (currentHealth + amount > maxHealth)
+    public bool AddHealth(int amount) {  // pas ngopi
+        if (currentHealth >= maxHealth)
         {
-            return;
+            return false;
         }
         
         float newHealth = currentHealth + amount;
         currentHealth = newHealth >= maxHealth? maxHealth : newHealth;
         healthBar.fillAmount = currentHealth / maxHealth;
+        return true;
     }
 
     public void DecreaseHealth(int amount) { // di batu kalau serangannya gak kena
@@ -66,5 +68,13 @@ public class PlayerHealth : MonoBehaviour
             numberOfAttack = 0;
             DecreaseHealth(1);
         }
+    }
+
+    public void SetPrevItem(DropItem item) {
+        if (prevItem == item)
+        {
+            DecreaseHealth(1);
+        }
+        prevItem = item;
     }
 }

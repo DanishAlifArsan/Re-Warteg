@@ -15,7 +15,7 @@ public class MonsterAI : MonoBehaviour, StateUser
     [SerializeField] private float attackRange;
     public float idleDuration;
     public float attackCooldown;
-    public float knockback;
+    // public float knockback;
     public Transform spawnPos;
     public NavMeshAgent agent;
     public MonsterPool pool;
@@ -68,7 +68,7 @@ public class MonsterAI : MonoBehaviour, StateUser
     public void DamagePlayer() {
         if (PlayerInSight() != null) {
             //damage player
-            PlayerInSight().transform.Translate(Vector3.forward * -knockback, Space.Self);
+            // PlayerInSight().transform.Translate(Vector3.forward * -knockback, Space.Self);
             PlayerInSight().GetComponent<PlayerHealth>().SetHitRecieved();
         }
     }
