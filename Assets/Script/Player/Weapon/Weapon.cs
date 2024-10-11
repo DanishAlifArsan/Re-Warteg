@@ -13,10 +13,12 @@ public abstract class Weapon : MonoBehaviour
     protected float cooldownTimer;
     protected bool canAttack;
     protected PlayerHealth health;
-    public virtual void Setup(PlayerHealth _health) {
+    protected PlayerAttack playerAttack;
+    public virtual void Setup(PlayerHealth _health, PlayerAttack _playerAttack) {
         cooldownTimer = 0;
         canAttack = true;
         health = _health;
+        playerAttack = _playerAttack;
     }
     protected virtual void Update() {
         if (canAttack)
@@ -36,11 +38,11 @@ public abstract class Weapon : MonoBehaviour
         weaponIcon.SetSiblingIndex(index);
     }
 
-    public void Select() {
+    public virtual void Select() {
         weaponIcon.localScale = new Vector3(1.2f, 1.2f, 1);
     }
 
-    public void Deselect() {
+    public virtual void Deselect() {
         weaponIcon.localScale = Vector3.one;
     }
 }

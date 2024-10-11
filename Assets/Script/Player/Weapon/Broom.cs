@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Broom : Weapon
@@ -7,42 +9,33 @@ public class Broom : Weapon
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange;
     public override void Attack() {
-        if (canAttack)
+        Vector2 mousePosition = playerAttack.playerInput.Player.MousePosition.ReadValue<Vector2>();
+        Ray ray = playerAttack.cam.ScreenPointToRay(mousePosition);
+        RaycastHit hit;
+        if (canAttack && Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("enemy")))
         {
-            canAttack = false;
-            cooldownTimer = cooldown;
-            attackEffect.Play();
-            // todo jalankan animasi serangan
-            DamageEnemy();
+            if (EnemyInSight().Contains(hit.collider))
+            {
+                Vector3 targetPos = new Vector3( hit.transform.position.x, playerAttack.transform.position.y, hit.transform.position.z ) ;
+                playerAttack.transform.LookAt(targetPos);
+
+                canAttack = false;
+                cooldownTimer = cooldown;
+                attackEffect.Play();
+                // todo jalankan animasi serangan
+
+                if (hit.transform.GetComponent<MonsterAI>().Damage(attack))
+                {
+                    health.ResetCounter(); 
+                } else {
+                    health.SetNumberOfAttack();
+                }
+            } 
         }
     }
 
-    public void DamageEnemy() {     // harusnya ini di animasi serangan
-        if (EnemyInSight() != null)
-        {
-            if (EnemyInSight().GetComponent<MonsterAI>().Damage(attack))
-            {
-                health.ResetCounter(); 
-            } else {
-                health.SetNumberOfAttack();
-            }
-        }
-    }
-
-    private Collider EnemyInSight() {
-        Collider[] cols = Physics.OverlapSphere(attackPoint.position, attackRange, LayerMask.GetMask("enemy"));
-        Collider selectedItem = null;
-        float minDistance = float.PositiveInfinity;
-        foreach (var item in cols)
-        {
-            float dist = Vector3.Distance(attackPoint.position, item.transform.position);
-            if (dist < minDistance)
-            {
-                selectedItem = item;
-                minDistance = dist;
-            }
-        }
-        return selectedItem;
+    private Collider[] EnemyInSight() {
+        return Physics.OverlapSphere(transform.position, attackRange, LayerMask.GetMask("enemy"));;
     }
 
     private void OnDrawGizmos() {

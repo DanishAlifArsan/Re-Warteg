@@ -7,9 +7,9 @@ public class Stone : Weapon
     [SerializeField] private StoneObject[] stoneObject;
     private int currentIndex;
 
-    public override void Setup(PlayerHealth _health)
+    public override void Setup(PlayerHealth _health, PlayerAttack _playerAttack)
     {
-        base.Setup(_health);
+        base.Setup(_health, _playerAttack);
         foreach (var item in stoneObject)
         {
             item.Setup(transform, health, attack);

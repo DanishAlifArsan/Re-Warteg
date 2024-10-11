@@ -7,9 +7,10 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private List<Weapon> weaponList;
     [SerializeField] private PlayerHealth health;
+    public Camera cam;
     private int currentIndex;
     private Weapon currentWeapon;
-    private PlayerInput playerInput;
+    public PlayerInput playerInput;
 
     // Start is called before the first frame update
     private void Start()
@@ -25,7 +26,7 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Weapon item in weaponList)
         {
-            item.Setup(health);   
+            item.Setup(health, this);   
         }
     }
 

@@ -6510,7 +6510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43464243, y: 0.33768937, z: -0.1800348, w: 0.8152542}
+  m_LocalRotation: {x: 0.43464243, y: 0.33768928, z: -0.18003473, w: 0.8152543}
   m_LocalPosition: {x: 70.25568, y: 13.376094, z: 11.512983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18006,6 +18006,7 @@ MonoBehaviour:
   - {fileID: 782123185}
   - {fileID: 10406751}
   health: {fileID: 606406213}
+  cam: {fileID: 330585545}
 --- !u!114 &606406213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24476,7 +24477,7 @@ Transform:
   m_GameObject: {fileID: 801892621}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.671, z: 0.44199944}
+  m_LocalPosition: {x: 0, y: 0.671, z: -0.004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -24502,7 +24503,7 @@ MonoBehaviour:
   cooldownImage: {fileID: 1741438947}
   attackEffect: {fileID: 7050776165223684267}
   attackPoint: {fileID: 256035637}
-  attackRange: 0.5
+  attackRange: 1
 --- !u!1 &808596037
 GameObject:
   m_ObjectHideFlags: 0
@@ -52973,7 +52974,6 @@ MonoBehaviour:
   attackRange: 0.5
   idleDuration: 0
   attackCooldown: 2
-  knockback: 1
   spawnPos: {fileID: 791930263}
   agent: {fileID: 1463534280}
   pool: {fileID: 0}
@@ -59171,7 +59171,6 @@ MonoBehaviour:
   attackRange: 0.5
   idleDuration: 0
   attackCooldown: 2
-  knockback: 1
   spawnPos: {fileID: 410437681}
   agent: {fileID: 1730756169}
   pool: {fileID: 0}
@@ -60656,7 +60655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887114714}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43464243, y: 0.33768937, z: -0.1800348, w: 0.8152542}
+  m_LocalRotation: {x: 0.43464243, y: 0.33768928, z: -0.18003473, w: 0.8152543}
   m_LocalPosition: {x: 22.958931, y: 15.6849165, z: 11.498931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
