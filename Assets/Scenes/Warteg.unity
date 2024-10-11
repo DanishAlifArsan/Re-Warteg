@@ -1005,7 +1005,7 @@ MonoBehaviour:
   startingDay: 2
   startHour: 12
   endHour: 24
-  cycleRate: 100
+  cycleRate: 10
   timeText: {fileID: 1314946}
   dayText: {fileID: 1170124689}
   currentDay: 0
