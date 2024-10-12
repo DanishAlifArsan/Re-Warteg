@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class ShopList : UISelection
 {
-     [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private Image recipeImage;
     private List<Material> materials = new List<Material>();
@@ -25,8 +25,14 @@ public class ShopList : UISelection
         if (CurrencyManager.instance.totalCurrency >= item.price)
         {
             CurrencyManager.instance.RemoveCurrency(item.price);
-            Inventory.instance.AddItem(item, 1);
+            if (item.type == DropType.Item)
+            {
+                Inventory.instance.AddItem(item, 1);
+            } else {
+                PlayerHealth.instance.AddCoffee(1);
+            }
             SetOwned(ownedText);
+            
         } else {
             Debug.Log("Not enough money");
         }
@@ -34,6 +40,7 @@ public class ShopList : UISelection
 
     public void SetOwned(TextMeshProUGUI _ownedText) {
         ownedText = _ownedText;
-        ownedText.text = "Owned: " +Inventory.instance.GetItemCount(item);
+        int amount = item.type == DropType.Item? Inventory.instance.GetItemCount(item) : PlayerHealth.instance.coffeeAmount;
+        ownedText.text = "Owned: " + amount;
     }
 }

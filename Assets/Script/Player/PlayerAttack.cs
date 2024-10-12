@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private List<Weapon> weaponList;
-    [SerializeField] private PlayerHealth health;
     public Camera cam;
     private int currentIndex;
     private Weapon currentWeapon;
@@ -26,7 +25,7 @@ public class PlayerAttack : MonoBehaviour
 
         foreach (Weapon item in weaponList)
         {
-            item.Setup(health, this);   
+            item.Setup(this);   
         }
     }
 

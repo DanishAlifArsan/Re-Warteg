@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,15 +8,33 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private Image healthBar;
     [SerializeField] private float maxHealth;
+    [SerializeField] private int startingCoffee;
+    [SerializeField] private TextMeshProUGUI amountText;
     private float currentHealth;
     public int hitRecieved;
     public int numberOfAttack;
     private DropItem prevItem;
+    public int coffeeAmount {get; private set;}
+    public static PlayerHealth instance;
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else if (instance != this)
+            Destroy(this.gameObject);
+    }
 
     // Start is called before the first frame update
     private void Start()
     {
         currentHealth = maxHealth;
+        GameData data = SaveManager.instance.LoadGame();
+        if (data != null)
+        {
+            AddCoffee(SaveManager.instance.coffeeAmount);
+        } else {
+            AddCoffee(startingCoffee);
+        }
     }
 
     // Update is called once per frame
@@ -76,5 +95,10 @@ public class PlayerHealth : MonoBehaviour
             DecreaseHealth(1);
         }
         prevItem = item;
+    }
+
+    public void AddCoffee(int amount) {
+        coffeeAmount += amount;
+        amountText.text = coffeeAmount.ToString();
     }
 }

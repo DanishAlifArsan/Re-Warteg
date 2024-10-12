@@ -1005,7 +1005,7 @@ MonoBehaviour:
   startingDay: 2
   startHour: 12
   endHour: 24
-  cycleRate: 10
+  cycleRate: 100
   timeText: {fileID: 1314946}
   dayText: {fileID: 1170124689}
   currentDay: 0
@@ -1040,6 +1040,7 @@ MonoBehaviour:
   inventoryItem:
     keys: []
     values: 
+  coffeeAmount: 0
 --- !u!1 &52935133
 GameObject:
   m_ObjectHideFlags: 0

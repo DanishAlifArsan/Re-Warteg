@@ -12,12 +12,10 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected ParticleSystem attackEffect;
     protected float cooldownTimer;
     protected bool canAttack;
-    protected PlayerHealth health;
     protected PlayerAttack playerAttack;
-    public virtual void Setup(PlayerHealth _health, PlayerAttack _playerAttack) {
+    public virtual void Setup(PlayerAttack _playerAttack) {
         cooldownTimer = 0;
         canAttack = true;
-        health = _health;
         playerAttack = _playerAttack;
     }
     protected virtual void Update() {

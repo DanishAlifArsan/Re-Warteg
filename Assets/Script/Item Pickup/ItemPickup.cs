@@ -9,7 +9,6 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemName;
     [SerializeField] private Image itemImage;
     [SerializeField] private TextMeshProUGUI itemCount;
-    [SerializeField] private PlayerHealth health;
     private Animator anim;
 
     private void Start() {
@@ -22,6 +21,6 @@ public class ItemPickup : MonoBehaviour
         itemImage.sprite = item.itemImage;
         itemCount.text = "+"+count;
 
-        health.SetPrevItem(item);
+        PlayerHealth.instance.SetPrevItem(item);
     }
 }

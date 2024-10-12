@@ -26,9 +26,11 @@ public class Broom : Weapon
 
                 if (hit.transform.GetComponent<MonsterAI>().Damage(attack))
                 {
-                    health.ResetCounter(); 
+                    // health.ResetCounter(); 
+                    PlayerHealth.instance.ResetCounter(); 
                 } else {
-                    health.SetNumberOfAttack();
+                    // health.SetNumberOfAttack();
+                    PlayerHealth.instance.SetNumberOfAttack();
                 }
             } 
         }

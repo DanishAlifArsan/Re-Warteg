@@ -12,14 +12,12 @@ public class StoneObject : MonoBehaviour
     [SerializeField] private ParticleSystem stoneEffect;
     private float lifeTimeDuration = 0;
     private Transform startPoint;
-    private PlayerHealth health;
     private float attack;
     private bool isActive = false;
 
-    public void Setup(Transform _start, PlayerHealth _health, float _attack)
+    public void Setup(Transform _start, float _attack)
     {
         startPoint = _start;
-        health = _health;
         attack = _attack;
         rb = GetComponent<Rigidbody>();   
         rb.isKinematic = true;
@@ -57,7 +55,7 @@ public class StoneObject : MonoBehaviour
                 item.GetComponent<MonsterAI>().Damage(attack);
             }
         } else {
-            health.DecreaseHealth(1);
+            PlayerHealth.instance.DecreaseHealth(1);
         }
 
         stone.SetActive(false);

@@ -5,38 +5,27 @@ using UnityEngine;
 public class Stone : Weapon
 {
     [SerializeField] private StoneObject[] stoneObject;
-    [SerializeField] private GameObject skillArea;
+    [SerializeField] private SpriteRenderer skillArea;
     private int currentIndex;
 
-    public override void Setup(PlayerHealth _health, PlayerAttack _playerAttack)
+    public override void Setup(PlayerAttack _playerAttack)
     {
-        base.Setup(_health, _playerAttack);
+        base.Setup( _playerAttack);
         foreach (var item in stoneObject)
         {
-            item.Setup(transform, health, attack);
+            item.Setup(transform, attack);
         }
         currentIndex = 0;
     }
 
     protected override void Update() {
         base.Update();
-        // Vector2 mousePosition = playerAttack.playerInput.Player.MousePosition.ReadValue<Vector2>();
-        // Ray ray = playerAttack.cam.ScreenPointToRay(mousePosition);
-        // RaycastHit hit;
-        // Physics.Raycast(ray, out hit);
-
-        // var mousePosition = playerAttack.playerInput.Player.MousePosition.ReadValue<Vector2>();
-        // // hit.z = 10.0;
-        // Vector3 hit = playerAttack.cam.ScreenToWorldPoint(mousePosition);
         Vector3 targetPos = new Vector3( cursorOnTransform.x,  stoneObject[currentIndex].transform.position.y, cursorOnTransform.z );
         stoneObject[currentIndex].transform.LookAt(targetPos);
 
         Vector3 relativePos = cursorOnTransform - skillArea.transform.position;
         Vector3 rotation = Quaternion.LookRotation(relativePos).eulerAngles;
         skillArea.transform.localEulerAngles = new Vector3(-90, 0, rotation.y);
-        
-        // Vector3 areaTargetPos = new Vector3(-90,  skillArea.transform.position.y, cursorOnTransform.z);
-        // skillArea.transform.LookAt(areaTargetPos);
     }
 
     public override void Attack()
@@ -60,13 +49,13 @@ public class Stone : Weapon
     public override void Select()
     {
         base.Select();
-        skillArea.SetActive(true);
+        skillArea.enabled = true;
     }
 
     public override void Deselect()
     {
         base.Deselect();
-        skillArea.SetActive(false);
+        skillArea.enabled = false;
     }
 
     private Vector3 cursorWorldPosOnNCP {

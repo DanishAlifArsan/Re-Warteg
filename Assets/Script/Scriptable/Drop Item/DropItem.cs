@@ -10,4 +10,5 @@ public class DropItem : ScriptableObject
     public Sprite itemImage;
     public string desc;
     public int price;
+    public DropType type;
 }

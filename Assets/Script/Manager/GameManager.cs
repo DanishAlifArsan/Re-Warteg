@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
     private void SaveGame() {
         SaveManager.instance.day = currentDay;
         SaveManager.instance.inventoryItem = Inventory.instance.inventoryItem;
+        SaveManager.instance.coffeeAmount = PlayerHealth.instance.coffeeAmount;
         SaveManager.instance.SaveGame();
     }
 }
