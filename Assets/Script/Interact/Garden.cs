@@ -19,5 +19,7 @@ public class Garden : MonoBehaviour, Interactable
         Inventory.instance.AddItem(item[randItem], randAmount);
         GardenManager.instance.Pickup(item[randItem], randAmount);
         TimeManager.instance.CountDungeonTime(30);
+
+        PlayerHealth.instance.SetPrevItem(item[randItem]);
     }
 }

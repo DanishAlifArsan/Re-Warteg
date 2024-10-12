@@ -72,7 +72,19 @@ public class MonsterAI : MonoBehaviour, StateUser
     }
 
     public void Death() { // panggil saat mati
-        Inventory.instance.AddItem(dropItem, dropAmount);
+        switch (dropItem.type)
+        {
+            case DropType.Item:
+                Inventory.instance.AddItem(dropItem, dropAmount);
+                break;
+            case DropType.Money:
+                CurrencyManager.instance.AddCurrency(dropAmount);
+                break;
+            case DropType.Coffee:
+                PlayerHealth.instance.AddCoffee(1);
+                break;
+        }
+
         GardenManager.instance.Pickup(dropItem, dropAmount);
         pool.Despawn(this);
     }

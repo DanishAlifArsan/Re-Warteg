@@ -5272,7 +5272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingDay: 2
   startHour: 18
-  endHour: 19
+  endHour: 24
   cycleRate: 10
   timeText: {fileID: 1314946}
   dayText: {fileID: 1170124689}
@@ -6513,7 +6513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4346424, y: 0.3376893, z: -0.18003473, w: 0.8152543}
+  m_LocalRotation: {x: 0.43464243, y: 0.33768928, z: -0.18003473, w: 0.8152543}
   m_LocalPosition: {x: 70.25568, y: 13.376094, z: 11.512983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -53070,8 +53070,8 @@ MonoBehaviour:
   healthBar: {fileID: 1966627223}
   fullHealthBar: {fileID: 738813620}
   maxHealth: 3
-  dropItem: {fileID: 11400000, guid: 6feebb0d5c39a1d4fbc69acd8c7b1aed, type: 2}
-  dropAmount: 1
+  dropItem: {fileID: 11400000, guid: fca0febf14594cb4bbfaa77727a441e7, type: 2}
+  dropAmount: 100
   attackPoint: {fileID: 1269523554}
   attackRange: 0.5
   idleDuration: 0
@@ -60891,7 +60891,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887114714}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4346424, y: 0.3376893, z: -0.18003473, w: 0.8152543}
+  m_LocalRotation: {x: 0.43464243, y: 0.33768928, z: -0.18003473, w: 0.8152543}
   m_LocalPosition: {x: 22.958931, y: 15.6849165, z: 11.498931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

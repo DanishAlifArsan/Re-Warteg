@@ -20,7 +20,5 @@ public class ItemPickup : MonoBehaviour
         itemName.text = item.itemName;
         itemImage.sprite = item.itemImage;
         itemCount.text = "+"+count;
-
-        PlayerHealth.instance.SetPrevItem(item);
     }
 }
