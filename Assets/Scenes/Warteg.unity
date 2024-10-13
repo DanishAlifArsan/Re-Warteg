@@ -1003,8 +1003,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingDay: 2
-  startHour: 12
-  endHour: 24
+  startHour: 6
+  endHour: 12
   cycleRate: 100
   timeText: {fileID: 1314946}
   dayText: {fileID: 1170124689}
@@ -13668,6 +13668,7 @@ GameObject:
   - component: {fileID: 606406201}
   - component: {fileID: 606406204}
   - component: {fileID: 606406210}
+  - component: {fileID: 606406212}
   - component: {fileID: 606406205}
   - component: {fileID: 606406211}
   m_Layer: 9
@@ -13779,6 +13780,24 @@ CapsuleCollider:
   m_Height: 1.3606249
   m_Direction: 1
   m_Center: {x: -0.016453981, y: 0.62529546, z: 0}
+--- !u!114 &606406212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 606406197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f15f1c5140eac84781d30b62b56f841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
+  maxHealth: 10
+  startingCoffee: 2
+  amountText: {fileID: 0}
+  hitRecieved: 0
+  numberOfAttack: 0
 --- !u!1 &616874915
 GameObject:
   m_ObjectHideFlags: 0

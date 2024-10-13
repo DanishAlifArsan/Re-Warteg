@@ -99,6 +99,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void AddCoffee(int amount) {
         coffeeAmount += amount;
-        amountText.text = coffeeAmount.ToString();
+        if (GameManager.instance.currentSession == GameSession.Dungeon) amountText.text = coffeeAmount.ToString();
     }
 }

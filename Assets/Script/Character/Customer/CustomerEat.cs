@@ -9,6 +9,8 @@ public class CustomerEat : IState
         customer.agent.enabled = false;
         customer.transform.position = customer.table.chair.position;
         // customer.transform.LookAt(customer.table.desk);
+        Vector3 targetPos = new Vector3( customer.table.desk.position.x,  customer.transform.position.y, customer.table.desk.position.z );
+        customer.transform.LookAt(targetPos);
         customer.isEating = true;   
         customer.plate.transform.parent = customer.table.desk;
         customer.plate.table = customer.table;

@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
             //tambahkan perhitungan pajak
             //gameover kalau uang kurang dari pajak
             SaveManager.instance.NewGame();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // ganti kalau game over load ke home. kalau gak game over ke session dungeon
         } else {
             //lanjut hari
             SaveManager.instance.totalCurrency = CurrencyManager.instance.totalCurrency;
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
     private void SaveGame() {
         SaveManager.instance.day = currentDay;
         SaveManager.instance.inventoryItem = Inventory.instance.inventoryItem;
-        SaveManager.instance.coffeeAmount = PlayerHealth.instance.coffeeAmount;
+        SaveManager.instance.coffeeAmount = PlayerHealth.instance.coffeeAmount; // ini gak perlu kalau misal kopi juga masuk ke inventory
         SaveManager.instance.SaveGame();
     }
 }

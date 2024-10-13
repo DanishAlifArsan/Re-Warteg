@@ -40,7 +40,7 @@ public class CustomerManager : MonoBehaviour
 
     private void Update() {
         // spawnTimer -= Time.deltaTime;   // pakai ini kalau mau pelanggan langsung spawn 
-        if (MenuManager.instance.BuyCondition())
+        if (MenuManager.instance.BuyCondition() && !TimeManager.instance.EndWarteg())
         {
             spawnTimer -= Time.deltaTime; // pakai ini kalau mau pelanggan nunggu dulu sebelum spawn
             if (spawnTimer <= 0 && tableList.Any(s => !s.isOccupied) && customerQueue.Count < customerList.Count && currentCustomer == null)
@@ -137,5 +137,9 @@ public class CustomerManager : MonoBehaviour
     public void DespawnCustomer(CustomerAI customer) {
        customer.gameObject.SetActive(false);
        customerQueue.Remove(customer);
+    }
+
+    public bool ActiveCustomer() {
+        return customerQueue.Count > 0;
     }
 }
