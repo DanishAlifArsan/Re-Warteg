@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] private int startingDay;
+    public int startingDay;
     [SerializeField] private int startHour;
     [SerializeField] private int endHour;
     [SerializeField] private float cycleRate;

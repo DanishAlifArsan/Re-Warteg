@@ -57,4 +57,9 @@ public class CurrencyManager : MonoBehaviour
     public bool CanBuy(int cost) {
         return totalCurrency - cost >= 0;
     }
+
+    public bool CountRemainMoney(int value) {
+        totalCurrency -= value;
+        return totalCurrency >= 0;
+    }
 }

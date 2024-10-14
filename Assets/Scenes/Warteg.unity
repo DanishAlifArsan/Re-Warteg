@@ -1023,6 +1023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSession: 2
   player: {fileID: 606406205}
+  setoran: 5000
 --- !u!114 &51615208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,7 +1041,6 @@ MonoBehaviour:
   inventoryItem:
     keys: []
     values: 
-  coffeeAmount: 0
 --- !u!1 &52935133
 GameObject:
   m_ObjectHideFlags: 0

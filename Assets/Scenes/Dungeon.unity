@@ -5291,6 +5291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSession: 1
   player: {fileID: 606406205}
+  setoran: 5000
 --- !u!114 &51615207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5329,7 +5330,6 @@ MonoBehaviour:
   inventoryItem:
     keys: []
     values: 
-  coffeeAmount: 0
 --- !u!1 &64936861
 GameObject:
   m_ObjectHideFlags: 0
@@ -6513,7 +6513,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4346424, y: 0.3376893, z: -0.18003473, w: 0.8152543}
+  m_LocalRotation: {x: 0.43464243, y: 0.33768928, z: -0.18003473, w: 0.8152543}
   m_LocalPosition: {x: 70.25568, y: 13.376094, z: 11.512983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -60892,7 +60892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887114714}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.4346424, y: 0.3376893, z: -0.18003473, w: 0.8152543}
+  m_LocalRotation: {x: 0.43464243, y: 0.33768928, z: -0.18003473, w: 0.8152543}
   m_LocalPosition: {x: 22.958931, y: 15.6849165, z: 11.498931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

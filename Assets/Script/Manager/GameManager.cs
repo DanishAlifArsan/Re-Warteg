@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameSession currentSession;
     [SerializeField] private NavMeshAgent player;
+    [SerializeField] private int setoran;
     private void Awake()
     {
         if (instance == null)
@@ -48,15 +49,22 @@ public class GameManager : MonoBehaviour
     private int currentDay;
 
     public void EndSession() {      // pindah ke result
-        if (TimeManager.instance.EndGame())
+        if (TimeManager.instance.EndGame() && currentSession == GameSession.Warteg)
         {
             //tambahkan perhitungan pajak
             //gameover kalau uang kurang dari pajak
-            SaveManager.instance.NewGame();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); // ganti kalau game over load ke home. kalau gak game over ke session dungeon
+            if (CurrencyManager.instance.CountRemainMoney(setoran)) // kalau masih bisa bayar pajak, lanjut hari
+            {
+                currentDay = TimeManager.instance.startingDay;
+                SaveGame();
+                SceneManager.LoadScene(0);
+            } else {
+                SaveManager.instance.NewGame();
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name); // ganti kalau game over load ke home. kalau gak game over ke session dungeon
+            }
         } else {
             //lanjut hari
-            SaveManager.instance.totalCurrency = CurrencyManager.instance.totalCurrency;
+            // SaveManager.instance.totalCurrency = CurrencyManager.instance.totalCurrency;
             switch (currentSession)
             {
                 case GameSession.Dungeon:
@@ -76,6 +84,7 @@ public class GameManager : MonoBehaviour
     private void SaveGame() {
         SaveManager.instance.day = currentDay;
         SaveManager.instance.inventoryItem = Inventory.instance.inventoryItem;
+        SaveManager.instance.totalCurrency = CurrencyManager.instance.totalCurrency;
         // SaveManager.instance.coffeeAmount = PlayerHealth.instance.coffeeAmount; // ini gak perlu kalau misal kopi juga masuk ke inventory
         SaveManager.instance.SaveGame();
     }
