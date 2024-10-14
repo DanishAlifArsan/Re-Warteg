@@ -47,6 +47,7 @@ public class GardenManager : MonoBehaviour
     }
 
     public void Pickup(DropItem item, int count) {
+        TimeManager.instance.CountDungeonTime(30);
         itemPickup.Pickup(item, count);
     }
 }

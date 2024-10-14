@@ -8,7 +8,7 @@ public class SaveManager : MonoBehaviour
     public int totalCurrency;
     public int day;
     public SerializableDictionary<DropItem, int> inventoryItem = new SerializableDictionary<DropItem, int>();
-    public int coffeeAmount;
+    // public int coffeeAmount;
     public static SaveManager instance;
 
     private void Awake()
@@ -35,7 +35,7 @@ public class SaveManager : MonoBehaviour
             totalCurrency = data.totalCurrency;
             day = data.day;
             inventoryItem = data.inventoryItem;
-            coffeeAmount = data.coffeeAmount;
+            // coffeeAmount = data.coffeeAmount;
         }   
 
         return data;

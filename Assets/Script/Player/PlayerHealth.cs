@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth;
     [SerializeField] private int startingCoffee;
     [SerializeField] private TextMeshProUGUI amountText;
+    [SerializeField] private DropItem coffee;
     private float currentHealth;
     public int hitRecieved;
     public int numberOfAttack;
@@ -31,7 +32,9 @@ public class PlayerHealth : MonoBehaviour
         GameData data = SaveManager.instance.LoadGame();
         if (data != null)
         {
-            AddCoffee(SaveManager.instance.coffeeAmount);
+            int amount = Inventory.instance.GetItemCount(coffee);
+            // AddCoffee(SaveManager.instance.coffeeAmount);
+            AddCoffeeFromSave(amount);
         } else {
             AddCoffee(startingCoffee);
         }
@@ -98,6 +101,20 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void AddCoffee(int amount) {
+        // coffeeAmount += amount;
+        if (amount > 0)
+        {
+            Inventory.instance.AddItem(coffee, amount);    
+        } else {
+            Inventory.instance.RemoveItem(coffee, Mathf.Abs(amount));
+        }
+
+        AddCoffeeFromSave(amount);
+
+        // if (GameManager.instance.currentSession == GameSession.Dungeon) amountText.text = coffeeAmount.ToString();
+    }
+
+    private void AddCoffeeFromSave(int amount) {
         coffeeAmount += amount;
         if (GameManager.instance.currentSession == GameSession.Dungeon) amountText.text = coffeeAmount.ToString();
     }

@@ -81,7 +81,7 @@ public class MonsterAI : MonoBehaviour, StateUser
                 CurrencyManager.instance.AddCurrency(dropAmount);
                 break;
             case DropType.Coffee:
-                PlayerHealth.instance.AddCoffee(1);
+                PlayerHealth.instance.AddCoffee(dropAmount);
                 break;
         }
 

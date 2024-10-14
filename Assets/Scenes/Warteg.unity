@@ -13796,6 +13796,7 @@ MonoBehaviour:
   maxHealth: 10
   startingCoffee: 2
   amountText: {fileID: 0}
+  coffee: {fileID: 11400000, guid: 414bc37a66a9e5e49a63619c9c7e9341, type: 2}
   hitRecieved: 0
   numberOfAttack: 0
 --- !u!1 &616874915
