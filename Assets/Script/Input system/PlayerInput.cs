@@ -88,7 +88,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""8e7ebbe8-cb6d-4feb-b602-0e86297b0f9c"",
-                    ""path"": ""<Pointer>/press"",
+                    ""path"": ""<VirtualMouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -121,7 +121,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""631ab5af-dc68-4f81-9ee2-c6d0c3108a1b"",
-                    ""path"": ""<Pointer>/position"",
+                    ""path"": ""<VirtualMouse>/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
