@@ -34720,6 +34720,7 @@ GameObject:
   - component: {fileID: 1437936217}
   - component: {fileID: 1437936219}
   - component: {fileID: 1437936218}
+  - component: {fileID: 1437936220}
   m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -34766,7 +34767,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: F
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d9b0bdd866eb0b48aa2f39a4c79cbae, type: 2}
   m_sharedMaterial: {fileID: 4239329391144954313, guid: 5d9b0bdd866eb0b48aa2f39a4c79cbae,
@@ -34833,7 +34834,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1437936219
@@ -34844,6 +34845,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437936216}
   m_CullTransparentMesh: 1
+--- !u!114 &1437936220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437936216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 227d4d1d34e1ac44d94edf2405d0ca6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardText: F
+  gamepadText: B
 --- !u!1 &1441725375
 GameObject:
   m_ObjectHideFlags: 0
