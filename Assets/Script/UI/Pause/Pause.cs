@@ -38,10 +38,10 @@ public class Pause : MonoBehaviour
 
     public void Restart() {
         Resume();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Exit() {
-        Debug.Log("Quit Game");
+        GameManager.instance.LoadScene(0);
     }
 }

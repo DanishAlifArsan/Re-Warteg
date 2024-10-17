@@ -56,8 +56,14 @@ public class InputManager : MonoBehaviour
     }
 
     private void Start() {
-        playerInput.Player.Enable();
-        playerInput.UI.Disable();
+        if (GameManager.instance.currentSession == GameSession.Home)
+        {
+           playerInput.Player.Disable();
+            playerInput.UI.Enable(); 
+        } else {
+            playerInput.Player.Enable();
+            playerInput.UI.Disable();
+        }
     }
 
     private void OnEnable() {

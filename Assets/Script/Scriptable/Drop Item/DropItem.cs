@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
 [CreateAssetMenu(menuName = "Scriptable/DropItem")]
 public class DropItem : ScriptableObject
 {

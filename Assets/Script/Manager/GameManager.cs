@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameSession currentSession;
     [SerializeField] private NavMeshAgent player;
     [SerializeField] private int setoran;
+    [SerializeField] private GameObject loadingScene;
     private void Awake()
     {
         if (instance == null)
@@ -22,6 +23,11 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         PlayerInput playerInput = InputManager.instance.playerInput;
+
+        if (currentSession == GameSession.Home)
+        {
+            return;
+        }
 
         player.enabled = false;
 
@@ -45,6 +51,21 @@ public class GameManager : MonoBehaviour
     {
         
     }
+    public void LoadScene(int sceneId) {
+        // PlaySound();
+        StartCoroutine(LoadSceneAsync(sceneId));
+    }
+
+    private IEnumerator LoadSceneAsync(int sceneId) {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
+
+        loadingScene.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            yield return null;
+        }
+    }
 
     private int currentDay;
 
@@ -57,10 +78,10 @@ public class GameManager : MonoBehaviour
             {
                 currentDay = TimeManager.instance.startingDay;
                 SaveGame();
-                SceneManager.LoadScene(0);
+                LoadScene(1);
             } else {
                 SaveManager.instance.NewGame();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name); // ganti kalau game over load ke home. kalau gak game over ke session dungeon
+                LoadScene(0);
             }
         } else {
             //lanjut hari
@@ -70,12 +91,12 @@ public class GameManager : MonoBehaviour
                 case GameSession.Dungeon:
                     currentDay = TimeManager.instance.currentDay;
                     SaveGame();
-                    SceneManager.LoadScene(1);
+                    LoadScene(2);
                     break;
                 case GameSession.Warteg:
                     currentDay = TimeManager.instance.currentDay-1;
                     SaveGame();
-                    SceneManager.LoadScene(0);
+                    LoadScene(1);
                     break;
             }
         }
