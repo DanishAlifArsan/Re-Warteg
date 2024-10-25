@@ -59,7 +59,10 @@ public class InputManager : MonoBehaviour
         Cursor.visible = activeGameDevice == GameDevice.KeyboardMouse;
         Cursor.lockState = Cursor.visible? CursorLockMode.None : CursorLockMode.Confined;
 
-        virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
+        if (virtualMouseUI != null)
+        {
+            virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
+        }
         // try{
         //     virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
         // }

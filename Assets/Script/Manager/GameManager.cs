@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         SaveManager.instance.day = currentDay;
         SaveManager.instance.inventoryItem = Inventory.instance.inventoryItem;
         SaveManager.instance.totalCurrency = CurrencyManager.instance.totalCurrency;
-        // SaveManager.instance.coffeeAmount = PlayerHealth.instance.coffeeAmount; // ini gak perlu kalau misal kopi juga masuk ke inventory
+        SaveManager.instance.isWarteg = currentSession == GameSession.Dungeon;
         SaveManager.instance.SaveGame();
     }
 }

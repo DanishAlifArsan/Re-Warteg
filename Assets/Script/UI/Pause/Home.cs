@@ -5,10 +5,12 @@ using UnityEngine;
 public class Home : MonoBehaviour
 {
     [SerializeField] private GameObject button;
+    GameData data;
     // Start is called before the first frame update
     private void Start()
     {
-        GameData data = SaveManager.instance.LoadGame();
+        Time.timeScale = 1;
+        data = SaveManager.instance.LoadGame();
         if (data == null)
         {
             GameManager.instance.LoadScene(1);  // pindah ke scene tutorial
@@ -17,7 +19,12 @@ public class Home : MonoBehaviour
     }
 
     public void Play() {
-        GameManager.instance.LoadScene(1);
+        if (data.isWarteg)
+        {
+            GameManager.instance.LoadScene(2);
+        } else {
+            GameManager.instance.LoadScene(1);
+        }
     }
 
     public void Quit() {
