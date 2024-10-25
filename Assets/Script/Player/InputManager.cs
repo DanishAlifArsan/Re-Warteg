@@ -3,13 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem.Users;
 
 public class InputManager : MonoBehaviour
 {
+    [SerializeField] private RectTransform virtualMouseUI;
     public static InputManager instance;
     public PlayerInput playerInput;
     public GameDevice activeGameDevice;
-    public Action OnGameDeviceChanged;
+    public InputUser user;
+
     private void Awake()
     {
         if (instance == null)
@@ -17,31 +21,35 @@ public class InputManager : MonoBehaviour
         else if (instance != this)
             Destroy(this.gameObject);
         playerInput = new PlayerInput();
-
-        InputSystem.onActionChange += OnInputActionChange;
+        InputSystem.onEvent += OnDeviceChange;
     }
 
-    private void OnInputActionChange(object arg1, InputActionChange change)
-    {
-        if (change == InputActionChange.ActionPerformed && arg1 is InputAction)
+    private void OnDestroy() {
+        InputSystem.onEvent -= OnDeviceChange;
+    }
+    InputDevice _lastDevice;
+    private void OnDeviceChange(InputEventPtr eventPtr, InputDevice device)  {
+        if (_lastDevice == device) return;
+
+        if (eventPtr.type != StateEvent.Type) return;
+
+        bool validPress = false;
+        foreach (InputControl control in eventPtr.EnumerateChangedControls(device, 0.01F))
         {
-            InputAction inputAction = arg1 as InputAction;
-            if (inputAction.activeControl.device.displayName == "VirtualMouse")
-            {
-                return;
-            }
-            if (inputAction.activeControl.device is Gamepad)
-            {
-                if (activeGameDevice != GameDevice.Gamepad)
-                {
-                    ChangeActiveGameDevice(GameDevice.Gamepad);
-                }
-            } else {
-                if (activeGameDevice != GameDevice.KeyboardMouse)
-                {
-                    ChangeActiveGameDevice(GameDevice.KeyboardMouse);
-                }
-            }
+            validPress = true;
+            break;
+        }
+        if (validPress is false) return;
+
+        if (device is Keyboard || device is Mouse)
+        {
+            if (activeGameDevice == GameDevice.KeyboardMouse) return;
+            ChangeActiveGameDevice(GameDevice.KeyboardMouse);
+        }
+        else if (device is Gamepad)
+        {
+            if (activeGameDevice == GameDevice.Gamepad) return;
+            ChangeActiveGameDevice(GameDevice.Gamepad);
         }
     }
 
@@ -49,10 +57,16 @@ public class InputManager : MonoBehaviour
         activeGameDevice = gameDevice;
 
         Cursor.visible = activeGameDevice == GameDevice.KeyboardMouse;
+        Cursor.lockState = Cursor.visible? CursorLockMode.None : CursorLockMode.Confined;
 
-        Debug.Log(activeGameDevice);
-
-        OnGameDeviceChanged?.Invoke();
+        virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
+        // try{
+        //     virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
+        // }
+        // catch (System.Exception)
+        // {
+        //     Debug.Log("Error di sini");
+        // }
     }
 
     private void Start() {
@@ -80,3 +94,4 @@ public enum GameDevice
     KeyboardMouse,
     Gamepad,
 }
+

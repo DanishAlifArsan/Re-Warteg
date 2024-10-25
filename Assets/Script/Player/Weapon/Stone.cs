@@ -60,9 +60,11 @@ public class Stone : Weapon
 
     private Vector3 cursorWorldPosOnNCP {
         get {
+            Vector2 mousePosition = InputManager.instance.activeGameDevice == GameDevice.KeyboardMouse? 
+            playerAttack.playerInput.Player.MousePosition.ReadValue<Vector2>() : playerAttack.playerInput.Player.VirtualMouse.ReadValue<Vector2>();
             return playerAttack.cam.ScreenToWorldPoint(
-                new Vector3(playerAttack.playerInput.Player.MousePosition.ReadValue<Vector2>().x, 
-                playerAttack.playerInput.Player.MousePosition.ReadValue<Vector2>().y, 
+                new Vector3(mousePosition.x, 
+                mousePosition.y, 
                 playerAttack.cam.nearClipPlane));
         }
     }

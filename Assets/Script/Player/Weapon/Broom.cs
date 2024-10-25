@@ -9,7 +9,8 @@ public class Broom : Weapon
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange;
     public override void Attack() {
-        Vector2 mousePosition = playerAttack.playerInput.Player.MousePosition.ReadValue<Vector2>();
+        Vector2 mousePosition = InputManager.instance.activeGameDevice == GameDevice.KeyboardMouse? 
+            playerAttack.playerInput.Player.MousePosition.ReadValue<Vector2>() : playerAttack.playerInput.Player.VirtualMouse.ReadValue<Vector2>();
         Ray ray = playerAttack.cam.ScreenPointToRay(mousePosition);
         RaycastHit hit;
         if (canAttack && Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("enemy")))

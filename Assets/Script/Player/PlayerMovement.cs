@@ -47,7 +47,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnMouseClick(InputAction.CallbackContext context)
     {
-        Vector2 mousePosition = playerInput.Player.MousePosition.ReadValue<Vector2>();
+        Vector2 mousePosition = InputManager.instance.activeGameDevice == GameDevice.KeyboardMouse? 
+            playerInput.Player.MousePosition.ReadValue<Vector2>() : playerInput.Player.VirtualMouse.ReadValue<Vector2>();
         Ray ray = cam.ScreenPointToRay(mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))

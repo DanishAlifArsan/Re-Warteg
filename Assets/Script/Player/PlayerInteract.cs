@@ -29,8 +29,12 @@ public class PlayerInteract : MonoBehaviour
 
     private void Interact(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        agent.SetDestination(agent.transform.position);
-        CheckItem()?.GetComponent<Interactable>().OnInteract();
+        Collider item = CheckItem();
+        if (item!= null)
+        {
+            agent.SetDestination(agent.transform.position);
+            item.GetComponent<Interactable>().OnInteract();
+        }
     }
 
     private void ShowIndicator(bool status, string name) {
@@ -54,8 +58,8 @@ public class PlayerInteract : MonoBehaviour
         return selectedItem;
     }
 
-    // private void OnDrawGizmosSelected() {
-    //     Gizmos.color = Color.red;
-    //     Gizmos.DrawWireSphere(interactPoint.position, range);
-    // }
+    private void OnDrawGizmosSelected() {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(interactPoint.position, range);
+    }
 }

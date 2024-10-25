@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db952a7c62b6e14c8a9a94bf9c32c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  virtualMouseUI: {fileID: 559629262}
   activeGameDevice: 0
 --- !u!4 &51615198
 Transform:
@@ -1006,7 +1007,7 @@ MonoBehaviour:
   startingDay: 2
   startHour: 6
   endHour: 12
-  cycleRate: 10
+  cycleRate: 1
   timeText: {fileID: 1314946}
   dayText: {fileID: 1170124689}
   currentDay: 0
@@ -12116,7 +12117,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!224 &486959701
 RectTransform:
@@ -13178,6 +13179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 486959701}
+  virtualMouse: {fileID: 1022602624}
 --- !u!1 &569758549
 GameObject:
   m_ObjectHideFlags: 0

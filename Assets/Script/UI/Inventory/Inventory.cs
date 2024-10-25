@@ -44,8 +44,8 @@ public class Inventory : MonoBehaviour
 
     private void CloseInventory(UnityEngine.InputSystem.InputAction.CallbackContext context) {
         inventoryUI.SetActive(false);
-        playerInput.UI.Disable();
         playerInput.Player.Enable();
+        playerInput.UI.Disable();
         Time.timeScale = 1;
         playerInput.Player.Inventory.performed += OpenInventory;
         playerInput.UI.Cancel.performed -= CloseInventory;

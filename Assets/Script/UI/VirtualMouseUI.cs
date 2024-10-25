@@ -8,22 +8,15 @@ using UnityEngine.InputSystem.UI;
 public class VirtualMouseUI : MonoBehaviour
 {
     [SerializeField] private RectTransform canvas;
+    [SerializeField] private RectTransform virtualMouse;
     private VirtualMouseInput virtualMouseInput;
     private void Awake() {
         virtualMouseInput = GetComponent<VirtualMouseInput>();  
     }
 
-    private void Start() {
-        InputManager.instance.OnGameDeviceChanged += UpdateVisibility;
-    }
-
-    private void UpdateVisibility()
-    {
-        gameObject.SetActive(InputManager.instance.activeGameDevice == GameDevice.Gamepad);
-    }
-
     private void Update() {
-        transform.localScale = Vector3.one * (1 / canvas.localScale.x);
+        // transform.localScale = Vector3.one * (1 / canvas.localScale.x);
+        virtualMouse.transform.localScale = Vector3.one * (1 / canvas.localScale.x);
         transform.SetAsLastSibling();
     }
 
