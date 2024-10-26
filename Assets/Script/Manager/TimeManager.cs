@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DialogueEditor;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private float cycleRate;
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField] private NPCConversation dungeonConversation;
     public int currentDay;
     private int hours;
     private float minutes;
@@ -89,7 +91,12 @@ public class TimeManager : MonoBehaviour
         if (EndDungeon())
         {
             // Setup();
-            GameManager.instance.EndSession();
+            // GameManager.instance.EndSession();
+            PlayerInput playerInput = InputManager.instance.playerInput;
+            playerInput.Player.Disable();
+            playerInput.Dungeon.Disable();
+            playerInput.UI.Enable();
+            ConversationManager.Instance.StartConversation(dungeonConversation);
         }
     }
 

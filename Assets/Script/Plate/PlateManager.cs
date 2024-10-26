@@ -6,7 +6,6 @@ public class PlateManager : MonoBehaviour
 {
     [SerializeField] List<Plate> listOfPlates;
     [SerializeField] Transform platePos;
-    [SerializeField] List<Transform> randPlatePos;
     private List<Plate> cleanPlate = new List<Plate>();
     public List<Plate> dirtyPlate = new List<Plate>();
     public static PlateManager instance;
