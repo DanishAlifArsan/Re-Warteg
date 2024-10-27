@@ -7,17 +7,15 @@ using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
-    // [SerializeField] private NPCConversation conversation;
-    [SerializeField] private UnityEvent OnDialogueStart;
+    // [SerializeField] private GameObject skipButton;
+    // [SerializeField] private UnityEvent OnDialogueStart;
     [SerializeField] private UnityEvent OnDialogueEnd;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        // ConversationManager.Instance.StartConversation(conversation);
         ConversationManager.OnConversationStarted += StartDialogue;
         ConversationManager.OnConversationEnded += EndDialogue;
-        
-        // InputManager.instance.playerInput.UI.Apply.performed += EndConversation;
     }
 
     private void EndConversation(UnityEngine.InputSystem.InputAction.CallbackContext context)   // trigger ketika ada input buat skip dialog
@@ -30,10 +28,15 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void StartDialogue() {
-        OnDialogueStart?.Invoke();
+        // OnDialogueStart?.Invoke();
+        // skipButton.SetActive(true);
+        InputManager.instance.playerInput.UI.Apply.performed += EndConversation;
+
     }
 
     private void EndDialogue() {    // trigger ketika dialog selesai
+        // skipButton.SetActive(false);
+        InputManager.instance.playerInput.UI.Apply.performed -= EndConversation;
         OnDialogueEnd?.Invoke();
     }
 }
