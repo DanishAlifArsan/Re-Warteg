@@ -21,7 +21,9 @@ public class InputManager : MonoBehaviour
         else if (instance != this)
             Destroy(this.gameObject);
         playerInput = new PlayerInput();
-        InputSystem.onEvent += OnDeviceChange;
+        
+        // Debug.Log(activeGameDevice);    
+        // InputSystem.onEvent += OnDeviceChange;
     }
 
     private void OnDestroy() {
@@ -55,6 +57,7 @@ public class InputManager : MonoBehaviour
 
     private void ChangeActiveGameDevice(GameDevice gameDevice) {
         activeGameDevice = gameDevice;
+        Debug.Log(activeGameDevice);
 
         Cursor.visible = activeGameDevice == GameDevice.KeyboardMouse;
         Cursor.lockState = Cursor.visible? CursorLockMode.None : CursorLockMode.Confined;
@@ -63,6 +66,8 @@ public class InputManager : MonoBehaviour
         {
             virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
         }
+
+        GameDeviceManager.instance.activeGameDevice = activeGameDevice;
         // try{
         //     virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
         // }
@@ -73,6 +78,8 @@ public class InputManager : MonoBehaviour
     }
 
     private void Start() {
+        ChangeActiveGameDevice(GameDeviceManager.instance.activeGameDevice);  // setting supaya gamedevice sama seperti gamedevice yang terakhir kali aktif
+        InputSystem.onEvent += OnDeviceChange;
         if (GameManager.instance.currentSession == GameSession.Home)
         {
            playerInput.Player.Disable();
@@ -92,9 +99,9 @@ public class InputManager : MonoBehaviour
     }
 }
 
-public enum GameDevice
-{
-    KeyboardMouse,
-    Gamepad,
-}
+// public enum GameDevice
+// {
+//     KeyboardMouse,
+//     Gamepad,
+// }
 

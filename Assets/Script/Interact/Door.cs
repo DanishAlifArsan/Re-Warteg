@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Door : MonoBehaviour, Interactable
 {
-
+    [SerializeField] private ConfirmMenu confirmDialogue;
     public void OnInteract()
     {
-        GameManager.instance.EndSession();
+        confirmDialogue.OnConfirm += EndSession;
+        confirmDialogue.gameObject.SetActive(true);
     }
 
     public string FlavorText()
@@ -18,5 +19,9 @@ public class Door : MonoBehaviour, Interactable
         }   else {
             return "Leave";
         }
+    }
+
+    private void EndSession() {
+        GameManager.instance.EndSession();
     }
 }

@@ -53,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
+            Debug.Log(hit.point + " "+  mousePosition);
             agent.SetDestination(hit.point);
         }
 

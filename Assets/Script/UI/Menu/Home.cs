@@ -18,6 +18,11 @@ public class Home : MonoBehaviour
         button.SetActive(true);
     }
 
+    public void NewGame() {
+        SaveManager.instance.NewGame();
+        GameManager.instance.LoadScene(1);  // pindah ke scene tutorial
+    }
+
     public void Play() {
         if (data.isWarteg)
         {
