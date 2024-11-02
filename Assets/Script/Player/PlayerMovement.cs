@@ -75,4 +75,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("walk", false);
         }
     }
+
+    private void OnDestroy() {
+        playerInput.Player.MouseClick.performed -= OnMouseClick;
+        playerInput.Kitchen.HotkeyKitchen.performed -= ToKitchen;
+        playerInput.Kitchen.HotkeyDisplay.performed -= ToDisplay;
+        playerInput.Kitchen.HotkeyClean.performed -= ToClean;
+    }
 }

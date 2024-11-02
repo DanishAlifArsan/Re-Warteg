@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private NavMeshAgent player;
     [SerializeField] private int setoran;
     [SerializeField] private GameObject loadingScene;
+    [SerializeField] private Result resultScene;
     private void Awake()
     {
         if (instance == null)
@@ -68,20 +69,21 @@ public class GameManager : MonoBehaviour
     }
 
     private int currentDay;
+    private bool resetDay;
 
     public void EndSession() {      // pindah ke result
+        resultScene?.gameObject.SetActive(true);
         if (TimeManager.instance.EndGame() && currentSession == GameSession.Warteg)
         {
             //tambahkan perhitungan pajak
             //gameover kalau uang kurang dari pajak
             if (CurrencyManager.instance.CountRemainMoney(setoran)) // kalau masih bisa bayar pajak, lanjut hari
             {
-                currentDay = TimeManager.instance.startingDay;
+                resetDay = true;
+                resultScene.OnContinue += NextDay;
                 SaveGame();
-                LoadScene(1);
             } else {
-                SaveManager.instance.NewGame();
-                LoadScene(0);
+                resultScene.OnContinue += GameOver;
             }
         } else {
             //lanjut hari
@@ -94,9 +96,9 @@ public class GameManager : MonoBehaviour
                     LoadScene(2);
                     break;
                 case GameSession.Warteg:
-                    currentDay = TimeManager.instance.currentDay-1;
+                    resetDay = false;
+                    resultScene.OnContinue += NextDay;
                     SaveGame();
-                    LoadScene(1);
                     break;
             }
         }
@@ -108,6 +110,21 @@ public class GameManager : MonoBehaviour
         SaveManager.instance.totalCurrency = CurrencyManager.instance.totalCurrency;
         SaveManager.instance.isWarteg = currentSession == GameSession.Dungeon;
         SaveManager.instance.SaveGame();
+    }
+
+    private void NextDay() {
+        LoadScene(1);
+        if (resetDay)
+        {
+            currentDay = TimeManager.instance.startingDay;
+        } else {
+            currentDay = TimeManager.instance.currentDay-1;
+        }
+    }
+
+    private void GameOver() {
+        SaveManager.instance.NewGame();
+        LoadScene(0);
     }
 }
 

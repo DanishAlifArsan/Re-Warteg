@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class ConfirmMenu : MonoBehaviour
+public class Result : MonoBehaviour
 {
-    public Action OnConfirm;
     private PlayerInput playerInput;
+    public Action OnContinue;
     private void OnEnable() {
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.Disable();
@@ -15,18 +14,8 @@ public class ConfirmMenu : MonoBehaviour
         playerInput.Dungeon.Disable();
         playerInput.UI.Enable();
         Time.timeScale = 0;
-        playerInput.UI.Apply.performed += Apply;
-        playerInput.UI.Cancel.performed += Cancel;
-    }
 
-    private void Apply(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        OnConfirm?.Invoke();
-    }
-
-    protected virtual void Cancel(UnityEngine.InputSystem.InputAction.CallbackContext context)
-    {
-        gameObject.SetActive(false);
+        //tambahkan setup teks
     }
 
     private void OnDisable() {
@@ -35,8 +24,9 @@ public class ConfirmMenu : MonoBehaviour
         playerInput.Dungeon.Enable();
         playerInput.UI.Disable();
         Time.timeScale = 1;
-        playerInput.UI.Apply.performed -= Apply;
-        playerInput.UI.Cancel.performed -= Cancel;
-        OnConfirm += null;
+    }
+
+    public void Continue() {
+        OnContinue?.Invoke();
     }
 }

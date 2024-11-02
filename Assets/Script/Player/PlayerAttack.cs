@@ -66,4 +66,10 @@ public class PlayerAttack : MonoBehaviour
     {
         
     }
+
+    private void OnDestroy() {
+        playerInput.Dungeon.Attack.performed -= Attack;
+        playerInput.Dungeon.WeaponNext.performed -= WeaponNext;
+        playerInput.Dungeon.WeaponPrev.performed -= WeaponPrev;
+    }
 }
