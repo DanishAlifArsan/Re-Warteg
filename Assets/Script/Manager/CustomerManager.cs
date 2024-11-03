@@ -17,6 +17,8 @@ public class CustomerManager : MonoBehaviour
     // public bool isSpawned = false;
     public CustomerAI currentCustomer;
     private List<CustomerAI> customerQueue = new List<CustomerAI>();
+    [SerializeField] private ItemPickup itemPickup;
+    [SerializeField] private DropItem money;
 
     private void Awake()
     {
@@ -141,5 +143,9 @@ public class CustomerManager : MonoBehaviour
 
     public bool ActiveCustomer() {
         return customerQueue.Count > 0;
+    }
+
+    public void Pickup(int count) {
+        itemPickup.Pickup(money, count);
     }
 }

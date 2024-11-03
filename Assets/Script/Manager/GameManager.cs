@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int setoran;
     [SerializeField] private GameObject loadingScene;
     [SerializeField] private Result resultScene;
+    
     private void Awake()
     {
         if (instance == null)
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
     public void LoadScene(int sceneId) {
         // PlaySound();
         StartCoroutine(LoadSceneAsync(sceneId));
+        // SceneManager.LoadScene(sceneId);
     }
 
     private IEnumerator LoadSceneAsync(int sceneId) {
@@ -69,7 +71,6 @@ public class GameManager : MonoBehaviour
     }
 
     private int currentDay;
-    private bool resetDay;
 
     public void EndSession() {      // pindah ke result
         resultScene?.gameObject.SetActive(true);
@@ -79,7 +80,7 @@ public class GameManager : MonoBehaviour
             //gameover kalau uang kurang dari pajak
             if (CurrencyManager.instance.CountRemainMoney(setoran)) // kalau masih bisa bayar pajak, lanjut hari
             {
-                resetDay = true;
+                currentDay = TimeManager.instance.startingDay;
                 resultScene.OnContinue += NextDay;
                 SaveGame();
             } else {
@@ -96,7 +97,7 @@ public class GameManager : MonoBehaviour
                     LoadScene(2);
                     break;
                 case GameSession.Warteg:
-                    resetDay = false;
+                     currentDay = TimeManager.instance.currentDay-1;
                     resultScene.OnContinue += NextDay;
                     SaveGame();
                     break;
@@ -114,12 +115,6 @@ public class GameManager : MonoBehaviour
 
     private void NextDay() {
         LoadScene(1);
-        if (resetDay)
-        {
-            currentDay = TimeManager.instance.startingDay;
-        } else {
-            currentDay = TimeManager.instance.currentDay-1;
-        }
     }
 
     private void GameOver() {

@@ -544,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &312396612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2988,6 +2988,7 @@ MonoBehaviour:
   player: {fileID: 0}
   setoran: 0
   loadingScene: {fileID: 451379885}
+  resultScene: {fileID: 0}
 --- !u!4 &2104149275
 Transform:
   m_ObjectHideFlags: 0

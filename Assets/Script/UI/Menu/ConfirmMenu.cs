@@ -19,9 +19,15 @@ public class ConfirmMenu : MonoBehaviour
         playerInput.UI.Cancel.performed += Cancel;
     }
 
+    private bool endFlag = false;   
+
     private void Apply(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
-        OnConfirm?.Invoke();
+        if (!endFlag)
+        {
+            endFlag = true;
+            OnConfirm?.Invoke();
+        }
     }
 
     protected virtual void Cancel(UnityEngine.InputSystem.InputAction.CallbackContext context)

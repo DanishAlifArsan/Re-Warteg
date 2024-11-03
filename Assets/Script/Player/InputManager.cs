@@ -67,7 +67,7 @@ public class InputManager : MonoBehaviour
             virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
         }
 
-        GameDeviceManager.instance.activeGameDevice = activeGameDevice;
+        // GameDeviceManager.instance.activeGameDevice = activeGameDevice;
         // try{
         //     virtualMouseUI?.gameObject.SetActive(activeGameDevice == GameDevice.Gamepad);
         // }
@@ -78,7 +78,7 @@ public class InputManager : MonoBehaviour
     }
 
     private void Start() {
-        ChangeActiveGameDevice(GameDeviceManager.instance.activeGameDevice);  // setting supaya gamedevice sama seperti gamedevice yang terakhir kali aktif
+        // ChangeActiveGameDevice(GameDeviceManager.instance.activeGameDevice);  // setting supaya gamedevice sama seperti gamedevice yang terakhir kali aktif
         InputSystem.onEvent += OnDeviceChange;
         if (GameManager.instance.currentSession == GameSession.Home)
         {

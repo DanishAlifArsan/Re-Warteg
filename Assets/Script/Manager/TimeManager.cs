@@ -42,6 +42,8 @@ public class TimeManager : MonoBehaviour
         Setup();
     }
 
+    private bool endFlag = false;
+
     // Update is called once per frame
     private void Update()
     {
@@ -63,8 +65,9 @@ public class TimeManager : MonoBehaviour
                     timeStart = false;
                     // GameManager.instance.EndSession();
                 }
-            } else if (!CustomerManager.instance.ActiveCustomer())
+            } else if (!CustomerManager.instance.ActiveCustomer() && !endFlag)
             {
+                endFlag = true;
                 GameManager.instance.EndSession();
             }
         }    

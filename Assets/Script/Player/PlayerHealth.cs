@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int startingCoffee;
     [SerializeField] private TextMeshProUGUI amountText;
     [SerializeField] private DropItem coffee;
+    [SerializeField] private PlayerDeath deathCutscene;
+    [SerializeField] private Transition transition;
     private float currentHealth;
     public int hitRecieved;
     public int numberOfAttack;
@@ -64,9 +66,15 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             //dead
-            Debug.Log("dead");
+            transition.gameObject.SetActive(true);
+            transition.OnEndTransition += DeathCutscene;
             healthBar.fillAmount = 0;
         }
+    }
+
+    private void DeathCutscene() {
+        deathCutscene.StartCutscene();
+         transition.gameObject.SetActive(false);
     }
 
     public void ResetCounter() {
