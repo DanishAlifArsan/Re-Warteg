@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     private int currentDay;
 
     public void EndSession() {      // pindah ke result
-        resultScene?.gameObject.SetActive(true);
+        // resultScene?.gameObject.SetActive(true);
         if (TimeManager.instance.EndGame() && currentSession == GameSession.Warteg)
         {
             //tambahkan perhitungan pajak
@@ -81,10 +81,12 @@ public class GameManager : MonoBehaviour
             if (CurrencyManager.instance.CountRemainMoney(setoran)) // kalau masih bisa bayar pajak, lanjut hari
             {
                 currentDay = TimeManager.instance.startingDay;
-                resultScene.OnContinue += NextDay;
+                NextDay();
+                // resultScene.OnContinue += NextDay;
                 SaveGame();
             } else {
-                resultScene.OnContinue += GameOver;
+                // resultScene.OnContinue += GameOver;
+                GameOver();
             }
         } else {
             //lanjut hari
@@ -97,8 +99,9 @@ public class GameManager : MonoBehaviour
                     LoadScene(2);
                     break;
                 case GameSession.Warteg:
-                     currentDay = TimeManager.instance.currentDay-1;
-                    resultScene.OnContinue += NextDay;
+                    currentDay = TimeManager.instance.currentDay-1;
+                    // resultScene.OnContinue += NextDay;
+                    NextDay();
                     SaveGame();
                     break;
             }

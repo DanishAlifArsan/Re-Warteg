@@ -7,8 +7,10 @@ public class Door : MonoBehaviour, Interactable
     [SerializeField] private ConfirmMenu confirmDialogue;
     public void OnInteract()
     {
-        confirmDialogue.gameObject.SetActive(true);
-        confirmDialogue.OnConfirm += EndSession;
+        // confirmDialogue.gameObject.SetActive(true);
+        // confirmDialogue.OnConfirm += EndSession;
+
+        EndSession();
     }
 
     public string FlavorText()

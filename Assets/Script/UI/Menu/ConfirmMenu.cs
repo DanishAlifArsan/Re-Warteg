@@ -27,6 +27,7 @@ public class ConfirmMenu : MonoBehaviour
         {
             endFlag = true;
             OnConfirm?.Invoke();
+            // GameManager.instance.EndSession();
         }
     }
 

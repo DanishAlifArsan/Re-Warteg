@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerInteract playerInteract;
     [SerializeField] private Kitchen kitchen;
     [SerializeField] private Display display;
+    [SerializeField] private Animator click;
 
     // Start is called before the first frame update
     private void Start()
@@ -55,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log(hit.point + " "+  mousePosition);
             agent.SetDestination(hit.point);
+            click.transform.position = hit.point;
+            click.SetTrigger("click");
         }
 
         // if (agent.remainingDistance > agent.stoppingDistance)
