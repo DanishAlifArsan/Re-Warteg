@@ -20,6 +20,9 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] private ItemPickup itemPickup;
     [SerializeField] private DropItem money;
 
+    public int customerAmount = 0;
+    public int profit = 0;
+
     private void Awake()
     {
         if (instance == null)

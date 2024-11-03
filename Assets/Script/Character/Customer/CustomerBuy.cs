@@ -22,6 +22,8 @@ public class CustomerBuy : IState
         if (customer.isGetFood)     // to do atur isgetfood dan assign piring ke customer. buat piring jadi not interactable
         {
             // customer.speak.Happy();
+            CustomerManager.instance.customerAmount += 1;
+
             customer.buyIndicator.SetActive(false);
             stateManager.SwitchState(customer, customer.food);
         }

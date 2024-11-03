@@ -28,6 +28,7 @@ public class CustomerEat : IState
             // customer.speak.Happy();
             CurrencyManager.instance.AddCurrency(customer.CountTotalPrice());
             CustomerManager.instance.Pickup(customer.CountTotalPrice());
+            CustomerManager.instance.profit += customer.CountTotalPrice();
             customer.plate.EmptyFood();
             // customer.plate.isAbleToInteract = true;
             customer.plate.gameObject.layer = LayerMask.NameToLayer("interact");

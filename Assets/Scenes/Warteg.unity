@@ -1540,6 +1540,8 @@ MonoBehaviour:
   currentCustomer: {fileID: 0}
   itemPickup: {fileID: 1002713765}
   money: {fileID: 11400000, guid: fca0febf14594cb4bbfaa77727a441e7, type: 2}
+  customerAmount: 0
+  profit: 0
 --- !u!114 &51615204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11742,8 +11744,6 @@ MonoBehaviour:
   bubbleText: {fileID: 52935135}
   dialogue:
   - Hello World
-  - YNTKTS
-  - Fufufafa
   agent: {fileID: 595402671}
   buyIndicator: {fileID: 69843603}
   cashierPoint: {fileID: 0}
@@ -19731,6 +19731,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f59b2f99183c24aa257030ebb9d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxCustomer: 10
+  customerAmountText: {fileID: 813183494}
+  profitText: {fileID: 974256022}
+  bonusText: {fileID: 189302301}
+  scoreText: {fileID: 65026002}
+  isContinue: 0
 --- !u!1 &1114024201
 GameObject:
   m_ObjectHideFlags: 0
@@ -36332,8 +36338,6 @@ MonoBehaviour:
   bubbleText: {fileID: 1377415423}
   dialogue:
   - Hello World
-  - YNTKTS
-  - Fufufafa
   agent: {fileID: 2027397408}
   buyIndicator: {fileID: 1176094006}
   cashierPoint: {fileID: 0}
@@ -51531,8 +51535,6 @@ MonoBehaviour:
   bubbleText: {fileID: 597824664}
   dialogue:
   - Hello World
-  - YNTKTS
-  - Fufufafa
   agent: {fileID: 7514893480281108944}
   buyIndicator: {fileID: 2084747021}
   cashierPoint: {fileID: 0}

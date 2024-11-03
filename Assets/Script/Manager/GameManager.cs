@@ -81,12 +81,14 @@ public class GameManager : MonoBehaviour
             if (CurrencyManager.instance.CountRemainMoney(setoran)) // kalau masih bisa bayar pajak, lanjut hari
             {
                 currentDay = TimeManager.instance.startingDay;
-                NextDay();
                 // resultScene.OnContinue += NextDay;
+                ShowResult(true);
+                // NextDay();
                 SaveGame();
             } else {
                 // resultScene.OnContinue += GameOver;
-                GameOver();
+                ShowResult(false);
+                // GameOver();
             }
         } else {
             //lanjut hari
@@ -101,7 +103,8 @@ public class GameManager : MonoBehaviour
                 case GameSession.Warteg:
                     currentDay = TimeManager.instance.currentDay-1;
                     // resultScene.OnContinue += NextDay;
-                    NextDay();
+                    ShowResult(true);
+                    // NextDay();
                     SaveGame();
                     break;
             }
@@ -123,6 +126,11 @@ public class GameManager : MonoBehaviour
     private void GameOver() {
         SaveManager.instance.NewGame();
         LoadScene(0);
+    }
+
+    private void ShowResult(bool status) {
+        resultScene.gameObject.SetActive(true);
+        resultScene.isContinue = status;
     }
 }
 
