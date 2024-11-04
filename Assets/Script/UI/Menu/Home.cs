@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,17 +6,31 @@ using UnityEngine;
 public class Home : MonoBehaviour
 {
     [SerializeField] private GameObject button;
+    [SerializeField] private Setting settingScreen;
+    [SerializeField] private GameObject creditScreen;
     GameData data;
     // Start is called before the first frame update
     private void Start()
     {
         Time.timeScale = 1;
+        Setup();
+
         data = SaveManager.instance.LoadGame();
         if (data == null)
         {
             GameManager.instance.LoadScene(1);  // pindah ke scene tutorial
         }
         button.SetActive(true);
+    }
+
+    private void Setup() {
+        float bgm =  PlayerPrefs.GetFloat("bgm", 0f);
+        settingScreen.bgmSetting.volumeSlider.value = bgm;
+        settingScreen.SetMusicMixer(bgm);
+
+        float sfx =  PlayerPrefs.GetFloat("sfx", 0f);
+        settingScreen.sfxSetting.volumeSlider.value = sfx;
+        settingScreen.SetSFXMixer(sfx);
     }
 
     public void NewGame() {
@@ -44,11 +59,24 @@ public class Home : MonoBehaviour
         #endif
     }
 
-    public void Credit() {
-
+    public void Credit(bool status) {
+        button.SetActive(!status);
+        creditScreen.SetActive(status);
+        if (status)
+        {
+            InputManager.instance.playerInput.UI.Cancel.performed += CloseCredit;
+        } else {
+            InputManager.instance.playerInput.UI.Cancel.performed -= CloseCredit;
+        }
     }
 
-    public void Setting() {
-        
+    private void CloseCredit(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        Credit(false);
+    }
+
+    public void OpenSetting(bool status) {
+        button.SetActive(!status);
+        settingScreen.gameObject.SetActive(status);
     }
 }
