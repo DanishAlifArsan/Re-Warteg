@@ -8,6 +8,7 @@ public class Home : MonoBehaviour
     [SerializeField] private GameObject button;
     [SerializeField] private Setting settingScreen;
     [SerializeField] private GameObject creditScreen;
+    [SerializeField] private Animator anim;
     GameData data;
     // Start is called before the first frame update
     private void Start()
@@ -21,6 +22,13 @@ public class Home : MonoBehaviour
             GameManager.instance.LoadScene(1);  // pindah ke scene tutorial
         }
         button.SetActive(true);
+        InputManager.instance.playerInput.UI.Apply.performed += PressStart;
+    }
+
+    private void PressStart(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        anim.SetTrigger("move");
+        InputManager.instance.playerInput.UI.Apply.performed -= PressStart;
     }
 
     private void Setup() {
