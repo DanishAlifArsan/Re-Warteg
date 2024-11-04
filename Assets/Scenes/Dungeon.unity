@@ -8133,7 +8133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43464243, y: 0.33768928, z: -0.18003473, w: 0.8152543}
+  m_LocalRotation: {x: 0.4346424, y: 0.33768934, z: -0.18003477, w: 0.8152542}
   m_LocalPosition: {x: 70.25568, y: 13.376094, z: 11.512983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20707,7 +20707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 748289852}
-  maxHealth: 10
+  maxHealth: 1
   startingCoffee: 2
   amountText: {fileID: 1584389846}
   coffee: {fileID: 11400000, guid: 414bc37a66a9e5e49a63619c9c7e9341, type: 2}
@@ -28701,7 +28701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 3
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":184.400024,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Saatnya
+  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":184.400024,"yPos":23},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Saatnya
     berjualan di warung","parentUIDs":[],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
     H","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.1,"Volume":0}]}'
   saveVersion: 110
@@ -40609,6 +40609,12 @@ GameObject:
   - component: {fileID: 1111829973}
   - component: {fileID: 1111829974}
   - component: {fileID: 1111829975}
+  - component: {fileID: 1111829980}
+  - component: {fileID: 1111829979}
+  - component: {fileID: 1111829978}
+  - component: {fileID: 1111829977}
+  - component: {fileID: 1111829976}
+  - component: {fileID: 1111829981}
   m_Layer: 0
   m_Name: ConversationEventInfo
   m_TagString: Untagged
@@ -40666,6 +40672,120 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   NodeID: 3
+  TMPFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1111829976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111829972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 10
+  TMPFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1111829977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111829972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 9
+  TMPFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1111829978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111829972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 8
+  TMPFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1111829979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111829972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 7
+  TMPFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1111829980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111829972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 6
+  TMPFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
+  Icon: {fileID: 0}
+  Audio: {fileID: 0}
+--- !u!114 &1111829981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111829972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00abedce3cdbbba46bf2d86c9518c9f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event:
+    m_PersistentCalls:
+      m_Calls: []
+  NodeID: 13
   TMPFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
   Icon: {fileID: 0}
   Audio: {fileID: 0}
@@ -53702,12 +53822,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83189876d4d389f43b7dd2e925aa112e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentIDCounter: 6
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":183.400024,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Makasih
-    pak Ustad","parentUIDs":[],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
-    H","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":232.200012,"yPos":197.8},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Sama
-    sama","parentUIDs":[0],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
-    Ustad","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0}]}'
+  CurrentIDCounter: 14
+  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":-83.5999756,"yPos":-460},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Bisa-bisanya
+    ketiduran di dalam dungeon","parentUIDs":[],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
+    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":-49.7999878,"yPos":-293.2},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Loh,
+    Pak sutar?","parentUIDs":[0],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
+    H","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":45.2000122,"yPos":-144.200027},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"*Pak
+    Ustadz","parentUIDs":[3],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
+    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":-16.7999878,"yPos":-7.20004272},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Waduh
+    koq malah jadi ngerepotin. terima kasih banyak lho, pause start ","parentUIDs":[6],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
+    H","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":25.2000122,"yPos":222.7999},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Paestar
+    mampir aja ke warung, nanti saya kasih diskon","parentUIDs":[13],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
+    H ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":102.200012,"yPos":326.799927},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"....","parentUIDs":[8],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
+    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":110.200012,"yPos":494.799927},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Keluar!
+    ","parentUIDs":[9],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
+    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":26.1999969,"yPos":122.799973},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"*Pak
+    Ustadz","parentUIDs":[7],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
+    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0}]}'
   saveVersion: 110
   DefaultName: 
   DefaultSprite: {fileID: 0}
@@ -53715,6 +53846,12 @@ MonoBehaviour:
   NodeSerializedDataList:
   - {fileID: 1111829974}
   - {fileID: 1111829975}
+  - {fileID: 1111829980}
+  - {fileID: 1111829979}
+  - {fileID: 1111829978}
+  - {fileID: 1111829977}
+  - {fileID: 1111829976}
+  - {fileID: 1111829981}
   ContinueFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a, type: 2}
   EndConversationFont: {fileID: 11400000, guid: 3a6ba4d932c6d32419294ca0e96ef35a,
     type: 2}
@@ -67713,7 +67850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887114714}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43464243, y: 0.33768928, z: -0.18003473, w: 0.8152543}
+  m_LocalRotation: {x: 0.4346424, y: 0.33768934, z: -0.18003477, w: 0.8152542}
   m_LocalPosition: {x: 22.958931, y: 15.6849165, z: 11.498931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
