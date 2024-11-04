@@ -24,6 +24,10 @@ public class Home : MonoBehaviour
     }
 
     public void Play() {
+        // if (data == null) { // kalau gak jadi ada tutorial
+        //     GameManager.instance.LoadScene(1);
+        // }
+        // else 
         if (data.isWarteg)
         {
             GameManager.instance.LoadScene(2);
