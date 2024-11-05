@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int startingCoffee;
     [SerializeField] private TextMeshProUGUI amountText;
     [SerializeField] private DropItem coffee;
-    [SerializeField] private PlayerDeath deathCutscene;
+    [SerializeField] private GameCutscene deathCutscene;
     [SerializeField] private Transition transition;
     private float currentHealth;
     public int hitRecieved;

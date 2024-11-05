@@ -92,12 +92,12 @@ public class GameManager : MonoBehaviour
             {
                 currentDay = TimeManager.instance.startingDay;
                 // resultScene.OnContinue += NextDay;
-                ShowResult(true);
+                ShowResult(true, true);
                 // NextDay();
                 SaveGame();
             } else {
                 // resultScene.OnContinue += GameOver;
-                ShowResult(false);
+                ShowResult(false, false);
                 // GameOver();
             }
         } else {
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
                 case GameSession.Warteg:
                     currentDay = TimeManager.instance.currentDay-1;
                     // resultScene.OnContinue += NextDay;
-                    ShowResult(true);
+                    ShowResult(true, false);
                     // NextDay();
                     SaveGame();
                     break;
@@ -138,9 +138,10 @@ public class GameManager : MonoBehaviour
         LoadScene(0);
     }
 
-    private void ShowResult(bool status) {
+    private void ShowResult(bool status, bool ended) {
         resultScene.gameObject.SetActive(true);
         resultScene.isContinue = status;
+        resultScene.isEnded = ended;
     }
 }
 

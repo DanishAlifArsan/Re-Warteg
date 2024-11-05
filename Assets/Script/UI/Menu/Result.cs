@@ -11,9 +11,12 @@ public class Result : MonoBehaviour
     [SerializeField] private TextMeshProUGUI profitText;
     [SerializeField] private TextMeshProUGUI bonusText;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameCutscene pajakCutscene;
+    [SerializeField] private GameCutscene gagalCutscene;
 
     private PlayerInput playerInput;
     public bool isContinue;
+    public bool isEnded;
     private void OnEnable() {
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.Disable();
@@ -61,11 +64,47 @@ public class Result : MonoBehaviour
     public void Continue() {
         if (isContinue)
         {
-           GameManager.instance.LoadScene(1);
+            if (isEnded)
+            {
+                pajakCutscene.StartCutscene();
+                isEnded = false;
+                return;
+            }
+            GameManager.instance.LoadScene(1);
         } else {
-            SaveManager.instance.NewGame(); // kemungkinan reset ke tutorial
-            GameManager.instance.LoadScene(0);
+            // if (isEnded)  // kalau ada gagal
+            // {
+            //     gagalCutscene.StartCutscene();
+            //     isEnded = false;
+            //     return; 
+            // }
+            Gameover();
         }
-        gameObject.SetActive(false);
+
+        // if (isEnded)
+        // {
+        //     if (isContinue)
+        //     {
+        //         pajakCutscene.StartCutscene();
+        //     } 
+        //     // else {
+        //     //     gagalCutscene.StartCutscene();
+        //     // } // kalau gagal bayar pajak
+        //     isEnded = false;
+        //     return;
+        // }
+        // if (isContinue)
+        // {
+        //    GameManager.instance.LoadScene(1);
+        // } else {
+        //     SaveManager.instance.NewGame(); // kemungkinan reset ke tutorial
+        //     GameManager.instance.LoadScene(0);
+        // }
+        // gameObject.SetActive(false);
+    }
+
+    private void Gameover() {
+        SaveManager.instance.NewGame(); // kemungkinan reset ke tutorial
+        GameManager.instance.LoadScene(0);
     }
 }
