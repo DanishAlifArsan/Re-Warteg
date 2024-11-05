@@ -66,6 +66,7 @@ public class Result : MonoBehaviour
         {
             if (isEnded)
             {
+                Time.timeScale = 1;
                 pajakCutscene.StartCutscene();
                 isEnded = false;
                 return;
@@ -74,6 +75,7 @@ public class Result : MonoBehaviour
         } else {
             // if (isEnded)  // kalau ada gagal
             // {
+                // Time.timeScale = 1;
             //     gagalCutscene.StartCutscene();
             //     isEnded = false;
             //     return; 
