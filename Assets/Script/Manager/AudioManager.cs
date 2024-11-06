@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     public AudioSource audioSource;
+    [SerializeField] private AudioClip buttonSound;
 
     private void Awake()
     {
@@ -18,5 +19,12 @@ public class AudioManager : MonoBehaviour
     public void PlaySound(AudioClip sfx)
     {
         audioSource.PlayOneShot(sfx);
+    }
+
+    public void PlayButton() {
+        audioSource.PlayOneShot(buttonSound);
+    }
+    public void StopButton() {
+        audioSource.Stop();
     }
 }

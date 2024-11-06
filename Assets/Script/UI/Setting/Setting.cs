@@ -9,6 +9,7 @@ public class Setting : MonoBehaviour
     public VolumeSetting bgmSetting;
     public VolumeSetting sfxSetting;
     [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private SelectionButton closeButton;
     public float bgm;
     public float sfx;
 
@@ -51,5 +52,6 @@ public class Setting : MonoBehaviour
         audioMixer.SetFloat("sfx",sfx);
         PlayerPrefs.SetFloat("bgm", bgm);
         PlayerPrefs.SetFloat("sfx", sfx);
+        closeButton.OnConfirm();
     }
 }

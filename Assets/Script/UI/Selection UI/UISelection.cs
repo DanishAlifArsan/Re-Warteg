@@ -15,11 +15,13 @@ public class UISelection : MonoBehaviour
         startingTextColor = text.color;
         image.color = selectedImageColor;
         text.color = selectedTextColor;
+        AudioManager.instance.PlayButton();
     }
 
     public virtual void OnDeselect() {
         image.color = startingImageColor;
         text.color = startingTextColor;
+        AudioManager.instance.StopButton();
     }
 
     public virtual void OnConfirm() {}

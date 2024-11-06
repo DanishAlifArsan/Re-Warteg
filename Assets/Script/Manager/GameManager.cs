@@ -60,8 +60,8 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator LoadSceneAsync(int sceneId) {
-        DontDestroyOnLoad(loadingScene);
-        DontDestroyOnLoad(this.gameObject); // supaya tetep load selama 1 detik
+        // DontDestroyOnLoad(loadingScene);
+        // DontDestroyOnLoad(this.gameObject); // supaya tetep load selama 1 detik
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneId);
 
@@ -72,12 +72,12 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1);     // supaya tetep load selama 1 detik
+        // yield return new WaitForSeconds(1);     // supaya tetep load selama 1 detik
 
-        loadingScene.SetActive(false);
+        // loadingScene.SetActive(false);
 
-        Destroy(loadingScene);
-        Destroy(this.gameObject);
+        // Destroy(loadingScene);
+        // Destroy(this.gameObject);
     }
 
     private int currentDay;
