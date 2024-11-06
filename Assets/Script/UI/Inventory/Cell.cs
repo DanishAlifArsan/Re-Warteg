@@ -17,6 +17,7 @@ public class Cell : UISelection
         if (item == null)
         {
             item = _item;
+            itemImage.color = Color.white;
             itemImage.sprite = item.itemImage;
         }
         itemCount += count;
@@ -48,6 +49,7 @@ public class Cell : UISelection
     }
 
     private void InActive() {
+        itemImage.color = new Color(0, 0, 0, 0);
         itemImage.sprite = null;
         itemCountText.text = "";
     }
