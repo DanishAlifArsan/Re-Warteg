@@ -76,7 +76,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.4392157}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -227,10 +227,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedImageColor:
     serializedVersion: 2
-    rgba: 3607101439
+    rgba: 1879048192
   selectedTextColor:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   image: {fileID: 748920827223233586}
   text: {fileID: 6417674869738169215}
   itemImage: {fileID: 6260148147786122902}

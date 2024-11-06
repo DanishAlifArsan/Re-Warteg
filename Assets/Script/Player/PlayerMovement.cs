@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
         playerInput.Player.MouseClick.performed += OnMouseClick;
         playerInput.Kitchen.HotkeyKitchen.performed += ToKitchen;
         playerInput.Kitchen.HotkeyDisplay.performed += ToDisplay;
-        playerInput.Kitchen.HotkeyClean.performed += ToClean;
+        // playerInput.Kitchen.HotkeyClean.performed += ToClean;
     }
 
     private void ToClean(InputAction.CallbackContext context)
@@ -83,6 +83,6 @@ public class PlayerMovement : MonoBehaviour
         playerInput.Player.MouseClick.performed -= OnMouseClick;
         playerInput.Kitchen.HotkeyKitchen.performed -= ToKitchen;
         playerInput.Kitchen.HotkeyDisplay.performed -= ToDisplay;
-        playerInput.Kitchen.HotkeyClean.performed -= ToClean;
+        // playerInput.Kitchen.HotkeyClean.performed -= ToClean;
     }
 }
