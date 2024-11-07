@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int startingCoffee;
     [SerializeField] private TextMeshProUGUI amountText;
     [SerializeField] private DropItem coffee;
+    [SerializeField] private Animator anim;
     [SerializeField] private GameCutscene deathCutscene;
     [SerializeField] private Transition transition;
     [SerializeField] private AudioClip deathSound;
@@ -69,6 +70,7 @@ public class PlayerHealth : MonoBehaviour
         {
             //dead
             AudioManager.instance.PlaySound(deathSound);
+            anim.SetTrigger("death");
             transition.gameObject.SetActive(true);
             transition.OnEndTransition += DeathCutscene;
             healthBar.fillAmount = 0;

@@ -9,6 +9,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float cooldown;
     [SerializeField] protected RectTransform weaponIcon;
     [SerializeField] protected Image cooldownImage;
+    [SerializeField] protected Animator anim;
     [SerializeField] protected ParticleSystem attackEffect;
     [SerializeField] protected AudioClip attackSound;
     protected float cooldownTimer;

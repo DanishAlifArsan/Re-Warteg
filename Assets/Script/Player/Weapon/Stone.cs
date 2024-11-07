@@ -34,6 +34,7 @@ public class Stone : Weapon
         {
             canAttack = false;
             cooldownTimer = cooldown;
+            anim.SetTrigger("attack");
             attackEffect.Play();
             // todo jalankan animasi serangan
 

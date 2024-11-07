@@ -22,6 +22,7 @@ public class Broom : Weapon
 
                 canAttack = false;
                 cooldownTimer = cooldown;
+                anim.SetTrigger("attack");
                 attackEffect.Play();
                 AudioManager.instance.PlaySound(attackSound);
                 // todo jalankan animasi serangan
