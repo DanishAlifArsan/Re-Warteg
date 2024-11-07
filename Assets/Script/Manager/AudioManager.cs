@@ -25,6 +25,9 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(buttonSound);
     }
     public void StopButton() {
-        audioSource.Stop();
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+        }
     }
 }

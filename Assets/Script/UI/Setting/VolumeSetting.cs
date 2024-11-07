@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class VolumeSetting : UISelection
+public class VolumeSetting : SettingMenu
 {
     [SerializeField] private string type;
     [SerializeField] private Setting setting;
@@ -13,13 +13,13 @@ public class VolumeSetting : UISelection
     public Slider volumeSlider;
     PlayerInput playerInput;
 
-    public void Select() {
+    public override void Select() {
         playerInput = InputManager.instance.playerInput;
         playerInput.UI.Navigate.performed += StartSetting;
     }
 
 
-    public void Deselect() {
+    public override void Deselect() {
         playerInput.UI.Navigate.performed -= StartSetting;
     }
     public override void OnConfirm()

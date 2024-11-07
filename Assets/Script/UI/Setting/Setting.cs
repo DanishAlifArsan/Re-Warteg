@@ -8,10 +8,12 @@ public class Setting : MonoBehaviour
 {
     public VolumeSetting bgmSetting;
     public VolumeSetting sfxSetting;
+    public ControlSetting controlSetting;
     [SerializeField] private AudioMixer audioMixer;
     [SerializeField] private SelectionButton closeButton;
     public float bgm;
     public float sfx;
+    public int control;
 
     // public void SetMusic(float _volume) {
     //     bgm = _volume;
@@ -30,28 +32,41 @@ public class Setting : MonoBehaviour
         audioMixer.SetFloat("sfx",_volume);
     }
 
-    public void SelectSetting(UISelection uISelection) {
-        VolumeSetting volumeSetting = uISelection.GetComponent<VolumeSetting>();
-        if (volumeSetting != null)
+    public void SetControl(int _control) {
+        control = _control;
+        if (_control > 0)
         {
-            volumeSetting.Select();
+            controlSetting.controllerToggle.isOn = true;
+            controlSetting.keyboardToggle.isOn = false;
+        } else {
+            controlSetting.controllerToggle.isOn = false;
+            controlSetting.keyboardToggle.isOn = true;
+        } 
+    }
+
+    public void SelectSetting(UISelection uISelection) {
+        SettingMenu setting = uISelection.GetComponent<SettingMenu>();
+        if (setting != null)
+        {
+            setting.Select();
         }
     }
 
     public void DeselectSetting(UISelection uISelection) {
-        VolumeSetting volumeSetting = uISelection.GetComponent<VolumeSetting>();
-        if (volumeSetting != null)
+        SettingMenu setting = uISelection.GetComponent<SettingMenu>();
+        if (setting != null)
         {
-            volumeSetting.Deselect();
+            setting.Deselect();
         }
     }
     
-
     public void SaveSetting() {
         audioMixer.SetFloat("bgm",bgm);
         audioMixer.SetFloat("sfx",sfx);
         PlayerPrefs.SetFloat("bgm", bgm);
         PlayerPrefs.SetFloat("sfx", sfx);
+        PlayerPrefs.SetInt("control", control);
+        InputManager.instance.DeviceChange();
         closeButton.OnConfirm();
     }
 }

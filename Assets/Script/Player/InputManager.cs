@@ -26,9 +26,9 @@ public class InputManager : MonoBehaviour
         // InputSystem.onEvent += OnDeviceChange;
     }
 
-    private void OnDestroy() {
-        InputSystem.onEvent -= OnDeviceChange;
-    }
+    // private void OnDestroy() {
+    //     InputSystem.onEvent -= OnDeviceChange;
+    // }
     InputDevice _lastDevice;
     private void OnDeviceChange(InputEventPtr eventPtr, InputDevice device)  {
         if (_lastDevice == device) return;
@@ -77,9 +77,21 @@ public class InputManager : MonoBehaviour
         // }
     }
 
+    public void DeviceChange() {
+        int control = PlayerPrefs.GetInt("control", 0); // ganti game device di setting
+        if (control > 0)
+        {
+            ChangeActiveGameDevice(GameDevice.Gamepad);
+        } else {
+            ChangeActiveGameDevice(GameDevice.KeyboardMouse);
+        }   
+    }
+
     private void Start() {
         // ChangeActiveGameDevice(GameDeviceManager.instance.activeGameDevice);  // setting supaya gamedevice sama seperti gamedevice yang terakhir kali aktif
-        InputSystem.onEvent += OnDeviceChange;
+        // InputSystem.onEvent += OnDeviceChange;
+        DeviceChange();
+
         if (GameManager.instance.currentSession == GameSession.Home)
         {
            playerInput.Player.Disable();
