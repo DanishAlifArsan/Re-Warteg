@@ -7,6 +7,7 @@ public class CustomerFood : IState
     public void EnterState(StateUser user, StateManager stateManager)
     {
         CustomerAI customer = user as CustomerAI;
+        customer.anim.SetBool("walk",true);
 
         customer.table = CustomerManager.instance.SetTable();
         destination = customer.table.chair.position;

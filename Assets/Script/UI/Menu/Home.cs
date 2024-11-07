@@ -18,10 +18,10 @@ public class Home : MonoBehaviour
         Setup();
 
         data = SaveManager.instance.LoadGame();
-        if (data == null)
-        {
-            GameManager.instance.LoadScene(1);  // pindah ke scene tutorial
-        }
+        // if (data == null)
+        // {
+        //     GameManager.instance.LoadScene(1);  // pindah ke scene tutorial
+        // }
         button.SetActive(true);
         InputManager.instance.playerInput.UI.Apply.performed += PressStart;
     }
@@ -52,10 +52,10 @@ public class Home : MonoBehaviour
     }
 
     public void Play() {
-        // if (data == null) { // kalau gak jadi ada tutorial
-        //     GameManager.instance.LoadScene(1);
-        // }
-        // else 
+        if (data == null) { // kalau gak jadi ada tutorial
+            GameManager.instance.LoadScene(1);
+        }
+        else 
         if (data.isWarteg)
         {
             GameManager.instance.LoadScene(2);

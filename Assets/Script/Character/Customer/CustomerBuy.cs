@@ -9,6 +9,7 @@ public class CustomerBuy : IState
     {
         CustomerAI customer = user as CustomerAI;
         AudioManager.instance.PlaySound(customer.buySound);
+        customer.anim.SetBool("walk",false);
         // customer.anim.SetTrigger("buy");
         customer.SetFoodsToBuy();
         customer.buyIndicator.SetActive(true);

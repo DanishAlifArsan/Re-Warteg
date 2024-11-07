@@ -9,7 +9,7 @@ public class CustomerWalk : IState
     public void EnterState(StateUser user, StateManager stateManager)
     {
         CustomerAI customer = user as CustomerAI;
-        // customer.anim.SetBool("isBuying",customer.isBuying);
+        customer.anim.SetBool("walk",true);
         // customer.isWalking = true;
         // customer.dialogueBubbleUI.SetActive(false);
         if (customer.isBuying)

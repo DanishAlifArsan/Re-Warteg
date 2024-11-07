@@ -6,11 +6,19 @@ public class CustomerEat : IState
     {
         CustomerAI customer = user as CustomerAI;
 
+        customer.anim.SetBool("walk",false);
+        customer.anim.SetBool("sit",true);
         customer.agent.enabled = false;
         customer.transform.position = customer.table.chair.position;
+        
         // customer.transform.LookAt(customer.table.desk);
         Vector3 targetPos = new Vector3( customer.table.desk.position.x,  customer.transform.position.y, customer.table.desk.position.z );
         customer.transform.LookAt(targetPos);
+        float posX = customer.transform.position.x;
+        float posY = customer.transform.position.y - 0.151998f;
+        float posZ = customer.table.desk.position.z < customer.transform.position.z ? customer.transform.position.z + -0.699647f : customer.transform.position.z + 0.440732f;
+        customer.transform.position = new Vector3(posX, posY, posZ);
+
         customer.isEating = true;   
         customer.plate.transform.parent = customer.table.desk;
         customer.plate.table = customer.table;
@@ -25,6 +33,8 @@ public class CustomerEat : IState
 
         if (!customer.isEating)
         {
+            customer.transform.position = customer.table.chair.position;
+            customer.anim.SetBool("sit",false);
             // customer.speak.Happy();
             AudioManager.instance.PlaySound(customer.paySound);
             
