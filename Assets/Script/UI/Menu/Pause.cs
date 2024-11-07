@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
+    [SerializeField] private AudioClip paperSound;
     PlayerInput playerInput;
     private void Start() {
         playerInput = InputManager.instance.playerInput;
@@ -14,6 +15,7 @@ public class Pause : MonoBehaviour
     }
 
     private void OpenPause(UnityEngine.InputSystem.InputAction.CallbackContext context) {
+        AudioManager.instance.PlaySound(paperSound);
         pauseUI.SetActive(true);
         playerInput.UI.Enable();
         playerInput.Player.Disable();

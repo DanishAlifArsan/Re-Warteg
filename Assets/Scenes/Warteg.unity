@@ -1517,6 +1517,7 @@ MonoBehaviour:
   itemNameText: {fileID: 397910976}
   itemdescText: {fileID: 267723564}
   inventoryUI: {fileID: 313850629}
+  paperSound: {fileID: 8300000, guid: bc7d49d71874dfa4987a1cea83b150ec, type: 3}
   inventoryItem:
     keys: []
     values: 
@@ -2088,6 +2089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1942630108}
+  paperSound: {fileID: 8300000, guid: bc7d49d71874dfa4987a1cea83b150ec, type: 3}
 --- !u!4 &67430853
 Transform:
   m_ObjectHideFlags: 0
@@ -13531,6 +13533,8 @@ MonoBehaviour:
   bubbleText: {fileID: 52935135}
   dialogue:
   - Hello World
+  buySound: {fileID: 8300000, guid: 35894aff58627f14abe0d29edeb35245, type: 3}
+  paySound: {fileID: 8300000, guid: e34e4933c34fde5449ff2e23283be5fb, type: 3}
   agent: {fileID: 595402671}
   buyIndicator: {fileID: 69843603}
   cashierPoint: {fileID: 0}
@@ -22920,6 +22924,7 @@ MonoBehaviour:
   scoreText: {fileID: 65026002}
   pajakCutscene: {fileID: 220777632}
   gagalCutscene: {fileID: 0}
+  paperSound: {fileID: 8300000, guid: bc7d49d71874dfa4987a1cea83b150ec, type: 3}
   isContinue: 0
   isEnded: 0
 --- !u!95 &1110430843
@@ -26122,6 +26127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 023124336729bdc40be7bf94efab7e59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serveSound: {fileID: 8300000, guid: 3ebcff432c6245c40af7b24bf9f77b19, type: 3}
 --- !u!1 &1256121912
 GameObject:
   m_ObjectHideFlags: 0
@@ -42156,6 +42162,8 @@ MonoBehaviour:
   bubbleText: {fileID: 1377415423}
   dialogue:
   - Hello World
+  buySound: {fileID: 8300000, guid: 35894aff58627f14abe0d29edeb35245, type: 3}
+  paySound: {fileID: 8300000, guid: e34e4933c34fde5449ff2e23283be5fb, type: 3}
   agent: {fileID: 2027397408}
   buyIndicator: {fileID: 1176094006}
   cashierPoint: {fileID: 0}
@@ -42500,6 +42508,7 @@ MonoBehaviour:
   player: {fileID: 606406210}
   kitchenUI: {fileID: 432912284}
   cookIndicator: {fileID: 748068584}
+  cleanSound: {fileID: 8300000, guid: 52d2c34133601a646b08da863b0016a0, type: 3}
 --- !u!1 &2042363941
 GameObject:
   m_ObjectHideFlags: 0
@@ -57594,6 +57603,8 @@ MonoBehaviour:
   bubbleText: {fileID: 597824664}
   dialogue:
   - Hello World
+  buySound: {fileID: 8300000, guid: 35894aff58627f14abe0d29edeb35245, type: 3}
+  paySound: {fileID: 8300000, guid: e34e4933c34fde5449ff2e23283be5fb, type: 3}
   agent: {fileID: 7514893480281108944}
   buyIndicator: {fileID: 2084747021}
   cashierPoint: {fileID: 0}

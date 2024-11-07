@@ -11,8 +11,10 @@ public class MonsterWalk : IState
 
         if (monster.isChasing && monster.pool.DetectPlayer() != null)
         {
+            monster.battleSound.Play();
             player = monster.pool.DetectPlayer();
         } else {
+            monster.battleSound.Stop();
             monster.agent.SetDestination(monster.spawnPos.position);
         }
     }

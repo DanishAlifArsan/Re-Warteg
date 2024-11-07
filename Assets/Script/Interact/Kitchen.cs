@@ -7,6 +7,7 @@ public class Kitchen : MonoBehaviour, Interactable
     [SerializeField] PlayerInteract player;
     [SerializeField] CookFood kitchenUI;
     [SerializeField] GameObject cookIndicator;
+    [SerializeField] AudioClip cleanSound;
 
     private void Update() {
         cookIndicator.SetActive(QueueFood.instance.cookedQueue.Count > 0);
@@ -31,6 +32,7 @@ public class Kitchen : MonoBehaviour, Interactable
             player.itemInHand = QueueFood.instance.RemoveFromQueue();
             player.nampan.SetActive(true);
         } else if (player.itemInHand?.itemType == ItemType.Plate) {
+            AudioManager.instance.PlaySound(cleanSound);
             PlateManager.instance.Wash(player.itemInHand as Plate);
             player.itemInHand = null;
         } else {

@@ -13,7 +13,7 @@ public class Stone : Weapon
         base.Setup( _playerAttack);
         foreach (var item in stoneObject)
         {
-            item.Setup(transform, attack);
+            item.Setup(transform, attack, attackSound);
         }
         currentIndex = 0;
     }

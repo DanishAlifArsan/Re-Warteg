@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemdescText;
     [SerializeField] private GameObject inventoryUI;
+    [SerializeField] private AudioClip paperSound;
     private List<DropItem> listItem = new List<DropItem>();
     public SerializableDictionary<DropItem, int> inventoryItem = new SerializableDictionary<DropItem, int>();
     public Cell[,] cellArray = new Cell[5,4]; 
@@ -34,6 +35,7 @@ public class Inventory : MonoBehaviour
 
     private void OpenInventory(UnityEngine.InputSystem.InputAction.CallbackContext context)
     {
+        AudioManager.instance.PlaySound(paperSound);
         inventoryUI.SetActive(true);
         playerInput.UI.Enable();
         playerInput.Player.Disable();

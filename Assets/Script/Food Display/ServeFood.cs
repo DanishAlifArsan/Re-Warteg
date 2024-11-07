@@ -9,7 +9,8 @@ public class ServeFood : MonoBehaviour
     private Display display;
     private Plate plate;
     ServeFoodCanvas selectedCanvas;
-    
+    [SerializeField] private AudioClip serveSound;
+
     private void OnEnable() {
         playerInput = InputManager.instance.playerInput;
         playerInput.Player.Disable();
@@ -42,6 +43,8 @@ public class ServeFood : MonoBehaviour
             CustomerManager.instance.currentCustomer.isGetFood = true;
             gameObject.SetActive(false);
             display.SetupCamera(false);
+
+            AudioManager.instance.PlaySound(serveSound);
         }
     }
 

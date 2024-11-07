@@ -26,6 +26,8 @@ public class CustomerEat : IState
         if (!customer.isEating)
         {
             // customer.speak.Happy();
+            AudioManager.instance.PlaySound(customer.paySound);
+            
             CurrencyManager.instance.AddCurrency(customer.CountTotalPrice());
             CustomerManager.instance.Pickup(customer.CountTotalPrice());
             CustomerManager.instance.profit += customer.CountTotalPrice();

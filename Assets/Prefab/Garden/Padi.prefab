@@ -120,3 +120,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
   - {fileID: 11400000, guid: 545fba771a979984f883f517b1bcb792, type: 2}
+  pickSound: {fileID: 8300000, guid: c49e3e2b1d524124999be32f59ff66b7, type: 3}

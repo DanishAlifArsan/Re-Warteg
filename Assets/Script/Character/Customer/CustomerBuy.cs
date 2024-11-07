@@ -8,6 +8,7 @@ public class CustomerBuy : IState
     public void EnterState(StateUser user, StateManager stateManager)
     {
         CustomerAI customer = user as CustomerAI;
+        AudioManager.instance.PlaySound(customer.buySound);
         // customer.anim.SetTrigger("buy");
         customer.SetFoodsToBuy();
         customer.buyIndicator.SetActive(true);

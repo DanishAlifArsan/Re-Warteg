@@ -18,6 +18,7 @@ public class Coffee : Weapon
             canAttack = false;
             cooldownTimer = cooldown;
             attackEffect.Play();
+            AudioManager.instance.PlaySound(attackSound);
             numberOfConsume++;
             PlayerHealth.instance.AddCoffee(-1);
 

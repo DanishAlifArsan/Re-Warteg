@@ -5,6 +5,7 @@ using UnityEngine;
 public class Garden : MonoBehaviour, Interactable
 {
     [SerializeField] private List<DropItem> item;
+    [SerializeField] private AudioClip pickSound;
     public string FlavorText()
     {
        return "Pick";
@@ -20,5 +21,7 @@ public class Garden : MonoBehaviour, Interactable
         GardenManager.instance.Pickup(item[randItem], randAmount);
 
         PlayerHealth.instance.SetPrevItem(item[randItem]);
+
+        AudioManager.instance.PlaySound(pickSound);
     }
 }

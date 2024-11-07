@@ -14,11 +14,13 @@ public class StoneObject : MonoBehaviour
     private Transform startPoint;
     private float attack;
     private bool isActive = false;
+    private AudioClip attackSound;
 
-    public void Setup(Transform _start, float _attack)
+    public void Setup(Transform _start, float _attack, AudioClip _attackSound)
     {
         startPoint = _start;
         attack = _attack;
+        attackSound = _attackSound;
         rb = GetComponent<Rigidbody>();   
         rb.isKinematic = true;
     }
@@ -81,6 +83,7 @@ public class StoneObject : MonoBehaviour
 
     public IEnumerator PlayParticle() {
         stoneEffect.Play();
+        AudioManager.instance.PlaySound(attackSound);
         yield return new WaitWhile(() => stoneEffect.isPlaying);
         stoneEffect.Stop();
         transform.position = startPoint.position;

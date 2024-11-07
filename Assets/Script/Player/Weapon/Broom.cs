@@ -23,6 +23,7 @@ public class Broom : Weapon
                 canAttack = false;
                 cooldownTimer = cooldown;
                 attackEffect.Play();
+                AudioManager.instance.PlaySound(attackSound);
                 // todo jalankan animasi serangan
 
                 if (hit.transform.GetComponent<MonsterAI>().Damage(attack))

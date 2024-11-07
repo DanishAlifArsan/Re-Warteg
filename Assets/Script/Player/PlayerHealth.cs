@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private DropItem coffee;
     [SerializeField] private GameCutscene deathCutscene;
     [SerializeField] private Transition transition;
+    [SerializeField] private AudioClip deathSound;
+    [SerializeField] private AudioClip reviveSound;
     private float currentHealth;
     public int hitRecieved;
     public int numberOfAttack;
@@ -66,6 +68,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth <= 0)
         {
             //dead
+            AudioManager.instance.PlaySound(deathSound);
             transition.gameObject.SetActive(true);
             transition.OnEndTransition += DeathCutscene;
             healthBar.fillAmount = 0;
@@ -73,6 +76,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void DeathCutscene() {
+        AudioManager.instance.PlaySound(reviveSound);
         deathCutscene.StartCutscene();
          transition.gameObject.SetActive(false);
     }

@@ -16,6 +16,8 @@ public class CustomerAI : MonoBehaviour, StateUser
     [SerializeField] private GameObject bubbleTextObject;
     [SerializeField] private TextMeshProUGUI bubbleText;
     [SerializeField] private List<string> dialogue;
+    public AudioClip buySound;
+    public AudioClip paySound;
     public NavMeshAgent agent;
     public GameObject buyIndicator;
     public Transform cashierPoint;

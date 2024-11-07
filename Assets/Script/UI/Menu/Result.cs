@@ -13,6 +13,7 @@ public class Result : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameCutscene pajakCutscene;
     [SerializeField] private GameCutscene gagalCutscene;
+    [SerializeField] private AudioClip paperSound;
 
     private PlayerInput playerInput;
     public bool isContinue;
@@ -30,6 +31,8 @@ public class Result : MonoBehaviour
     }
 
     private void Setup() {
+        AudioManager.instance.PlaySound(paperSound);
+
         int customerAmount = CustomerManager.instance.customerAmount;
         int profit = CustomerManager.instance.profit;
         string score;
