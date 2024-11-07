@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Beras
   m_EditorClassIdentifier: 
   itemName: Beras
-  itemImage: {fileID: 21300000, guid: 2cad4035d48d99b4097e70b8f3ef70b6, type: 3}
-  desc: lorem ipsum
+  itemImage: {fileID: 21300000, guid: 2894f1befcafd6a438a8a192dd6093b2, type: 3}
+  desc: Ilmu padi abangkuhh
   price: 100
+  type: 0

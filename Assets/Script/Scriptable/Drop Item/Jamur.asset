@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Jamur
   m_EditorClassIdentifier: 
   itemName: Jamur
-  itemImage: {fileID: 21300000, guid: 00f23921d5554614d899ec1fc8970f68, type: 3}
-  desc: lorem ipsum
+  itemImage: {fileID: 21300000, guid: c10cf27e285893b4d98587fded720440, type: 3}
+  desc: Jamur banyak tumbuh di alam liar
   price: 100
+  type: 0
