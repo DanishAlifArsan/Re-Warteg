@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Home : MonoBehaviour
@@ -10,6 +11,7 @@ public class Home : MonoBehaviour
     [SerializeField] private GameObject creditScreen;
     [SerializeField] private Animator anim;
     [SerializeField] private AudioClip pressStartSound;
+    [SerializeField] private CanvasGroup continueButton;
     GameData data;
     // Start is called before the first frame update
     private void Start()
@@ -22,6 +24,9 @@ public class Home : MonoBehaviour
         // {
         //     GameManager.instance.LoadScene(1);  // pindah ke scene tutorial
         // }
+        if (data == null) {
+            continueButton.alpha = 0.5f;
+        }
         button.SetActive(true);
         InputManager.instance.playerInput.UI.Apply.performed += PressStart;
     }
@@ -53,7 +58,7 @@ public class Home : MonoBehaviour
 
     public void Play() {
         if (data == null) { // kalau gak jadi ada tutorial
-            GameManager.instance.LoadScene(1);
+            return;
         }
         else 
         if (data.isWarteg)
@@ -65,6 +70,7 @@ public class Home : MonoBehaviour
     }
 
     public void Quit() {
+        SaveManager.instance.NewGame(); // karena save error jadinya kalau quit auto new game
         Application.Quit();
 
         #if UNITY_EDITOR

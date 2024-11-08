@@ -12790,6 +12790,7 @@ GameObject:
   - component: {fileID: 1974526471}
   - component: {fileID: 1974526470}
   - component: {fileID: 1974526469}
+  - component: {fileID: 1974526473}
   m_Layer: 5
   m_Name: Continue
   m_TagString: Untagged
@@ -12935,6 +12936,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974526467}
   m_CullTransparentMesh: 1
+--- !u!225 &1974526473
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974526467}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1988338483
 GameObject:
   m_ObjectHideFlags: 0
@@ -14215,6 +14228,7 @@ MonoBehaviour:
   creditScreen: {fileID: 1797356645}
   anim: {fileID: 1787162554}
   pressStartSound: {fileID: 8300000, guid: 817b7c1faa4eb7340b2eda561902cd0b, type: 3}
+  continueButton: {fileID: 1974526473}
 --- !u!114 &2104149272
 MonoBehaviour:
   m_ObjectHideFlags: 0
