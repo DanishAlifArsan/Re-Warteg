@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Paddler : MonoBehaviour, Interactable
 {
+    [SerializeField] private Transform player;
     [SerializeField] private Shop shop;
     [SerializeField] private Transform interactPoint;
     [SerializeField] private float range;
@@ -31,22 +32,23 @@ public class Paddler : MonoBehaviour, Interactable
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 targetPos = new Vector3( player.position.x,  transform.position.y, player.position.z );
+        transform.LookAt(targetPos);
     }
 
-    private void LateUpdate() {     // kalau paddler bisa ngomong
-        if (CheckPlayer())
-        {
-            bubbleTextObject.SetActive(true);
-            if (dialogueGenerated)
-            {
-                bubbleText.text = dialogue[Random.Range(0, dialogue.Count)];
-                dialogueGenerated = false;
-            }
-        } else {
-            bubbleTextObject.SetActive(false);
-        }
-    }
+    // private void LateUpdate() {     // kalau paddler bisa ngomong
+    //     if (CheckPlayer())
+    //     {
+    //         bubbleTextObject.SetActive(true);
+    //         if (dialogueGenerated)
+    //         {
+    //             bubbleText.text = dialogue[Random.Range(0, dialogue.Count)];
+    //             dialogueGenerated = false;
+    //         }
+    //     } else {
+    //         bubbleTextObject.SetActive(false);
+    //     }
+    // }
 
     private bool CheckPlayer() {
         Collider[] cols = Physics.OverlapSphere(interactPoint.position, range, LayerMask.GetMask("player"));

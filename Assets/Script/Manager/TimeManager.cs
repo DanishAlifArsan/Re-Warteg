@@ -71,6 +71,11 @@ public class TimeManager : MonoBehaviour
                 GameManager.instance.EndSession();
             }
         }    
+
+         if (GameManager.instance.currentSession == GameSession.Dungeon && timeStart) {
+            CountDungeonTime(0);
+            timeStart = false;
+         }
     }
 
     private void Setup() {

@@ -1940,10 +1940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a20ed557beb1144d86475bbfafb2d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingDay: 1
+  startingDay: 7
   startHour: 6
-  endHour: 12
-  cycleRate: 1
+  endHour: 18
+  cycleRate: 5
   timeText: {fileID: 1314946}
   dayText: {fileID: 1170124689}
   dungeonConversation: {fileID: 0}
@@ -16265,6 +16265,7 @@ MonoBehaviour:
   startingCoffee: 2
   amountText: {fileID: 0}
   coffee: {fileID: 11400000, guid: 414bc37a66a9e5e49a63619c9c7e9341, type: 2}
+  anim: {fileID: 0}
   deathCutscene: {fileID: 0}
   transition: {fileID: 0}
   deathSound: {fileID: 0}
