@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Urap urap
   m_EditorClassIdentifier: 
   foodName: Urap urap
-  porsi: 2
+  porsi: 10
   foodImage: {fileID: 21300000, guid: 35afba03f6854b241b9bd9e6a134ef83, type: 3}
   cookTime: 2
   price: 1000
   prefab: {fileID: 220749272638250973, guid: 59bd4f8a1bfaac14fbc29f9d68f01a15, type: 3}
   materialsItem:
   - {fileID: 11400000, guid: 1fca8e892fdd0814c9c5f4964a1b8914, type: 2}
-  materialsCount: 02000000
+  materialsCount: 05000000
   type: 0
   foodType: 1
   menuDisplay: {fileID: 0}

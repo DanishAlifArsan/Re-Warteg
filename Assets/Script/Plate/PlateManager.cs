@@ -37,7 +37,8 @@ public class PlateManager : MonoBehaviour
         plate.gameObject.SetActive(false);
         cleanPlate.Add(plate);
         plate.transform.parent = platePos;
-        plate.transform.localPosition = Vector3.zero;
+        plate.transform.localPosition = new Vector3(0.251f, 0, -0.001f);
+        plate.transform.localRotation = Quaternion.Euler(0,-8.993f,-30);
     }
 
     public void TakePlate(Plate plate) {

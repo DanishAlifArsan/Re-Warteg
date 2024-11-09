@@ -18,6 +18,7 @@ public class MonsterAttack : IState
         if(monster.PlayerInSight() != null) {
             if (cooldownTimer >= monster.attackCooldown) {
                 cooldownTimer = 0;
+                monster.anim.SetTrigger("attack");
                 monster.DamagePlayer();  // damage player harusnya ada di animasi serangan 
                 // monster.animator.SetTrigger("Attack");  
             } 

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Result : MonoBehaviour
 {
     [SerializeField] private int maxCustomer;
+    [SerializeField] private float maxProfit;
     [SerializeField] private TextMeshProUGUI customerAmountText;
     [SerializeField] private TextMeshProUGUI profitText;
     [SerializeField] private TextMeshProUGUI bonusText;
@@ -41,13 +42,17 @@ public class Result : MonoBehaviour
 
         customerAmountText.text = customerAmount.ToString();
         profitText.text = profit.ToString();
-        if (customerAmount > maxCustomer)   // kalau ada waktu benerin lagi logicnya
+        if (profit > maxProfit)
         {
             score = "S";
             bonus = 5000;
-        } else if (customerAmount > 0) 
+        } else if (customerAmount > maxCustomer)   // kalau ada waktu benerin lagi logicnya
         {
             score = "A";
+            bonus = 2000;
+        } else if (customerAmount > 0 && profit > 0) 
+        {
+            score = "B";
             bonus = 1000;
         } else {
             score = "C";

@@ -16,7 +16,7 @@ public class CustomerEat : IState
         customer.transform.LookAt(targetPos);
         float posX = customer.transform.position.x;
         float posY = customer.transform.position.y - 0.151998f;
-        float posZ = customer.table.desk.position.z < customer.transform.position.z ? customer.transform.position.z + -0.699647f : customer.transform.position.z + 0.440732f;
+        float posZ = customer.table.desk.position.z < customer.transform.position.z ? customer.transform.position.z - 0.430858f : customer.transform.position.z + 0.440732f;
         customer.transform.position = new Vector3(posX, posY, posZ);
 
         customer.isEating = true;   
