@@ -1285,7 +1285,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &174680593
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4748,7 +4748,6 @@ MonoBehaviour:
   uiSelections:
   - {fileID: 8461904793941786617}
   - {fileID: 736014332}
-  - {fileID: 174680596}
   - {fileID: 966994166}
   - {fileID: 2068962296}
   OnSelectEvent:
@@ -14278,6 +14277,7 @@ MonoBehaviour:
   setoran: 0
   loadingScene: {fileID: 451379885}
   resultScene: {fileID: 0}
+  startConversation: {fileID: 0}
 --- !u!4 &2104149275
 Transform:
   m_ObjectHideFlags: 0

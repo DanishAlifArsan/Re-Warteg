@@ -1926,7 +1926,7 @@ MonoBehaviour:
   currencyText: {fileID: 1235068660}
   increaseText: {fileID: 0}
   decreaseText: {fileID: 0}
-  startingCurrency: 10000
+  startingCurrency: 0
   totalCurrency: 0
 --- !u!114 &51615205
 MonoBehaviour:
@@ -26532,8 +26532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f59b2f99183c24aa257030ebb9d09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCustomer: 10
-  maxProfit: 10000
+  maxCustomer: 5
+  maxProfit: 20000
   customerAmountText: {fileID: 813183494}
   profitText: {fileID: 974256022}
   bonusText: {fileID: 189302301}
