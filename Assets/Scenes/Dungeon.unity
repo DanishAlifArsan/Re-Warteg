@@ -6163,6 +6163,7 @@ MonoBehaviour:
   dayText: {fileID: 1170124689}
   dungeonConversation: {fileID: 829890603}
   currentDay: 0
+  endFlag: 0
 --- !u!114 &51615206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10262,7 +10263,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.44010553, y: 0.36370477, z: -0.20109572, w: 0.79598147}
+  m_LocalRotation: {x: 0.44010553, y: 0.36370477, z: -0.20109573, w: 0.79598147}
   m_LocalPosition: {x: 70.25568, y: 13.376094, z: 11.512983}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -33736,7 +33737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 3
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":208.399963,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Saatnya
+  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[],"EditorInfo":{"isRoot":true,"xPos":207.200012,"yPos":68.9999847},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Saatnya
     berjualan di warung","parentUIDs":[],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
     H","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.1,"Volume":0}]}'
   saveVersion: 110
@@ -61594,20 +61595,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentIDCounter: 14
-  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":208.399963,"yPos":22},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Bisa-bisanya
+  json: '{"Options":[],"Parameters":[],"SpeechNodes":[{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":3}],"EditorInfo":{"isRoot":true,"xPos":25.2000122,"yPos":-550},"ID":0,"ParamActions":[],"TMPFontGUID":null,"Text":"Bisa-bisanya
     ketiduran di dalam dungeon","parentUIDs":[],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
-    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":242.199951,"yPos":188.799927},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Loh,
+    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":6}],"EditorInfo":{"isRoot":false,"xPos":59,"yPos":-383.2},"ID":3,"ParamActions":[],"TMPFontGUID":null,"Text":"Loh,
     Pak sutar?","parentUIDs":[0],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
-    H ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":339.199951,"yPos":338.799927},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"*Pak
+    H ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":7}],"EditorInfo":{"isRoot":false,"xPos":156,"yPos":-233.200027},"ID":6,"ParamActions":[],"TMPFontGUID":null,"Text":"*Pak
     Ustadz","parentUIDs":[3],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"
-    Pak Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":275.199951,"yPos":474.799927},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Waduh
+    Pak Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":13}],"EditorInfo":{"isRoot":false,"xPos":92,"yPos":-97.20004},"ID":7,"ParamActions":[],"TMPFontGUID":null,"Text":"Waduh
     koq malah jadi ngerepotin. terima kasih banyak lho, pause start ","parentUIDs":[6],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
-    H","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":317.199951,"yPos":704.7999},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Paestar
+    H","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":9}],"EditorInfo":{"isRoot":false,"xPos":134,"yPos":132.799942},"ID":8,"ParamActions":[],"TMPFontGUID":null,"Text":"Paestar
     mampir aja ke warung, nanti saya kasih diskon","parentUIDs":[13],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Sugi
-    H ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":394.199951,"yPos":808.7999},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"....","parentUIDs":[8],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
-    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":402.199951,"yPos":977.7999},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Keluar!
+    H ","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":10}],"EditorInfo":{"isRoot":false,"xPos":211,"yPos":236.799927},"ID":9,"ParamActions":[],"TMPFontGUID":null,"Text":"....","parentUIDs":[8],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
+    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[],"EditorInfo":{"isRoot":false,"xPos":219,"yPos":405.799927},"ID":10,"ParamActions":[],"TMPFontGUID":null,"Text":"Keluar!
     ","parentUIDs":[9],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
-    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":318.199921,"yPos":604.8},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"*Pak
+    Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0},{"Connections":[{"__type":"EditableSpeechConnection:#DialogueEditor","Conditions":[],"NodeUID":8}],"EditorInfo":{"isRoot":false,"xPos":134.999969,"yPos":32.80002},"ID":13,"ParamActions":[],"TMPFontGUID":null,"Text":"*Pak
     Ustadz","parentUIDs":[7],"AdvanceDialogueAutomatically":true,"AudioGUID":null,"AutoAdvanceShouldDisplayOption":false,"IconGUID":null,"Name":"Pak
     Ustadz","OptionUIDs":null,"SpeechUID":0,"TimeUntilAdvance":0.5,"Volume":0}]}'
   saveVersion: 110
@@ -79260,7 +79261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887114714}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.44010553, y: 0.36370477, z: -0.20109572, w: 0.79598147}
+  m_LocalRotation: {x: 0.44010553, y: 0.36370477, z: -0.20109573, w: 0.79598147}
   m_LocalPosition: {x: 22.958931, y: 15.6849165, z: 11.498931}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

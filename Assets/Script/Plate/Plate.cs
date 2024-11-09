@@ -38,7 +38,7 @@ public class Plate : MonoBehaviour, Interactable, HoldItem
     public void AddFood(Food food) {   
         if (!foodList.ContainsKey(food))
         {
-            GameObject instantiatedFood = Instantiate(food.prefab, foodPos.position, Quaternion.identity, foodPos);
+            GameObject instantiatedFood = Instantiate(food.prefab, foodPos.position, foodPos.rotation, foodPos);
             foodList.Add(food, instantiatedFood);
         }
     }

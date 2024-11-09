@@ -10,7 +10,7 @@ public class Intro : MonoBehaviour
         GameManager.instance.LoadScene(2);
     }
 
-    private void Awake() {
+    private void Start() {
         ConversationManager.Instance.StartConversation(conversation);
     }
 }

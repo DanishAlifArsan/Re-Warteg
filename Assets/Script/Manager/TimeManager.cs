@@ -42,7 +42,7 @@ public class TimeManager : MonoBehaviour
         Setup();
     }
 
-    private bool endFlag = false;
+    public bool endFlag = false;    // buat stop waktu di sesi warteg
 
     // Update is called once per frame
     private void Update()
@@ -55,7 +55,7 @@ public class TimeManager : MonoBehaviour
 
         if (GameManager.instance.currentSession == GameSession.Warteg)
         {
-            if (timeStart)
+            if (timeStart && !endFlag)
             {
                 minutes += Time.deltaTime * cycleRate;
                 timeText.text = String.Format("{0:00}:{1:00}", hours, (int) minutes);

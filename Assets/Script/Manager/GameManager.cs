@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DialogueEditor;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int setoran;
     [SerializeField] private GameObject loadingScene;
     [SerializeField] private Result resultScene;
+    [SerializeField] private NPCConversation startConversation;
     
     private void Awake()
     {
@@ -40,8 +42,10 @@ public class GameManager : MonoBehaviour
                 playerInput.Kitchen.Disable();
                 break;
             case GameSession.Warteg:
+                ConversationManager.Instance.StartConversation(startConversation);
                 playerInput.Dungeon.Disable();
-                playerInput.Kitchen.Enable();
+                playerInput.Kitchen.Disable();
+                
                 break;
         }
 
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
 
     public void EndSession() {      // pindah ke result
         // resultScene?.gameObject.SetActive(true);
+        TimeManager.instance.endFlag = true;
         if (TimeManager.instance.EndGame() && currentSession == GameSession.Warteg)
         {
             //tambahkan perhitungan pajak

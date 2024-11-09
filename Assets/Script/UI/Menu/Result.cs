@@ -66,6 +66,13 @@ public class Result : MonoBehaviour
     }
 
     public void Continue() {
+        if (!TimeManager.instance.endFlag)  // kalau belum selesai, dialog cuma nutup
+        {
+            InputManager.instance.playerInput.Player.Enable();
+            InputManager.instance.playerInput.Kitchen.Enable();
+            return;
+        }
+
         if (isContinue)
         {
             if (isEnded)

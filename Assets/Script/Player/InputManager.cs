@@ -92,13 +92,13 @@ public class InputManager : MonoBehaviour
         // InputSystem.onEvent += OnDeviceChange;
         DeviceChange();
 
-        if (GameManager.instance.currentSession == GameSession.Home)
+        if (GameManager.instance.currentSession == GameSession.Dungeon)
         {
-           playerInput.Player.Disable();
-            playerInput.UI.Enable(); 
-        } else {
             playerInput.Player.Enable();
             playerInput.UI.Disable();
+        } else {
+            playerInput.Player.Disable();
+            playerInput.UI.Enable(); 
         }
     }
 

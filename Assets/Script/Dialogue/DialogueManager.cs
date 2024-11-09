@@ -12,7 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private UnityEvent OnDialogueEnd;
 
     // Start is called before the first frame update
-    private void Start()
+    private void Awake()
     {
         ConversationManager.OnConversationStarted += StartDialogue;
         ConversationManager.OnConversationEnded += EndDialogue;

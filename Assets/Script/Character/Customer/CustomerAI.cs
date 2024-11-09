@@ -121,6 +121,7 @@ public class CustomerAI : MonoBehaviour, StateUser
         plate = _plate;
         _plate.transform.parent = platePos;
         _plate.transform.localPosition = Vector3.zero;
+        _plate.transform.localRotation = Quaternion.identity;
     }
 
     private bool dialogueGenerated = true;
