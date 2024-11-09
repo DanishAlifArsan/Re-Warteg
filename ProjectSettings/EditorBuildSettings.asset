@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Warteg.unity
     guid: 7e104314780799542866fbea6f370117
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: ec56572b50012234eabbb174fd50e1ad
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 40ee7cc53961e3a41a6942d357f89ada,
       type: 2}

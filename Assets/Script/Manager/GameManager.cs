@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
                 SaveGame();
             } else {
                 // resultScene.OnContinue += GameOver;
-                ShowResult(false, false);
+                ShowResult(false, true);
                 // GameOver();
             }
         } else {

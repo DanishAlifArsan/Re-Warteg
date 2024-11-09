@@ -53,7 +53,7 @@ public class Home : MonoBehaviour
 
     public void NewGame() {
         SaveManager.instance.NewGame();
-        GameManager.instance.LoadScene(1);  // pindah ke scene tutorial
+        GameManager.instance.LoadScene(3);  // pindah ke scene tutorial
     }
 
     public void Play() {

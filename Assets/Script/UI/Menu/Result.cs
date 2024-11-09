@@ -13,6 +13,7 @@ public class Result : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameCutscene pajakCutscene;
     [SerializeField] private GameCutscene gagalCutscene;
+    [SerializeField] private Gameover gameoverScene;
     [SerializeField] private AudioClip paperSound;
 
     private PlayerInput playerInput;
@@ -76,14 +77,15 @@ public class Result : MonoBehaviour
             }
             GameManager.instance.LoadScene(1);
         } else {
-            // if (isEnded)  // kalau ada gagal
-            // {
-                // Time.timeScale = 1;
-            //     gagalCutscene.StartCutscene();
-            //     isEnded = false;
-            //     return; 
-            // }
-            Gameover();
+            if (isEnded)  // kalau ada gagal
+            {
+                Time.timeScale = 1;
+                gagalCutscene.StartCutscene();
+                isEnded = false;
+                return; 
+            }
+            // Gameover();
+            gameoverScene.gameObject.SetActive(true);
         }
 
         // if (isEnded)
@@ -108,8 +110,8 @@ public class Result : MonoBehaviour
         // gameObject.SetActive(false);
     }
 
-    private void Gameover() {
-        SaveManager.instance.NewGame(); // kemungkinan reset ke tutorial
-        GameManager.instance.LoadScene(0);
-    }
+    // private void Gameover() {
+    //     SaveManager.instance.NewGame(); // kemungkinan reset ke tutorial
+    //     GameManager.instance.LoadScene(0);
+    // }
 }
