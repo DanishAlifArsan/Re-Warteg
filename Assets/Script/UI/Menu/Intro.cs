@@ -8,8 +8,8 @@ public class Intro : MonoBehaviour
 {
     [SerializeField] NPCConversation conversation;
     public void EndIntro() {
-        GameManager.instance.LoadScene(2);
-        // SceneManager.LoadScene(2);
+        // GameManager.instance.LoadScene(2);
+        SceneManager.LoadScene(2);
     }
 
     private void Start() {
