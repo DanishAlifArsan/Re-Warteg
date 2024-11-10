@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private PlayerInteract playerInteract;
     [SerializeField] private Kitchen kitchen;
     [SerializeField] private Display display;
+    [SerializeField] private Door door;
     [SerializeField] private Animator click;
 
     // Start is called before the first frame update
@@ -24,16 +25,12 @@ public class PlayerMovement : MonoBehaviour
         playerInput.Player.MouseClick.performed += OnMouseClick;
         playerInput.Kitchen.HotkeyKitchen.performed += ToKitchen;
         playerInput.Kitchen.HotkeyDisplay.performed += ToDisplay;
-        // playerInput.Kitchen.HotkeyClean.performed += ToClean;
+        playerInput.Kitchen.HotkeyClean.performed += ToDoor;
     }
 
-    private void ToClean(InputAction.CallbackContext context)
+    private void ToDoor(InputAction.CallbackContext context)
     {
-        if (PlateManager.instance.dirtyPlate.Count > 0)
-        {
-            Vector2 pos = PlateManager.instance.dirtyPlate[0].transform.position;
-            agent.SetDestination(pos);
-        }
+        agent.SetDestination(door.transform.position);
     }
 
     private void ToDisplay(InputAction.CallbackContext context)

@@ -8,13 +8,13 @@ public class MonsterWalk : IState
     public void EnterState(StateUser user, StateManager stateManager)
     {
         MonsterAI monster = user as MonsterAI;
+        monster.anim.SetBool("walk", true);
 
         if (monster.isChasing && monster.pool.DetectPlayer() != null)
         {
-            monster.battleSound.Play();
             player = monster.pool.DetectPlayer();
         } else {
-            monster.battleSound.Stop();
+            
             monster.agent.SetDestination(monster.spawnPos.position);
         }
     }

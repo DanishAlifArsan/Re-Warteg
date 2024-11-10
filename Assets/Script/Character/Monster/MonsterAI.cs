@@ -13,9 +13,9 @@ public class MonsterAI : MonoBehaviour, StateUser
     [SerializeField] private int dropAmount;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private float attackRange;
-    public AudioSource battleSound;
     public AudioClip attackSound;
     public AudioClip deathSound;
+    public Animator anim;
     public float idleDuration;
     public float attackCooldown;
     public Transform spawnPos;
@@ -76,7 +76,6 @@ public class MonsterAI : MonoBehaviour, StateUser
     }
 
     public void Death() { // panggil saat mati
-        AudioManager.instance.PlaySound(deathSound);
         switch (dropItem.type)
         {
             case DropType.Item:

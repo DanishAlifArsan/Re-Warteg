@@ -8,6 +8,7 @@ public class MonsterPool : MonoBehaviour
     [SerializeField] private float detectRange;
     [SerializeField] private float aggroRange;
     [SerializeField] private float spawnTime;
+    [SerializeField] private AudioSource battleSound;
     private float spawnCooldown = 0;
     private bool isSpawned;
     public List<MonsterAI> spawnedMonster = new List<MonsterAI>();
@@ -21,6 +22,10 @@ public class MonsterPool : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (spawnedMonster.Count > 0)
+        {   
+            PlayMusic();
+        }
         if (isSpawned)
         {
             return;
@@ -32,6 +37,7 @@ public class MonsterPool : MonoBehaviour
             Spawn(true);
             spawnCooldown = 0;
         }
+
     }
 
     private void Spawn(bool status) {
@@ -56,6 +62,28 @@ public class MonsterPool : MonoBehaviour
             {
                 isSpawned = false;
             }
+
+            battleSound.Stop();
+            isPlayed = false;
+        }
+    }
+
+    private bool isPlayed = false;
+
+    private void PlayMusic() {
+        if (DetectPlayer() && !isPlayed)
+        {
+            Debug.Log("play music");
+            battleSound.Play();
+            isPlayed = true;
+            return;
+        } 
+        
+        if (!AggroPlayer() && isPlayed)
+        {
+            battleSound.Stop();
+            isPlayed = false;
+            return;
         }
     }
 

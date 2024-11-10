@@ -518,7 +518,7 @@
                 {
                     "name": "",
                     "id": "33c46114-bc5a-4040-aadd-52fa1b837dd3",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "KeyboardMouse",

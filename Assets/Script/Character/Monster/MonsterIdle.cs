@@ -7,7 +7,8 @@ public class MonsterIdle : IState
     private float idleTimer = 0f;
     public void EnterState(StateUser user, StateManager stateManager)
     {
-        
+        MonsterAI monster = user as MonsterAI;
+        monster.anim.SetBool("walk", false);
     }
 
     public void UpdateState(StateUser user, StateManager stateManager)
