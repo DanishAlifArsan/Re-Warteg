@@ -75,7 +75,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void GenerateNewItem() {
+    public void GenerateNewItem() {
         for (int i = 0; i < Math.Min(startingItem.Count, startingItemCount.Count); i++)
         {
             AddItem(startingItem[i], startingItemCount[i]);

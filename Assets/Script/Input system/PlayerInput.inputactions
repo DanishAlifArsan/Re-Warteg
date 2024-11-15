@@ -67,15 +67,6 @@
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Cheat",
-                    "type": "Button",
-                    "id": "c34983b1-0b82-46ab-8734-274d5888eb58",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -241,17 +232,6 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "HoldInteract",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ee32c22d-2273-4af9-8538-3acac4292133",
-                    "path": "<Keyboard>/f1",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Cheat",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -855,6 +835,134 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "HotkeyClean",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Cheat",
+            "id": "6947fa5d-6146-4896-b74b-d7ebeff99f9f",
+            "actions": [
+                {
+                    "name": "Speed",
+                    "type": "Button",
+                    "id": "b39745d3-474a-4a50-9e12-ec9502bc2a77",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LastDay",
+                    "type": "Button",
+                    "id": "b49dad96-078c-461b-ae52-95d0327de73d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AddMoney",
+                    "type": "Button",
+                    "id": "e7e8a70b-a7dc-4ea2-bd09-8528e8119d0f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RemoveMoney",
+                    "type": "Button",
+                    "id": "0780569f-201b-4423-a7cb-a94fabcb846a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AddInventory",
+                    "type": "Button",
+                    "id": "76098859-a1a3-4cf9-8bd8-4e85f2238df3",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "RemoveInventory",
+                    "type": "Button",
+                    "id": "37a71ec0-c3c5-44c4-b029-7fa186b16c4a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b90e4a1d-cb17-4bf9-8700-7862fc184685",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Speed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a488aa16-3478-498d-a596-25a3409ec15f",
+                    "path": "<Keyboard>/f2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "LastDay",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8374871a-0f6a-4e0d-b294-6928185f3cbf",
+                    "path": "<Keyboard>/f3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "AddMoney",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54c44faa-7714-4213-8737-1eeab7b1d43a",
+                    "path": "<Keyboard>/f4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "RemoveMoney",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3de14e68-32f5-4127-a3a8-9b39007a2cf4",
+                    "path": "<Keyboard>/f5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "AddInventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9dce728c-f32b-4e91-a334-e443cc11b55c",
+                    "path": "<Keyboard>/f6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "RemoveInventory",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

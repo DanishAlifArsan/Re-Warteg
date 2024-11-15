@@ -89,15 +89,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Cheat"",
-                    ""type"": ""Button"",
-                    ""id"": ""c34983b1-0b82-46ab-8734-274d5888eb58"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -263,17 +254,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
                     ""action"": ""HoldInteract"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee32c22d-2273-4af9-8538-3acac4292133"",
-                    ""path"": ""<Keyboard>/f1"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Cheat"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -881,6 +861,134 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Cheat"",
+            ""id"": ""6947fa5d-6146-4896-b74b-d7ebeff99f9f"",
+            ""actions"": [
+                {
+                    ""name"": ""Speed"",
+                    ""type"": ""Button"",
+                    ""id"": ""b39745d3-474a-4a50-9e12-ec9502bc2a77"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LastDay"",
+                    ""type"": ""Button"",
+                    ""id"": ""b49dad96-078c-461b-ae52-95d0327de73d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AddMoney"",
+                    ""type"": ""Button"",
+                    ""id"": ""e7e8a70b-a7dc-4ea2-bd09-8528e8119d0f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RemoveMoney"",
+                    ""type"": ""Button"",
+                    ""id"": ""0780569f-201b-4423-a7cb-a94fabcb846a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AddInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""76098859-a1a3-4cf9-8bd8-4e85f2238df3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RemoveInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""37a71ec0-c3c5-44c4-b029-7fa186b16c4a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""b90e4a1d-cb17-4bf9-8700-7862fc184685"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Speed"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a488aa16-3478-498d-a596-25a3409ec15f"",
+                    ""path"": ""<Keyboard>/f2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""LastDay"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8374871a-0f6a-4e0d-b294-6928185f3cbf"",
+                    ""path"": ""<Keyboard>/f3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""AddMoney"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""54c44faa-7714-4213-8737-1eeab7b1d43a"",
+                    ""path"": ""<Keyboard>/f4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""RemoveMoney"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3de14e68-32f5-4127-a3a8-9b39007a2cf4"",
+                    ""path"": ""<Keyboard>/f5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""AddInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9dce728c-f32b-4e91-a334-e443cc11b55c"",
+                    ""path"": ""<Keyboard>/f6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""RemoveInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -938,7 +1046,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
         m_Player_HoldInteract = m_Player.FindAction("HoldInteract", throwIfNotFound: true);
-        m_Player_Cheat = m_Player.FindAction("Cheat", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -958,6 +1065,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Kitchen_HotkeyKitchen = m_Kitchen.FindAction("HotkeyKitchen", throwIfNotFound: true);
         m_Kitchen_HotkeyDisplay = m_Kitchen.FindAction("HotkeyDisplay", throwIfNotFound: true);
         m_Kitchen_HotkeyClean = m_Kitchen.FindAction("HotkeyClean", throwIfNotFound: true);
+        // Cheat
+        m_Cheat = asset.FindActionMap("Cheat", throwIfNotFound: true);
+        m_Cheat_Speed = m_Cheat.FindAction("Speed", throwIfNotFound: true);
+        m_Cheat_LastDay = m_Cheat.FindAction("LastDay", throwIfNotFound: true);
+        m_Cheat_AddMoney = m_Cheat.FindAction("AddMoney", throwIfNotFound: true);
+        m_Cheat_RemoveMoney = m_Cheat.FindAction("RemoveMoney", throwIfNotFound: true);
+        m_Cheat_AddInventory = m_Cheat.FindAction("AddInventory", throwIfNotFound: true);
+        m_Cheat_RemoveInventory = m_Cheat.FindAction("RemoveInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1026,7 +1141,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_Pause;
     private readonly InputAction m_Player_HoldInteract;
-    private readonly InputAction m_Player_Cheat;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -1038,7 +1152,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputAction @HoldInteract => m_Wrapper.m_Player_HoldInteract;
-        public InputAction @Cheat => m_Wrapper.m_Player_Cheat;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1069,9 +1182,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @HoldInteract.started += instance.OnHoldInteract;
             @HoldInteract.performed += instance.OnHoldInteract;
             @HoldInteract.canceled += instance.OnHoldInteract;
-            @Cheat.started += instance.OnCheat;
-            @Cheat.performed += instance.OnCheat;
-            @Cheat.canceled += instance.OnCheat;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1097,9 +1207,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @HoldInteract.started -= instance.OnHoldInteract;
             @HoldInteract.performed -= instance.OnHoldInteract;
             @HoldInteract.canceled -= instance.OnHoldInteract;
-            @Cheat.started -= instance.OnCheat;
-            @Cheat.performed -= instance.OnCheat;
-            @Cheat.canceled -= instance.OnCheat;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1335,6 +1442,92 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     }
     public KitchenActions @Kitchen => new KitchenActions(this);
+
+    // Cheat
+    private readonly InputActionMap m_Cheat;
+    private List<ICheatActions> m_CheatActionsCallbackInterfaces = new List<ICheatActions>();
+    private readonly InputAction m_Cheat_Speed;
+    private readonly InputAction m_Cheat_LastDay;
+    private readonly InputAction m_Cheat_AddMoney;
+    private readonly InputAction m_Cheat_RemoveMoney;
+    private readonly InputAction m_Cheat_AddInventory;
+    private readonly InputAction m_Cheat_RemoveInventory;
+    public struct CheatActions
+    {
+        private @PlayerInput m_Wrapper;
+        public CheatActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Speed => m_Wrapper.m_Cheat_Speed;
+        public InputAction @LastDay => m_Wrapper.m_Cheat_LastDay;
+        public InputAction @AddMoney => m_Wrapper.m_Cheat_AddMoney;
+        public InputAction @RemoveMoney => m_Wrapper.m_Cheat_RemoveMoney;
+        public InputAction @AddInventory => m_Wrapper.m_Cheat_AddInventory;
+        public InputAction @RemoveInventory => m_Wrapper.m_Cheat_RemoveInventory;
+        public InputActionMap Get() { return m_Wrapper.m_Cheat; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CheatActions set) { return set.Get(); }
+        public void AddCallbacks(ICheatActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CheatActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CheatActionsCallbackInterfaces.Add(instance);
+            @Speed.started += instance.OnSpeed;
+            @Speed.performed += instance.OnSpeed;
+            @Speed.canceled += instance.OnSpeed;
+            @LastDay.started += instance.OnLastDay;
+            @LastDay.performed += instance.OnLastDay;
+            @LastDay.canceled += instance.OnLastDay;
+            @AddMoney.started += instance.OnAddMoney;
+            @AddMoney.performed += instance.OnAddMoney;
+            @AddMoney.canceled += instance.OnAddMoney;
+            @RemoveMoney.started += instance.OnRemoveMoney;
+            @RemoveMoney.performed += instance.OnRemoveMoney;
+            @RemoveMoney.canceled += instance.OnRemoveMoney;
+            @AddInventory.started += instance.OnAddInventory;
+            @AddInventory.performed += instance.OnAddInventory;
+            @AddInventory.canceled += instance.OnAddInventory;
+            @RemoveInventory.started += instance.OnRemoveInventory;
+            @RemoveInventory.performed += instance.OnRemoveInventory;
+            @RemoveInventory.canceled += instance.OnRemoveInventory;
+        }
+
+        private void UnregisterCallbacks(ICheatActions instance)
+        {
+            @Speed.started -= instance.OnSpeed;
+            @Speed.performed -= instance.OnSpeed;
+            @Speed.canceled -= instance.OnSpeed;
+            @LastDay.started -= instance.OnLastDay;
+            @LastDay.performed -= instance.OnLastDay;
+            @LastDay.canceled -= instance.OnLastDay;
+            @AddMoney.started -= instance.OnAddMoney;
+            @AddMoney.performed -= instance.OnAddMoney;
+            @AddMoney.canceled -= instance.OnAddMoney;
+            @RemoveMoney.started -= instance.OnRemoveMoney;
+            @RemoveMoney.performed -= instance.OnRemoveMoney;
+            @RemoveMoney.canceled -= instance.OnRemoveMoney;
+            @AddInventory.started -= instance.OnAddInventory;
+            @AddInventory.performed -= instance.OnAddInventory;
+            @AddInventory.canceled -= instance.OnAddInventory;
+            @RemoveInventory.started -= instance.OnRemoveInventory;
+            @RemoveInventory.performed -= instance.OnRemoveInventory;
+            @RemoveInventory.canceled -= instance.OnRemoveInventory;
+        }
+
+        public void RemoveCallbacks(ICheatActions instance)
+        {
+            if (m_Wrapper.m_CheatActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICheatActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CheatActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CheatActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CheatActions @Cheat => new CheatActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1371,7 +1564,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnInventory(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnHoldInteract(InputAction.CallbackContext context);
-        void OnCheat(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
@@ -1394,5 +1586,14 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnHotkeyKitchen(InputAction.CallbackContext context);
         void OnHotkeyDisplay(InputAction.CallbackContext context);
         void OnHotkeyClean(InputAction.CallbackContext context);
+    }
+    public interface ICheatActions
+    {
+        void OnSpeed(InputAction.CallbackContext context);
+        void OnLastDay(InputAction.CallbackContext context);
+        void OnAddMoney(InputAction.CallbackContext context);
+        void OnRemoveMoney(InputAction.CallbackContext context);
+        void OnAddInventory(InputAction.CallbackContext context);
+        void OnRemoveInventory(InputAction.CallbackContext context);
     }
 }
