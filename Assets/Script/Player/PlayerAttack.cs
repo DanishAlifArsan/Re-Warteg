@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private List<Weapon> weaponList;
+    public List<Weapon> weaponList;
     public Camera cam;
     private int currentIndex;
     private Weapon currentWeapon;

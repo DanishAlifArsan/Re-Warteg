@@ -143,7 +143,7 @@ public class CustomerManager : MonoBehaviour
        customer.gameObject.SetActive(false);
        customerQueue.Remove(customer);
 
-    //    Debug.Log(ActiveCustomer());
+       Debug.Log(customerQueue.Count);
     }
 
     public bool ActiveCustomer() {

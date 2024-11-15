@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected float attack;
-    [SerializeField] protected float cooldown;
+    public float attack;
+    public float cooldown;
     [SerializeField] protected RectTransform weaponIcon;
     [SerializeField] protected Image cooldownImage;
     [SerializeField] protected Animator anim;

@@ -10,7 +10,7 @@ public class TimeManager : MonoBehaviour
     public int startingDay;
     [SerializeField] private int startHour;
     [SerializeField] private int endHour;
-    [SerializeField] private float cycleRate;
+    public float cycleRate;
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private NPCConversation dungeonConversation;

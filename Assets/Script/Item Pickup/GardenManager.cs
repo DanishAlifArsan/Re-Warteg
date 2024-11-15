@@ -7,7 +7,7 @@ public class GardenManager : MonoBehaviour
     [SerializeField] private List<Transform> gardenPos;
     [SerializeField] private List<Garden> gardenPrefab;
     [SerializeField] private ItemPickup itemPickup;
-    [SerializeField] private int timeRate;
+    public int timeRate;
     public static GardenManager instance;
 
     private void Awake()
