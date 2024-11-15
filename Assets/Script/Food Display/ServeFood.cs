@@ -26,12 +26,13 @@ public class ServeFood : MonoBehaviour
     {
         if (plate.CheckIsEmpty())
         {
-            Debug.Log("Please select food");  // ganti jadi warning
+            display.warning.ShowWarning("Plate is empty!");
             return;
         }
 
         if (CustomerManager.instance.currentCustomer == null)
         {
+            display.warning.ShowWarning("No Customer ...");
             return;
         }
 
@@ -45,6 +46,11 @@ public class ServeFood : MonoBehaviour
             display.SetupCamera(false);
 
             AudioManager.instance.PlaySound(serveSound);
+        } else if (CustomerManager.instance.currentCustomer.foodToBuy.Count <= 0)    // kalau pelanggan belum pesan
+        {
+            display.warning.ShowWarning("No Customer ...");
+        } else {
+            display.warning.ShowWarning("Incorrect order!");
         }
     }
 

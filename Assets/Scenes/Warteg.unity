@@ -12280,7 +12280,8 @@ MonoBehaviour:
   - {fileID: 1742791178}
   - {fileID: 1766619874}
   - {fileID: 1659243953}
-  warning: {fileID: 2137737504}
+  warning: {fileID: 2137737505}
+  warningText: No more plate T_T
 --- !u!1 &441931917
 GameObject:
   m_ObjectHideFlags: 0
@@ -33402,6 +33403,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2137737500}
   - {fileID: 322694024}
   - {fileID: 1235068659}
   - {fileID: 313850630}
@@ -42215,7 +42217,6 @@ RectTransform:
   - {fileID: 160873721}
   - {fileID: 870831498}
   - {fileID: 534811066}
-  - {fileID: 2137737500}
   m_Father: {fileID: 1774824548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -51962,6 +51963,7 @@ GameObject:
   - component: {fileID: 2137737501}
   - component: {fileID: 2137737504}
   - component: {fileID: 2137737503}
+  - component: {fileID: 2137737505}
   m_Layer: 5
   m_Name: warning
   m_TagString: Untagged
@@ -51982,7 +51984,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2022424483}
-  m_Father: {fileID: 1722046528}
+  m_Father: {fileID: 1343248475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -52060,6 +52062,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2137737505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137737499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43204ed9815fdaa42aeb11096cb4c912, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warningText: {fileID: 2022424484}
+  warningSound: {fileID: 8300000, guid: ae97485a831f8c94a88ab6683b614a74, type: 3}
 --- !u!1 &2143805756
 GameObject:
   m_ObjectHideFlags: 0
