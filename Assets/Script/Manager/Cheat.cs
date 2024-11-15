@@ -10,17 +10,33 @@ public class Cheat : MonoBehaviour
     [SerializeField] private PlayerAttack playerAttack;
     PlayerInput playerInput;
     private bool isActive = false;
-    private float defaultSpeed, defaultAccel, defaultCycleRate, defaultTimeRate;
+    private bool isLastDay = false;
+    private float defaultSpeed, defaultAccel, defaultCycleRate, defaultTimeRat;
+    private int defaultDay;
     
     // Start is called before the first frame update
     private void Start()
     {
+        defaultDay = TimeManager.instance.currentDay;
         playerInput = InputManager.instance.playerInput;
         // playerInput.Cheat.Enable();
         playerInput.Cheat.Speed.performed += Speed;
         playerInput.Cheat.AddMoney.performed += AddMoney;
         playerInput.Cheat.RemoveMoney.performed += RemoveMoney;
         playerInput.Cheat.AddInventory.performed += AddInventory;
+        playerInput.Cheat.LastDay.performed += LastDay;
+    }
+
+    private void LastDay(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        if (isLastDay)
+        {
+            TimeManager.instance.currentDay = defaultDay;
+            isLastDay = false;
+        } else {
+            TimeManager.instance.currentDay = 1;
+            isLastDay = true;
+        }
     }
 
     private void AddInventory(UnityEngine.InputSystem.InputAction.CallbackContext context)
