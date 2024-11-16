@@ -30,13 +30,20 @@ public class DialogueManager : MonoBehaviour
     private void StartDialogue() {
         // OnDialogueStart?.Invoke();
         // skipButton.SetActive(true);
-        InputManager.instance.playerInput.UI.Apply.performed += EndConversation;
+        InputManager.instance.playerInput.UI.Apply.performed += NextConversation;
+        InputManager.instance.playerInput.UI.Action2.performed += EndConversation;
 
+    }
+
+    private void NextConversation(UnityEngine.InputSystem.InputAction.CallbackContext context)
+    {
+        ConversationManager.Instance.PressSelectedOption();
     }
 
     private void EndDialogue() {    // trigger ketika dialog selesai
         // skipButton.SetActive(false);
-        InputManager.instance.playerInput.UI.Apply.performed -= EndConversation;
+        InputManager.instance.playerInput.UI.Apply.performed -= NextConversation;
+        InputManager.instance.playerInput.UI.Action2.performed -= EndConversation;
         OnDialogueEnd?.Invoke();
     }
 }
