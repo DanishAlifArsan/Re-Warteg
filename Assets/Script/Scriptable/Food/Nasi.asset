@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodName: Nasi
   porsi: 10
-  foodImage: {fileID: 21300000, guid: 72c0fda185611aa4b88cb9cd771ff68d, type: 3}
+  foodImage: {fileID: 21300000, guid: a5accf9e03fa88445b52a05f63b3f9c7, type: 3}
   cookTime: 2
   price: 1000
   prefab: {fileID: 220749272638250973, guid: 47e58f4d5f25e694398f445f3d7c9a75, type: 3}
