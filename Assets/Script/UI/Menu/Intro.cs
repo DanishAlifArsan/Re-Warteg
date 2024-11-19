@@ -14,6 +14,7 @@ public class Intro : MonoBehaviour
         {
             return;
         }
+        videoPlayer.Stop();
         GameManager.instance.LoadScene(2);
         endFlag = true; 
         // SceneManager.LoadScene(2);

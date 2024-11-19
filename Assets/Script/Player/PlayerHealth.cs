@@ -16,7 +16,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Transition transition;
     [SerializeField] private Animator angerIndicator;
     [SerializeField] private AudioClip deathSound;
-    [SerializeField] private AudioClip reviveSound;
+    [SerializeField] private AudioSource reviveSound;
+    [SerializeField] private AudioSource battleSound;
     private float currentHealth;
     public int hitRecieved;
     public int numberOfAttack;
@@ -81,7 +82,8 @@ public class PlayerHealth : MonoBehaviour
     }
 
     private void DeathCutscene() {
-        AudioManager.instance.PlaySound(reviveSound);
+        reviveSound.Play();
+        battleSound.Stop();
         deathCutscene.StartCutscene();
          transition.gameObject.SetActive(false);
     }
