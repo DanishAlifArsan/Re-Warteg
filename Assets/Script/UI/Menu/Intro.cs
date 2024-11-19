@@ -14,9 +14,9 @@ public class Intro : MonoBehaviour
         {
             return;
         }
-        // GameManager.instance.LoadScene(2);
+        GameManager.instance.LoadScene(2);
         endFlag = true; 
-        SceneManager.LoadScene(2);
+        // SceneManager.LoadScene(2);
     }
     // [SerializeField] NPCConversation conversation;   // buat kalau pakai dialog
 
