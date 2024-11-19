@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Animator anim;
     [SerializeField] private GameCutscene deathCutscene;
     [SerializeField] private Transition transition;
+    [SerializeField] private Animator angerIndicator;
     [SerializeField] private AudioClip deathSound;
     [SerializeField] private AudioClip reviveSound;
     private float currentHealth;
@@ -64,12 +65,14 @@ public class PlayerHealth : MonoBehaviour
     }
 
     public void DecreaseHealth(int amount) { // di batu kalau serangannya gak kena
+        AudioManager.instance.PlaySound(deathSound);
+        angerIndicator.SetTrigger("appear");
+
         currentHealth -= amount;
         healthBar.fillAmount = currentHealth / maxHealth;
         if (currentHealth <= 0)
         {
             //dead
-            AudioManager.instance.PlaySound(deathSound);
             anim.SetTrigger("death");
             transition.gameObject.SetActive(true);
             transition.OnEndTransition += DeathCutscene;

@@ -13,7 +13,8 @@ public class Display : MonoBehaviour, Interactable
     [SerializeField] ServeFood serveFoodUI; 
     [SerializeField] PlayerInteract player;
     [SerializeField] List<MenuDisplay> menuDisplays;
-    [SerializeField] Animator warning;
+    public Warning warning;
+    [SerializeField] string warningText;
 
     // Start is called before the first frame update
     private void Start()
@@ -51,7 +52,7 @@ public class Display : MonoBehaviour, Interactable
                 SetupCamera(true);
                 serveFoodUI.Setup(this, plate);
             } else {
-                warning.SetTrigger("appear");
+                warning.ShowWarning(warningText);
             }
         }
     }
