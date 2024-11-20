@@ -14,6 +14,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private TextMeshProUGUI dayText;
     [SerializeField] private NPCConversation dungeonConversation;
+    [SerializeField] private GameObject endIndicator;
     public int currentDay;
     private int hours;
     private float minutes;
@@ -63,6 +64,7 @@ public class TimeManager : MonoBehaviour
                 if (EndWarteg())
                 {
                     timeStart = false;
+                    endIndicator.SetActive(true);
                     // GameManager.instance.EndSession();
                 }
             } else if (!CustomerManager.instance.ActiveCustomer() && !endFlag)
