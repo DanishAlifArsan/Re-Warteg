@@ -30,6 +30,8 @@ public class DialogueManager : MonoBehaviour
     private void StartDialogue() {
         // OnDialogueStart?.Invoke();
         // skipButton.SetActive(true);
+        InputManager.instance.playerInput.Player.Disable();
+        InputManager.instance.playerInput.UI.Enable();
         InputManager.instance.playerInput.UI.Apply.performed += NextConversation;
         InputManager.instance.playerInput.UI.Action2.performed += EndConversation;
 

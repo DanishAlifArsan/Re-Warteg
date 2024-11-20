@@ -98,7 +98,7 @@ public class PlayerHealth : MonoBehaviour
         if (hitRecieved > 5)
         {
             hitRecieved = 0;
-            DecreaseHealth(1);
+            DecreaseHealth(Random.Range(1,4));
         }
     }
 

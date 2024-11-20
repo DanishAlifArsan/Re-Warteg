@@ -126,21 +126,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    bool dungeonEnd = false;
+
+    public void EndDungeon() {
+        if (dungeonEnd)
+        {
+            return;
+        }
+
+        EndSession();
+        dungeonEnd = true;
+
+    }
+
     private void SaveGame() {
         SaveManager.instance.day = currentDay;
         SaveManager.instance.inventoryItem = Inventory.instance.inventoryItem;
         SaveManager.instance.totalCurrency = CurrencyManager.instance.totalCurrency;
         SaveManager.instance.isWarteg = currentSession == GameSession.Dungeon;
         SaveManager.instance.SaveGame();
-    }
-
-    private void NextDay() {
-        LoadScene(1);
-    }
-
-    private void GameOver() {
-        SaveManager.instance.NewGame();
-        LoadScene(0);
     }
 
     private void ShowResult(bool status, bool ended) {
