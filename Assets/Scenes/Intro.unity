@@ -4754,7 +4754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualMouseUI: {fileID: 1224640923}
-  activeGameDevice: 0
+  activeGameDevice: 1
 --- !u!1 &1237296599
 GameObject:
   m_ObjectHideFlags: 0

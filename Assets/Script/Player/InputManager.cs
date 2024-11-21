@@ -77,20 +77,21 @@ public class InputManager : MonoBehaviour
         // }
     }
 
-    public void DeviceChange() {
-        int control = PlayerPrefs.GetInt("control", 0); // ganti game device di setting
-        if (control > 0)
-        {
-            ChangeActiveGameDevice(GameDevice.Gamepad);
-        } else {
-            ChangeActiveGameDevice(GameDevice.KeyboardMouse);
-        }   
-    }
+    // public void DeviceChange() {
+    //     int control = PlayerPrefs.GetInt("control", 0); // ganti game device di setting
+    //     if (control > 0)
+    //     {
+    //         ChangeActiveGameDevice(GameDevice.Gamepad);
+    //     } else {
+    //         ChangeActiveGameDevice(GameDevice.KeyboardMouse);
+    //     }   
+    // }
 
     private void Start() {
         // ChangeActiveGameDevice(GameDeviceManager.instance.activeGameDevice);  // setting supaya gamedevice sama seperti gamedevice yang terakhir kali aktif
         // InputSystem.onEvent += OnDeviceChange;
-        DeviceChange();
+        // DeviceChange();
+        ChangeActiveGameDevice(activeGameDevice);
 
         if (GameManager.instance.currentSession == GameSession.Dungeon)
         {

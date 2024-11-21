@@ -47,8 +47,8 @@ public class Home : MonoBehaviour
         settingScreen.sfxSetting.volumeSlider.value = sfx;
         settingScreen.SetSFXMixer(sfx);
 
-        int control = PlayerPrefs.GetInt("control", 0);
-        settingScreen.SetControl(control);
+        // int control = PlayerPrefs.GetInt("control", 0);
+        // settingScreen.SetControl(control);
     }
 
     public void NewGame() {

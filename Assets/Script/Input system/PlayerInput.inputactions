@@ -105,17 +105,6 @@
                 },
                 {
                     "name": "",
-                    "id": "3221cd8d-7750-4cba-b582-e0fd663da3f9",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "MousePosition",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b004b700-fc2e-44fd-bd9c-32590093d3d5",
                     "path": "<Pointer>/position",
                     "interactions": "",

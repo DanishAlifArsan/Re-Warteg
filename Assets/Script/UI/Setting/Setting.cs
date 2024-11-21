@@ -32,17 +32,17 @@ public class Setting : MonoBehaviour
         audioMixer.SetFloat("sfx",_volume);
     }
 
-    public void SetControl(int _control) {
-        control = _control;
-        if (_control > 0)
-        {
-            controlSetting.controllerToggle.isOn = true;
-            controlSetting.keyboardToggle.isOn = false;
-        } else {
-            controlSetting.controllerToggle.isOn = false;
-            controlSetting.keyboardToggle.isOn = true;
-        } 
-    }
+    // public void SetControl(int _control) {
+    //     control = _control;
+    //     if (_control > 0)
+    //     {
+    //         controlSetting.controllerToggle.isOn = true;
+    //         controlSetting.keyboardToggle.isOn = false;
+    //     } else {
+    //         controlSetting.controllerToggle.isOn = false;
+    //         controlSetting.keyboardToggle.isOn = true;
+    //     } 
+    // }
 
     public void SelectSetting(UISelection uISelection) {
         SettingMenu setting = uISelection.GetComponent<SettingMenu>();
@@ -65,8 +65,8 @@ public class Setting : MonoBehaviour
         audioMixer.SetFloat("sfx",sfx);
         PlayerPrefs.SetFloat("bgm", bgm);
         PlayerPrefs.SetFloat("sfx", sfx);
-        PlayerPrefs.SetInt("control", control);
-        InputManager.instance.DeviceChange();
+        // PlayerPrefs.SetInt("control", control);
+        // InputManager.instance.DeviceChange();
         closeButton.OnConfirm();
     }
 }
